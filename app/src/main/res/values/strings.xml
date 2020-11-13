@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">schedule-manager</string>
+    <string name="UserButton">User</string>
+    <string name="AdminButton">Admin</string>
+    <string name="InfoTextView">PROJECT TEXNOLIGIES LOGISMIKOU</string>
+    <string name="misettings">Settings</string>
+    <string name="miinfo">Info</string>
+    <string name="LoginTextView">Login as:</string>
+    <string name="UserPwTextV">TextView</string>
+    <string name="UserEmailTextV">Email</string>
+    <string name="UserEmailTextView">Email</string>
+    <string name="UserPasswordTextView">Password</string>
+    <string name="UserLoginButton">Login</string>
+    <string name="miBack">Back</string>
 </resources>
