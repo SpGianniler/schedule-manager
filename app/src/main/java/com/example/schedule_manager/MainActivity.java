@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         List<Ergazomenoi> ergazomenoiList = new ArrayList<>();
                 super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
