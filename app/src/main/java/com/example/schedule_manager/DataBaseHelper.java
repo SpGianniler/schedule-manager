@@ -55,35 +55,35 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db){
-        String createTableStatement= "CREATE TABLE " + EMPLOYEES_TABLE + "(" +
-                COLUMN_EID + " INTEGER CONSTRAINT pk_em PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                COLUMN_FIRST_NAME + " VARCHAR (60) NOT NULL," +
-                COLUMN_LAST_NAME + "  VARCHAR (80) NOT NULL," +
-                COLUMN_DOB + " DATE DEFAULT (1900/1/30)," +
-                COLUMN_IS_ADMIN + " BOOLEAN NOT NULL DEFAULT (0)," +
-                COLUMN_JIDfk + " CONSTRAINT fk_em_jo REFERENCES " + JOBS_TABLE + " (" + COLUMN_JID + "))";
-        db.execSQL(createTableStatement);
-
-        createTableStatement = "CREATE TABLE " + JOBS_TABLE + "(" +
+        String createTableStatement = "CREATE TABLE " + JOBS_TABLE + "(" +
                 COLUMN_JID + " INTEGER CONSTRAINT pk_job PRIMARY KEY AUTOINCREMENT NOT NULL," +
                 COLUMN_NAME + " VARCHAR (40) NOT NULL)";
         db.execSQL(createTableStatement);
 
-        createTableStatement = "CREATE TABLE " + CONTRACTS_TABLE + "(" +
+        String createTableStatement1= "CREATE TABLE " + EMPLOYEES_TABLE + "(" +
+                COLUMN_EID + " INTEGER CONSTRAINT pk_em PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                COLUMN_FIRST_NAME + " VARCHAR (60) NOT NULL," +
+                COLUMN_LAST_NAME + "  VARCHAR (80) NOT NULL," +
+                COLUMN_DOB + " DATE DEFAULT ('1900/1/30')," +
+                COLUMN_IS_ADMIN + " BOOLEAN NOT NULL DEFAULT (0)," +
+                COLUMN_JIDfk + " CONSTRAINT fk_em_jo REFERENCES " + JOBS_TABLE + " (" + COLUMN_JID + "))";
+        db.execSQL(createTableStatement1);
+
+        String createTableStatement2 = "CREATE TABLE " + CONTRACTS_TABLE + "(" +
                 COLUMN_EIDfk + " INTEGER CONSTRAINT fk_con_em REFERENCES EMPLOYEES (eid) NOT NULL," +
-                COLUMN_START_DATE + " DATE DEFAULT (1900/1/30) NOT NULL," +
-                COLUMN_END_DATE + " DATE DEFAULT (1900/1/30) NOT NULL," +
+                COLUMN_START_DATE + " DATE DEFAULT ('1900/1/30') NOT NULL," +
+                COLUMN_END_DATE + " DATE DEFAULT ('1900/1/30') NOT NULL," +
                 COLUMN_TYPE + " VARCHAR (25) NOT NULL DEFAULT  '[Part time]'," +
                 COLUMN_WORK_HOURS + " INTEGER," +
                 COLUMN_LEAVES_ALLOWED + " INTEGER," +
                 "CONSTRAINT pk_con PRIMARY KEY (" + COLUMN_EIDfk + "," + COLUMN_START_DATE + "))";
-        db.execSQL(createTableStatement);
+        db.execSQL(createTableStatement2);
 
-        createTableStatement = "CREATE TABLE " + SHIFTS_TABLE + "(" +
+        String createTableStatement3 = "CREATE TABLE " + SHIFTS_TABLE + "(" +
                 COLUMN_SID + " INTEGER CONSTRAINT pk_shi PRIMARY KEY AUTOINCREMENT NOT NULL," +
                 COLUMN_SHIFT_NAME + " VARCHAR (40) NOT NULL," +
                 COLUMN_EMPLOYEES_NEEDED + " INTEGER NOT NULL DEFAULT (1))";
-        db.execSQL(createTableStatement);
+        db.execSQL(createTableStatement3);
     }
 
     /**
