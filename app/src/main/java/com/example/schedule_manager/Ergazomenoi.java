@@ -7,14 +7,16 @@ public class Ergazomenoi {
     protected int evWres;
     protected String contract;
     protected int erg_id;
+    protected boolean is_admin;
 
-    public Ergazomenoi(int erg_id, String onoma, String epitheto, String eidikotita, int whours, String contract) {
+    public Ergazomenoi(int erg_id, String onoma, String epitheto, String eidikotita, int whours, String contract, boolean is_admin) {
         this.erg_id = erg_id;
         this.onoma = onoma;
         this.epitheto = epitheto;
         this.eidikotita = eidikotita;
         this.evWres = whours;
         this.contract = contract;
+        this.is_admin = is_admin;
     }
 
     public String getOnoma() {
@@ -31,4 +33,5 @@ public class Ergazomenoi {
     }
     public String getContract(){return contract;}
     public int getErg_id() { return erg_id; }
+    public boolean getIsAdmin() { return is_admin; }
 }
