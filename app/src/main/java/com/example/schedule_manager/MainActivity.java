@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         List<Ergazomenoi> ergazomenoiList = new ArrayList<>();
-                super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //code to test that the db creation works
         Ergazomenoi ergazomenoi;
