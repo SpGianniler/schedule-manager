@@ -125,7 +125,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public List<Ergazomenoi> getEveryone(){
         List<Ergazomenoi> returnList = new ArrayList<>();
 
-        String queryString = "SELECT * FROM " + EMPLOYEES_TABLE;
+        String queryString = "SELECT EMPLOYEES_TABLE.eid, first_name, last_name, dob, type, work_hours, is_admin"+
+                " FROM EMPLOYEES_TABLE , CONTRACTS"  +
+                " WHERE CONTRACTS.eid = EMPLOYEES_TABLE.eid";
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -137,11 +139,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 int eid = cursor.getInt(0);
                 String first_name = cursor.getString(1);
                 String last_name = cursor.getString(2);
-                String dob = cursor.getString(3); // TODO: 14/11/2020 find a way to convert date
-                boolean is_admin = cursor.getInt(4) == 1;
-                int jid = cursor.getInt(5);
+                String dob = cursor.getString(3);
+                String contract = cursor.getString(4);
+                int whours = cursor.getInt(5);
+                boolean is_admin = cursor.getInt(6) == 1;
 
-                Ergazomenoi ergazomenoi = new Ergazomenoi(eid,first_name,last_name,dob,0,"contract type");
+                Ergazomenoi ergazomenoi = new Ergazomenoi(eid,first_name,last_name,dob,whours,contract,is_admin);
 
                 returnList.add(ergazomenoi);
 
