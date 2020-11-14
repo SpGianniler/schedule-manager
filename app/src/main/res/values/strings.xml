@@ -5,11 +5,15 @@
     <string name="InfoTextView">PROJECT TEXNOLIGIES LOGISMIKOU</string>
     <string name="misettings">Settings</string>
     <string name="miinfo">Info</string>
-    <string name="LoginTextView">Login as:</string>
-    <string name="UserPwTextV">TextView</string>
-    <string name="UserEmailTextV">Email</string>
-    <string name="UserEmailTextView">Email</string>
-    <string name="UserPasswordTextView">Password</string>
-    <string name="UserLoginButton">Login</string>
+    <string name="userLoginButton">Login</string>
     <string name="miBack">Back</string>
+    <string name="mainLoginTextView">Login</string>
+    <string name="userScheduleButton">Schedule</string>
+    <string name="userEditButton">Edit info</string>
+    <string name="adminLoginButton">Login</string>
+    <string name="AdminEmployeesButton">Employees</string>
+    <string name="AdminScheduleButton">Schedule</string>
+    <string name="AddEmployeeButton">Add</string>
+    <string name="scheduleCreateButton">Create</string>
+    <string name="scheduleDetailsButton">Details</string>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.Button;
 
 public class MainActivity extends BaseActivity {
     private Button userLoginButton;
+    private Button adminLoginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +21,29 @@ public class MainActivity extends BaseActivity {
         userLoginButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               openActivityULS();
+               openActivityULA();
            }
          });
+
+
+        adminLoginButton = (Button) findViewById(R.id.adminButton);
+        adminLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityALA();
+            }
+        });
     }
 
-    public void openActivityULS(){
-        Intent intent = new Intent(this,UserLoginScreen.class);
+
+    public void openActivityULA(){
+        Intent intent = new Intent(this, UserLoginActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void openActivityALA(){
+        Intent intent = new Intent(this, AdminLoginActivity.class);
         startActivity(intent);
     }
 
