@@ -143,6 +143,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
                 Ergazomenoi ergazomenoi = new Ergazomenoi(eid,first_name,last_name,dob,0,"contract type");
 
+                returnList.add(ergazomenoi);
+
             } while (cursor.moveToNext());
         }
 //        else{
