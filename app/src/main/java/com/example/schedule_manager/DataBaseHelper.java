@@ -40,6 +40,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_SID = "sid";
     public static final String COLUMN_SHIFT_NAME = "shift_name";
     public static final String COLUMN_EMPLOYEES_NEEDED = "employees_needed";
+    public static final String COLUMN_USERNAME = "username";
+    public static final String COLUMN_PASSWORD = "password";
 
 
     public DataBaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
@@ -66,6 +68,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 COLUMN_LAST_NAME + "  VARCHAR (80) NOT NULL," +
                 COLUMN_DOB + " DATE DEFAULT ('1900/1/30')," +
                 COLUMN_IS_ADMIN + " BOOLEAN NOT NULL DEFAULT (0)," +
+                COLUMN_USERNAME + " VARCHAR (25) NOT NULL," +
+                COLUMN_PASSWORD + " VARCHAR(18) NOT NULL," +
                 COLUMN_JIDfk + " CONSTRAINT fk_em_jo REFERENCES " + JOBS_TABLE + " (" + COLUMN_JID + "))";
         db.execSQL(createTableStatement1);
 
