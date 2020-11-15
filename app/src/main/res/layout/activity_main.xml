@@ -40,7 +40,6 @@
             android:fontFamily="monospace"
             android:text="@string/AdminButton"
             android:textAllCaps="false"
-            android:textColor="@color/black"
             android:textSize="30sp" />
 
         <Button
@@ -53,7 +52,7 @@
             android:fontFamily="monospace"
             android:text="@string/UserButton"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+
             android:textSize="30sp"
 
 
