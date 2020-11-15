@@ -70,7 +70,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStatement1);
 
         String createTableStatement2 = "CREATE TABLE " + CONTRACTS_TABLE + "(" +
-                COLUMN_EIDfk + " INTEGER CONSTRAINT fk_con_em REFERENCES EMPLOYEES (eid) NOT NULL," +
+                COLUMN_EIDfk + " INTEGER CONSTRAINT fk_con_em REFERENCES " + EMPLOYEES_TABLE + " (eid) NOT NULL," +
                 COLUMN_START_DATE + " DATE DEFAULT ('1900/1/30') NOT NULL," +
                 COLUMN_END_DATE + " DATE DEFAULT ('1900/1/30') NOT NULL," +
                 COLUMN_TYPE + " VARCHAR (25) NOT NULL DEFAULT  '[Part time]'," +
