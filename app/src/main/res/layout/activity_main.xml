@@ -4,39 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
-
-    <Button
-        android:id="@+id/userButton"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="200dp"
-        android:text="@string/UserButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/adminButton"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/AdminButton"
-        app:layout_constraintEnd_toEndOf="@+id/userButton"
-        app:layout_constraintStart_toStartOf="@+id/userButton"
-        app:layout_constraintTop_toBottomOf="@+id/userButton" />
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/mainLoginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="monospace"
         android:text="@string/mainLoginTextView"
-        app:layout_constraintBottom_toTopOf="@+id/userButton"
-        app:layout_constraintEnd_toEndOf="@+id/userButton"
+        android:textAllCaps="false"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="30sp"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/userButton"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_employees"
+            android:fontFamily="monospace"
+            android:text="@string/AdminButton"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/adminButton"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_employer"
+            android:fontFamily="monospace"
+            android:text="@string/UserButton"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+
+
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
