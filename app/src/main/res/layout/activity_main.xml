@@ -31,12 +31,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/userButton"
+            android:id="@+id/adminButton"
             android:layout_width="300dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_employees"
+            android:drawableTop="@drawable/ic_employer"
             android:fontFamily="monospace"
             android:text="@string/AdminButton"
             android:textAllCaps="false"
@@ -44,12 +44,12 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/adminButton"
+            android:id="@+id/userButton"
             android:layout_width="300dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_employer"
+            android:drawableTop="@drawable/ic_employees"
             android:fontFamily="monospace"
             android:text="@string/UserButton"
             android:textAllCaps="false"
