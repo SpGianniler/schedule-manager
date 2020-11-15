@@ -17,6 +17,9 @@
 
     <string name="userScheduleButton">Schedule</string>
     <string name="userEditButton">Edit info</string>
+    <string name="userTextWelcome">Welcome back</string>
+    <string name="userImageWelcome"></string>
+    <string name="userEditTextUserName">the username of the employee</string>
 
 
     <string name="InfoTextView">PROJECT TEXNOLIGIES LOGISMIKOU</string>

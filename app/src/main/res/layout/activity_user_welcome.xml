@@ -6,19 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".UserWelcomeActivity">
 
-    <Button
-        android:id="@+id/userScheduleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/userScheduleButton"
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="211dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/userEditButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/userEditButton"
+        <TextView
+            android:id="@+id/userTextWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rotationX="-5"
+            android:text="@string/userTextWelcome"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/userEditTextUserName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/userEditTextUserName"
+            android:inputType="textPersonName"
+            android:text="@string/userEditTextUserName" />
+
+        <ImageView
+            android:id="@+id/userImageWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="103dp"
+            android:contentDescription="@string/userImageWelcome"
+            app:srcCompat="@drawable/ic_employees" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="417dp"
+        android:layout_height="207dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userScheduleButton" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/userEditButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userEditButton"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/userScheduleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userScheduleButton"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
