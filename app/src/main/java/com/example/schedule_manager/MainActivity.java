@@ -2,30 +2,30 @@ package com.example.schedule_manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<Ergazomenoi> ergazomenoiList = new ArrayList<>();
-        setContentView(R.layout.activity_main);
-        //code to test that the db creation works
-        Ergazomenoi ergazomenoi;
-        ergazomenoi = new Ergazomenoi(1,"aaa","bbb","ccc",8,"ddd",false);
+        DataBaseHelper mDBHelper = new DataBaseHelper(this);
 
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this, DataBaseHelper.DATABASE_NAME,null,DataBaseHelper.DATABASE_VERSION);
-        boolean success = dataBaseHelper.addOne(ergazomenoi);
-        Toast.makeText(MainActivity.this,"Success = "+ success, Toast.LENGTH_SHORT).show();
-        //end of db testing code
+        try {
+            mDBHelper.updateDataBase();
+        } catch (IOException mIOException) {
+            throw new Error("UnableToUpdateDatabase");
+        }
 
-        //ergazomenoiList = dataBaseHelper.getEveryone();
+        try{
+            SQLiteDatabase mDb = mDBHelper.getWritableDatabase();
+        }catch(SQLException msQlException){
+            throw msQlException;
+        }
 
     }
 }
