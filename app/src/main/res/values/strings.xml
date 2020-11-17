@@ -1,36 +1,3 @@
 <resources>
     <string name="app_name">schedule-manager</string>
-
-    <string name="UserButton">User</string>
-    <string name="AdminButton">Admin</string>
-    <string name="mainLoginTextView">Login as:</string>
-
-    <string name="adminLoginButton">Sign in</string>
-    <string name="textLogAdmin">Login</string>
-    <string name="editTextEmailAdmin">Email</string>
-    <string name="editTextPassAdmin">Password</string>
-
-    <string name="userLoginButton">Sign in</string>
-    <string name="textLogUser">Login</string>
-    <string name="editTextEmailUser">Email</string>
-    <string name="editTextPassUser">Password</string>
-
-    <string name="userScheduleButton">Schedule</string>
-    <string name="userEditButton">Edit info</string>
-    <string name="userTextWelcome">Welcome back</string>
-    <string name="userImageWelcome"></string>
-    <string name="userEditTextUserName">the username of the employee</string>
-
-
-    <string name="InfoTextView">PROJECT TEXNOLIGIES LOGISMIKOU</string>
-    <string name="misettings">Settings</string>
-    <string name="miinfo">Info</string>
-
-    <string name="miBack">Back</string>
-
-    <string name="AdminEmployeesButton">Employees</string>
-    <string name="AdminScheduleButton">Schedule</string>
-    <string name="AddEmployeeButton">Add</string>
-    <string name="scheduleCreateButton">Create</string>
-    <string name="scheduleDetailsButton">Details</string>
 </resources>
