@@ -2,6 +2,7 @@ package com.example.schedule_manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,19 +14,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DataBaseHelper mDBHelper = new DataBaseHelper(this);
+        DataAdapter mDbHelper = new DataAdapter(MainActivity.this);
+        mDbHelper.createDatabase();
+        mDbHelper.open();
 
-        try {
-            mDBHelper.updateDataBase();
-        } catch (IOException mIOException) {
-            throw new Error("UnableToUpdateDatabase");
-        }
+        Cursor testdata = mDbHelper.getTestData();
 
-        try{
-            SQLiteDatabase mDb = mDBHelper.getWritableDatabase();
-        }catch(SQLException msQlException){
-            throw msQlException;
-        }
+        mDbHelper.close();
 
     }
 }
