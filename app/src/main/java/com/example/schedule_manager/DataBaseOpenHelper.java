@@ -11,7 +11,5 @@ public class DataBaseOpenHelper extends SQLiteAssetHelper {
     //constructor
     public DataBaseOpenHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
-
-
     }
 }
