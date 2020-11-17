@@ -40,6 +40,17 @@ public class MainActivity extends BaseActivity {
                 openActivityALA();
             }
         });
+
+        //code to test that the db creation works
+        Ergazomenoi ergazomenoi;
+        ergazomenoi = new Ergazomenoi(1,"aaa","bbb","ccc",8,"ddd",false);
+
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this, DataBaseHelper.DATABASE_NAME,null,DataBaseHelper.DATABASE_VERSION);
+        boolean success = dataBaseHelper.addOne(ergazomenoi);
+        Toast.makeText(MainActivity.this,"Success = "+ success, Toast.LENGTH_SHORT).show();
+        //end of db testing code
+
+        //ergazomenoiList = dataBaseHelper.getEveryone();
     }
 
 
@@ -54,17 +65,8 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    //code to test that the db creation works
-    Ergazomenoi ergazomenoi;
-    ergazomenoi = new Ergazomenoi(1,"aaa","bbb","ccc",8,"ddd",false);
 
-    DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this, DataBaseHelper.DATABASE_NAME,null,DataBaseHelper.DATABASE_VERSION);
-    boolean success = dataBaseHelper.addOne(ergazomenoi);
-    Toast.makeText(MainActivity.this,"Success = "+ success, Toast.LENGTH_SHORT).show();
-    //end of db testing code
 
-    //ergazomenoiList = dataBaseHelper.getEveryone();
-
-    }
 }
+
 
