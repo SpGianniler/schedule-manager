@@ -23,12 +23,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EID = "eid";
     public static final String COLUMN_EIDfk = COLUMN_EID;
     public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_FIRST_NAME = "first_" + COLUMN_NAME;
+    public static final String COLUMN_FIRST_NAME = "first_name";
     public static final String COLUMN_DOB = "dob";
     public static final String COLUMN_IS_ADMIN = "is_admin";
     public static final String COLUMN_JID = "jid";
     public static final String COLUMN_JIDfk = COLUMN_JID;
-    public static final String COLUMN_LAST_NAME = "last_" + COLUMN_NAME;
+    public static final String COLUMN_LAST_NAME = "last_name";
     public static final String JOBS_TABLE = "JOBS";
     public static final String CONTRACTS_TABLE = "CONTRACTS";
     public static final String COLUMN_START_DATE = "start_date";

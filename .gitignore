@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-/db/queries
+/app/src/main/assets/queries
