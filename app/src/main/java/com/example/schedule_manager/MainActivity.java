@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity {
     public void openActivityULA(){
         Intent intent = new Intent(this, UserLoginActivity.class);
         startActivity(intent);
+        System.out.println("skata");
     }
 
 
