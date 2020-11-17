@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">schedule-manager</string>
+    <string name="name_search">Please enter name to query date of birth</string>
+    <string name="query">Query</string>
 </resources>
