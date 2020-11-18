@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataBaseAccess {
     private SQLiteAssetHelper openHelper;
     private SQLiteDatabase db;
@@ -66,6 +69,39 @@ public class DataBaseAccess {
             buffer.append(""+dob);
         }
         return buffer.toString();
+    }
+
+    public List<Ergazomenoi> getEveryone(){//ToDo: Na allaksei gia na pairnei dedomena apo tous swstous pinakes
+        c = db.rawQuery("SELECT * FROM EMPLOYEES", null);
+        List<Ergazomenoi> returnList = new ArrayList<>();
+        while(c.moveToNext()){
+            int eid = c.getInt(0);
+            String onoma = c.getString(1);
+            String epitheto = c.getString(2);
+            String dob = c.getString(3);
+            String is_admin = c.getString(4);
+            String jid = c.getString(5);
+            Ergazomenoi erg = new Ergazomenoi(eid, onoma, epitheto,jid, 56, is_admin,false);
+            returnList.add(erg);
+
+        }
+        return returnList;
+    }
+
+    public List<Credentials> getCredentials(){
+        c = db.rawQuery("SELECT * FROM CREDENTIALS", null);
+        List<Credentials> returnList = new ArrayList<>();
+        while(c.moveToNext()){
+            int eid = c.getInt(0);
+            boolean is_admin = c.getInt(1) == 1;
+            String username = c.getString(2);
+            String password = c.getString(3);
+
+            Credentials cred = new Credentials(eid, is_admin, username,password);
+            returnList.add(cred);
+
+        }
+        return returnList;
     }
 
 }
