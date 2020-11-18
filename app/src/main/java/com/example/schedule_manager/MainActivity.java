@@ -1,5 +1,9 @@
 package com.example.schedule_manager;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
@@ -10,44 +14,51 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
 
-    public EditText name;
-    public Button query_button;
-    public TextView result_dob;
+
+public class MainActivity extends BaseActivity {
+    private Button userLoginButton;
+    private Button adminLoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = findViewById(R.id.name);
-        query_button = findViewById(R.id.query_button);
-        result_dob = findViewById(R.id.result);
+        userLoginButton = (Button) findViewById(R.id.userButton);
+        userLoginButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               openActivityULA();
+           }
+         });
 
-        //setting onclicklistener
 
-        query_button.setOnClickListener(v -> {
-            //create the instance of database access class and open database connection
-            DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
-            dataBaseAccess.openDB();
-
-            //getting string value from editText
-
-            String n = name.getText().toString();
-            String dob = dataBaseAccess.getDoB(n);
-
-            //setting text to result
-            result_dob.setText(dob);
-
-            dataBaseAccess.closeDB();
-
-            //datase connection closed
-
+        adminLoginButton = (Button) findViewById(R.id.adminButton);
+        adminLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityALA();
+            }
         });
+        //ergazomenoiList = dataBaseHelper.getEveryone();
 
+
+    public void openActivityULA(){
+        Intent intent = new Intent(this, UserLoginActivity.class);
+        startActivity(intent);
     }
+
+
+    public void openActivityALA(){
+        Intent intent = new Intent(this, AdminLoginActivity.class);
+        startActivity(intent);
+    }
+
+
+
 }
+
+
