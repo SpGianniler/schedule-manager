@@ -28,37 +28,23 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         userLoginButton = (Button) findViewById(R.id.userButton);
-        userLoginButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               openActivityULA();
-           }
-         });
+        userLoginButton.setOnClickListener(v -> openActivityULA());
 
 
         adminLoginButton = (Button) findViewById(R.id.adminButton);
-        adminLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityALA();
-            }
-        });
-        //ergazomenoiList = dataBaseHelper.getEveryone();
+        adminLoginButton.setOnClickListener(v -> openActivityALA());
+    }
 
-
-    public void openActivityULA(){
+    public void openActivityULA () {
         Intent intent = new Intent(this, UserLoginActivity.class);
         startActivity(intent);
     }
 
 
-    public void openActivityALA(){
+    public void openActivityALA () {
         Intent intent = new Intent(this, AdminLoginActivity.class);
         startActivity(intent);
     }
-
-
-
 }
 
 

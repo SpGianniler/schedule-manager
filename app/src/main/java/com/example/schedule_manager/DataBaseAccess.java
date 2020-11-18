@@ -54,9 +54,9 @@ public class DataBaseAccess {
     }
 
     /**
-     * a method to query and return the result from database
-     *
-     * will query for date of birth by passing first_name
+     * a method to query and return the result from database<br><br>
+     *<p>
+     * will query for date of birth by passing first_name<br><br>
      *
      * @param name name we want to search for
      * @return date of birth of the name queried
@@ -66,7 +66,7 @@ public class DataBaseAccess {
         StringBuffer buffer = new StringBuffer();
         while(c.moveToNext()){
             String dob = c.getString(0);
-            buffer.append(""+dob);
+            buffer.append("").append(dob);
         }
         return buffer.toString();
     }
