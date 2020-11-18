@@ -72,16 +72,17 @@ public class DataBaseAccess {
     }
 
     public List<Ergazomenoi> getEveryone(){//ToDo: Na allaksei gia na pairnei dedomena apo tous swstous pinakes
-        c = db.rawQuery("SELECT * FROM EMPLOYEES", null);
+        c = db.rawQuery("SELECT EMPLOYEES.eid, first_name, last_name, type, work_hours, EMPLOYEES.is_admin, JOBS.name FROM EMPLOYEES,JOBS , CONTRACTS , CREDENTIALS WHERE CONTRACTS.eid = EMPLOYEES.eid AND EMPLOYEES.eid = CONTRACTS.eid AND EMPLOYEES.jid = JOBS.jid", null);
         List<Ergazomenoi> returnList = new ArrayList<>();
         while(c.moveToNext()){
             int eid = c.getInt(0);
             String onoma = c.getString(1);
             String epitheto = c.getString(2);
-            String dob = c.getString(3);
-            String is_admin = c.getString(4);
-            String jid = c.getString(5);
-            Ergazomenoi erg = new Ergazomenoi(eid, onoma, epitheto,jid, 56, is_admin,false);
+            String type = c.getString(3);
+            int evWres = c.getInt(4);
+            boolean is_admin = c.getInt(5) == 1;
+            String jid = c.getString(6);
+            Ergazomenoi erg = new Ergazomenoi(eid, onoma, epitheto, jid,evWres,type, is_admin);
             returnList.add(erg);
 
         }
