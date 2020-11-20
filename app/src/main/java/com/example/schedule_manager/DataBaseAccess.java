@@ -104,5 +104,7 @@ public class DataBaseAccess {
         }
         return returnList;
     }
-
+    /*public searchByEid(int givenEid){
+        //Todo: vres ergazomenoi me ayto to id
+    }*/
 }
