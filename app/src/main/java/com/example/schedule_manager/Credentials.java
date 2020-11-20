@@ -1,6 +1,9 @@
 package com.example.schedule_manager;
 
 import android.content.Context;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -33,15 +36,14 @@ public class Credentials {
         return password;
     }
 
-    static public boolean isValid(String username, String password, boolean is_Admin, Context context){
+    static public boolean isValid(String username, String password, boolean is_Admin, DataBaseAccess dba){
 
-        DataBaseAccess dba;
-        dba = DataBaseAccess.getInstance(context);
         dba.openDB();
         List<Credentials> listOfCreds = dba.getCredentials();
 
         for(Credentials cred : listOfCreds){
-            if(cred.getUsername().equals(username) && cred.getPassword().equals(password) && cred.is_admin() == is_Admin){
+            if(cred.getUsername().toString().equals(username.toString()) && cred.getPassword().toString().equals(password.toString()) && cred.is_admin() == is_Admin){
+
                 return true;
             }
         }
