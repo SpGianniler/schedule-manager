@@ -11,7 +11,14 @@
     <string name="editTextPassAdmin">Password</string>
 
     <string name="userLoginButton">Sign in</string>
+
+
+
+
     <string name="textLogUser">Login</string>
+    <string name="miHome">Home</string>
+    <string name="miNotifications">Notifications</string>
+    <string name="miProfile">Profile</string>
     <string name="editTextEmailUser">Email</string>
     <string name="editTextPassUser">Password</string>
 
