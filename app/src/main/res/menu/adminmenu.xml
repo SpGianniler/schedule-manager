@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/miAdminShedule"
+        android:icon="@drawable/ic_shedule"
+        android:title="@string/miAdminShedule" />
+
+    <item
+        android:id="@+id/miAdminEmployees"
+        android:icon="@drawable/ic_adminemployees"
+        android:title="@string/miAdminEmployees" />
+
+    <item
+        android:id="@+id/miAdminNotifications"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/miAdminNotifications" />
+
+    <item
+        android:id="@+id/miAdminProfile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/miAdminProfile" />
+
+
+</menu>
