@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager">
-        <activity android:name=".UserProfileSettings"></activity>
+        <activity android:name=".AdminShowEmployeesActivity"></activity>
+        <activity android:name=".UserProfileSettings" />
         <activity android:name=".AdminScheduleDetailsActivity" />
         <activity android:name=".AdminScheduleResultActivity" />
         <activity android:name=".AdminAddEmployeeActivity" />
