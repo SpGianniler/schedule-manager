@@ -6,19 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".AdminWelcomeActivity">
 
-    <Button
-        android:id="@+id/AdminEmployeesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/AdminEmployeesButton"
+    <FrameLayout
+        android:id="@+id/main_admin_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAdminNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/AdminScheduleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/AdminScheduleButton"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomAdminNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AdminEmployeesButton" />
+        app:menu="@menu/adminmenu" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

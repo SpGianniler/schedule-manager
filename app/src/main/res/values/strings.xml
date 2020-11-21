@@ -21,6 +21,12 @@
     <string name="editTextEmailUser">Email</string>
     <string name="editTextPassUser">Password</string>
 
+    //activity_admin_welcome
+    <string name="miAdminShedule">Shedule</string>
+    <string name="miAdminEmployees">Employees</string>
+    <string name="miAdminNotifications">Notifications</string>
+    <string name="miAdminProfile">Profile</string>
+
     //user_profile_fragment
     <string name="userProfileName">User Name</string>
     <string name="infoProfile">Info</string>
@@ -48,4 +54,6 @@
     <string name="AddEmployeeButton">Add</string>
     <string name="scheduleCreateButton">Create</string>
     <string name="scheduleDetailsButton">Details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
