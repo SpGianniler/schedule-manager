@@ -8,11 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.sql.DatabaseMetaData;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserLoginActivity extends BaseActivity {
     private Button userLoginButton;
-    private int eid=0;
+    protected static String Username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,8 @@ public class UserLoginActivity extends BaseActivity {
                 result = Credentials.isValid(usernametext,passwordtext,false,dataBaseAccess);
 
                 if(result){
-                    eid = searchByUserName(usernametext, dataBaseAccess);
+                    int eid = searchByUserName(usernametext, dataBaseAccess);
+                    Username = searchByEid(eid, dataBaseAccess);
                     openActivityUWS();
                 }
                 else
@@ -42,8 +45,20 @@ public class UserLoginActivity extends BaseActivity {
             }
         });
     }
+    public String searchByEid(int eID, DataBaseAccess dba){
+        String username = null;
+        dba.openDB();
+        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
+        for(Ergazomenoi erg : ergazomenoiList){
+            if(erg.getErg_id() == eID){
+                username = erg.getOnoma();
+            }
+        }
+        dba.closeDB();
+        return username;
+    }
 
-    int searchByUserName(String username, DataBaseAccess dba){
+    public int searchByUserName(String username, DataBaseAccess dba){
         int eID=0;
 
         dba.openDB();
@@ -57,6 +72,10 @@ public class UserLoginActivity extends BaseActivity {
             }
         }
         return 0;
+    }
+
+    public static String getUsername(){
+        return Username;
     }
 
     public void openActivityUWS(){

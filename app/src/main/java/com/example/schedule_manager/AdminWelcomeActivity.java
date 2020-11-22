@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.List;
 
 public class AdminWelcomeActivity extends BaseActivity {
 
@@ -18,6 +21,12 @@ public class AdminWelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_welcome);
 
+
+        /*text.setText("Ergazomenoi: ");
+        List<Ergazomenoi> ergList = DataBaseAccess.getInstance(AdminWelcomeActivity.this).getEveryone();
+        for (Ergazomenoi erg : ergList){
+            text.append(erg.getEid()+" "+erg.getEpitheto()+" "+erg.getOnoma()+" "+erg.getEidikotita()+" "+erg.getEvWres()+" "+erg.getContract() +"\n");
+        }*/
         adminEmployeesButton=(Button) findViewById(R.id.AdminEmployeesButton);
         adminEmployeesButton.setOnClickListener(new View.OnClickListener() {
             @Override
