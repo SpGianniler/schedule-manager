@@ -12,12 +12,9 @@ import android.widget.FrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class UserWelcomeActivity extends AppCompatActivity {
-    /*private Button userScheduleButton;
-    private Button userEditButton;*/
 
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
-
     private UserHomeFragment homeFragment;
     private UserNotificationsFragment notificationsFragment;
     private UserProfileFragment profileFragment;
