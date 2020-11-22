@@ -2,7 +2,6 @@ package com.example.schedule_manager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +15,7 @@ public class UserLoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
+        setContentView(R.layout.user_login_activity);
 
         userLoginButton = (Button) findViewById(R.id.userLoginButton);
         EditText username, password;

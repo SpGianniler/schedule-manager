@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/miHome"
+        android:icon="@drawable/ic_home"
+        android:title="@string/miHome" />
+
+    <item
+        android:id="@+id/miNotifications"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/miNotifications" />
+
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/miProfile" />
+
+
+
+
+</menu>

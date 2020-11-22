@@ -1,7 +1,5 @@
 package com.example.schedule_manager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +15,7 @@ public class AdminLoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_login);
+        setContentView(R.layout.admin_login_activity);
 
 
         adminLoginButton=(Button) findViewById(R.id.adminLoginButton);
@@ -45,6 +43,7 @@ public class AdminLoginActivity extends BaseActivity {
             }
         });
     }
+
     int searchByUserName(String username, DataBaseAccess dba){
         int eID=0;
 

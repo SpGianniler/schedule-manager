@@ -11,9 +11,34 @@
     <string name="editTextPassAdmin">Password</string>
 
     <string name="userLoginButton">Sign in</string>
+
+
+    //activity_user_welcome
     <string name="textLogUser">Login</string>
+    <string name="miHome">Home</string>
+    <string name="miNotifications">Notifications</string>
+    <string name="miProfile">Profile</string>
     <string name="editTextEmailUser">Email</string>
     <string name="editTextPassUser">Password</string>
+
+    //activity_admin_welcome
+    <string name="miAdminShedule">Shedule</string>
+    <string name="miAdminEmployees">Employees</string>
+    <string name="miAdminNotifications">Notifications</string>
+    <string name="miAdminProfile">Profile</string>
+
+    //admin_profile_fragment
+    <string name="textAdminEmployeesView">"Employees Options"</string>
+    <string name="showAdminEmployeesButton">Show Employees List</string>
+
+    //user_profile_fragment
+    <string name="userProfileName">User Name</string>
+    <string name="infoProfile">Info</string>
+    <string name="emailProfile">E-mail:</string>
+    <string name="phoneProfile">Phone:</string>
+    <string name="specialtyProfile">Specialty:</string>
+    <string name="settingsImage">SettingsImage</string>
+    <string name="profileImage">ProfileImage</string>
 
     <string name="userScheduleButton">Schedule</string>
     <string name="userEditButton">Edit info</string>
@@ -33,4 +58,6 @@
     <string name="AddEmployeeButton">Add</string>
     <string name="scheduleCreateButton">Create</string>
     <string name="scheduleDetailsButton">Details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
