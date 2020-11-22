@@ -54,39 +54,10 @@ public class UserWelcomeActivity extends AppCompatActivity {
                         return true;
                     default:
                         return false;
-
-
-
                 }
             }
         });
 
-/*
-
-
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
-
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new UserHomeFragment()).commit();*/
-
-
-
-
-       /* userScheduleButton =(Button) findViewById(R.id.userScheduleButton);
-        userScheduleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityUSA();
-            }
-        });
-        userEditButton =(Button) findViewById(R.id.userEditButton);
-        userEditButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityUEA();
-            }
-        });*/
     }
 
     private void setFragment(Fragment fragment) {
@@ -95,13 +66,5 @@ public class UserWelcomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-   /* public void openActivityUSA(){
-        Intent intent = new Intent(this,UserScheduleActivity.class);
-        startActivity(intent);
-    }
 
-    public void openActivityUEA(){
-        Intent intent = new Intent(this,UserEditActivity.class);
-        startActivity(intent);
-    }*/
 }
