@@ -12,12 +12,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminWelcomeActivity extends BaseActivity {
 
-  /*  private Button adminEmployeesButton;
-    private Button adminScheduleButton;*/
-
     private BottomNavigationView adminMainNav;
     private FrameLayout adminMainFrame;
-
     private AdminEmployeesFragment employeesFragment;
     private AdminNotificationsFragment notificationsFragment;
     private AdminSheduleFragment sheduleFragment;
@@ -27,7 +23,7 @@ public class AdminWelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_welcome);
+        setContentView(R.layout.admin_welcome_activity);
 
         adminMainFrame = (FrameLayout) findViewById(R.id.main_admin_frame);
         adminMainNav = (BottomNavigationView) findViewById(R.id.bottomAdminNavigationView);
@@ -62,26 +58,6 @@ public class AdminWelcomeActivity extends BaseActivity {
             }
         });
 
-        //setFragment();
-
-
-
-
-        /*adminEmployeesButton=(Button) findViewById(R.id.AdminEmployeesButton);
-        adminEmployeesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityAEA();
-            }
-        });
-
-        adminScheduleButton=(Button) findViewById(R.id.AdminScheduleButton);
-        adminScheduleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityASA();
-            }
-        });*/
     }
 
 
@@ -90,19 +66,5 @@ public class AdminWelcomeActivity extends BaseActivity {
         fragmentTransaction.replace(R.id.main_admin_frame, fragment);
         fragmentTransaction.commit();
     }
-
-
-    /*public void openActivityAEA(){
-
-        Intent intent = new Intent (this,AdminEmployeesActivity.class);
-        startActivity(intent);
-
-    }
-
-
-    public void openActivityASA(){
-        Intent intent = new Intent (this,AdminScheduleActivity.class);
-        startActivity(intent);
-    }*/
 
 }

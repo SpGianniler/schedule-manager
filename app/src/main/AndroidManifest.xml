@@ -11,15 +11,8 @@
         android:theme="@style/Theme.Schedulemanager">
         <activity android:name=".AdminShowEmployeesActivity"></activity>
         <activity android:name=".UserProfileSettings" />
-        <activity android:name=".AdminScheduleDetailsActivity" />
-        <activity android:name=".AdminScheduleResultActivity" />
-        <activity android:name=".AdminAddEmployeeActivity" />
-        <activity android:name=".AdminScheduleActivity" />
-        <activity android:name=".AdminEmployeesActivity" />
         <activity android:name=".AdminWelcomeActivity" />
         <activity android:name=".AdminLoginActivity" />
-        <activity android:name=".UserEditActivity" />
-        <activity android:name=".UserScheduleActivity" />
         <activity android:name=".UserWelcomeActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".UserLoginActivity" />
