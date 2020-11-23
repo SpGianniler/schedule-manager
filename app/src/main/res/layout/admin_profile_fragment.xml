@@ -35,10 +35,11 @@
             android:src="@drawable/ic_employer" />
 
         <TextView
+            android:id="@+id/Admin_UserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/userProfileName"
+            android:text="@string/adminProfileName"
             android:textSize="30sp" />
 
     </LinearLayout>
@@ -80,6 +81,7 @@
             android:textSize="30sp" />
 
         <TextView
+            android:id="@+id/Admin_Specialty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/specialtyProfile"

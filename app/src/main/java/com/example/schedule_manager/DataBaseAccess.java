@@ -3,6 +3,7 @@ package com.example.schedule_manager;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -72,7 +73,8 @@ public class DataBaseAccess {
     }
 
     public List<Ergazomenoi> getEveryone(){//ToDo: Na allaksei gia na pairnei dedomena apo tous swstous pinakes
-        c = db.rawQuery("SELECT EMPLOYEES.eid, first_name, last_name, type, work_hours, EMPLOYEES.is_admin, JOBS.name FROM EMPLOYEES,JOBS , CONTRACTS , CREDENTIALS WHERE CONTRACTS.eid = EMPLOYEES.eid AND EMPLOYEES.eid = CONTRACTS.eid AND EMPLOYEES.jid = JOBS.jid", null);
+        openDB();
+        c = db.rawQuery("SELECT distinct EMPLOYEES.eid, first_name, last_name, type, work_hours, EMPLOYEES.is_admin, JOBS.name FROM EMPLOYEES,JOBS , CONTRACTS , CREDENTIALS WHERE CONTRACTS.eid = EMPLOYEES.eid AND EMPLOYEES.eid = CONTRACTS.eid AND EMPLOYEES.jid = JOBS.jid", null);
         List<Ergazomenoi> returnList = new ArrayList<>();
         while(c.moveToNext()){
             int eid = c.getInt(0);
@@ -86,6 +88,7 @@ public class DataBaseAccess {
             returnList.add(erg);
 
         }
+        closeDB();
         return returnList;
     }
 
@@ -104,7 +107,4 @@ public class DataBaseAccess {
         }
         return returnList;
     }
-    /*public searchByEid(int givenEid){
-        //Todo: vres ergazomenoi me ayto to id
-    }*/
 }

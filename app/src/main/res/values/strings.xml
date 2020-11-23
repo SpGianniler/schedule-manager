@@ -30,6 +30,7 @@
     //admin_profile_fragment
     <string name="textAdminEmployeesView">"Employees Options"</string>
     <string name="showAdminEmployeesButton">Show Employees List</string>
+    <string name="adminProfileName">User Name</string>
 
     //user_profile_fragment
     <string name="userProfileName">User Name</string>
