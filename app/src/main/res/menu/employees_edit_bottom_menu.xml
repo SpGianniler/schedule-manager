@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/miAdminAddEmployee"
+        android:icon="@drawable/ic_addemployee"
+        android:title="@string/adminAddEmployee" />
+
+    <item
+        android:id="@+id/miAdminDeleteEmployee"
+        android:icon="@drawable/ic_removeemployee"
+        android:title="@string/adminDeleteEmployee" />
+
+    <item
+        android:id="@+id/miAdminEditInfoEmployee"
+        android:icon="@drawable/ic_editemploye"
+        android:title="@string/adminEditInfoEmployee" />
+
+
+
+
+</menu>
