@@ -1,7 +1,5 @@
 package com.example.schedule_manager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,11 +11,12 @@ import java.util.List;
 
 public class AdminLoginActivity extends BaseActivity {
     private Button adminLoginButton;
-    private int eid=0;
+    protected static String Username, Eidikotita;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_login);
+        setContentView(R.layout.admin_login_activity);
 
 
         adminLoginButton=(Button) findViewById(R.id.adminLoginButton);
@@ -36,8 +35,9 @@ public class AdminLoginActivity extends BaseActivity {
                 result = Credentials.isValid(usernametext,passwordtext,true,dataBaseAccess);
 
                 if(result) {
-                    eid = searchByUserName(usernametext, dataBaseAccess);
-                    //Toast.makeText(AdminLoginActivity.this,eid,Toast.LENGTH_SHORT).show();
+                    int eid = searchByUserName(usernametext, dataBaseAccess);
+                    Username = searchByEid(eid, dataBaseAccess);
+                    Eidikotita = searchEidikotita(eid, dataBaseAccess);
                     openActivityAWA();
                 }
                 else
@@ -45,6 +45,7 @@ public class AdminLoginActivity extends BaseActivity {
             }
         });
     }
+
     int searchByUserName(String username, DataBaseAccess dba){
         int eID=0;
 
@@ -61,8 +62,38 @@ public class AdminLoginActivity extends BaseActivity {
         return 0;
     }
 
-    public int getEid() {
-        return eid;
+    public String searchByEid(int eID, DataBaseAccess dba){
+        String username = null;
+        dba.openDB();
+        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
+        for(Ergazomenoi erg : ergazomenoiList){
+            if(erg.getErg_id() == eID){
+                username = erg.getOnoma();
+            }
+        }
+        dba.closeDB();
+        return username;
+    }
+    public static String searchEidikotita(int eID, DataBaseAccess dba){
+
+        String eidikotita = null;
+        dba.openDB();
+        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
+        for(Ergazomenoi erg : ergazomenoiList){
+            if(erg.getErg_id() == eID){
+                eidikotita = erg.getEidikotita();
+            }
+        }
+        dba.closeDB();
+        return eidikotita;
+    }
+
+    public static String getEidikotita() {
+        return Eidikotita;
+    }
+
+    public static String getUsername(){
+        return Username;
     }
 
     public void openActivityAWA(){

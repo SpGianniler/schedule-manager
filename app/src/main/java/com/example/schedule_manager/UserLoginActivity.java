@@ -2,7 +2,7 @@ package com.example.schedule_manager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +15,12 @@ import java.util.List;
 public class UserLoginActivity extends BaseActivity {
     private Button userLoginButton;
     protected static String Username;
+    protected static String Eidikotita;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
+        setContentView(R.layout.user_login_activity);
 
         userLoginButton = (Button) findViewById(R.id.userLoginButton);
         EditText username, password;
@@ -38,6 +40,7 @@ public class UserLoginActivity extends BaseActivity {
                 if(result){
                     int eid = searchByUserName(usernametext, dataBaseAccess);
                     Username = searchByEid(eid, dataBaseAccess);
+                    Eidikotita = searchEidikotita(eid, dataBaseAccess);
                     openActivityUWS();
                 }
                 else
@@ -76,6 +79,24 @@ public class UserLoginActivity extends BaseActivity {
 
     public static String getUsername(){
         return Username;
+    }
+
+    public static String searchEidikotita(int eID, DataBaseAccess dba){
+
+        String eidikotita = null;
+        dba.openDB();
+        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
+        for(Ergazomenoi erg : ergazomenoiList){
+            if(erg.getErg_id() == eID){
+                eidikotita = erg.getEidikotita();
+            }
+        }
+        dba.closeDB();
+        return eidikotita;
+    }
+
+    public static String getEidikotita() {
+        return Eidikotita;
     }
 
     public void openActivityUWS(){
