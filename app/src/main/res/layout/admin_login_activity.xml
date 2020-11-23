@@ -7,12 +7,15 @@
     tools:context=".AdminLoginActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textLogAdmin"
@@ -38,9 +41,9 @@
             android:id="@+id/editTextPasswordAdmin"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/editTextPassAdmin"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="28dp"
+            android:autofillHints="@string/editTextPassAdmin"
             android:ems="10"
             android:hint="@string/editTextPassAdmin"
             android:inputType="textPassword" />
