@@ -107,4 +107,21 @@ public class DataBaseAccess {
         }
         return returnList;
     }
+
+    public List<Vardies> getVardies(){
+        c = db.rawQuery("Select shift_name, name, employees_needed \n" +
+                "from  SHIFTS, JOBS, SHIFTS_JOBS \n" +
+                "where SHIFTS.sid = Shifts_JOBS.sid and Jobs.jid=Shifts_jobs.jid", null);
+        List<Vardies> returnList = new ArrayList<>();
+        while(c.moveToNext()){
+            String vardiat = c.getString(0);
+            String eidikotita = c.getString(1);
+            int employeesNo = c.getInt(2);
+
+            Vardies vardia = new Vardies(vardiat, eidikotita, employeesNo);
+            returnList.add(vardia);
+
+        }
+        return returnList;
+    }
 }
