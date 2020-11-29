@@ -13,6 +13,8 @@ public class AdminSheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.admin_shedule_fragment, container, false);
+        View view = inflater.inflate(R.layout.admin_shedule_fragment, container, false);
+
+        return view;
     }
 }
