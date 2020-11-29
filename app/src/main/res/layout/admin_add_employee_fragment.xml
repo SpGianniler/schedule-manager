@@ -24,14 +24,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/adminAddEmployeeFragmentText"
-            android:textSize="35sp" />
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/firstNameAdminEditEmployees"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
             android:autofillHints="@string/firstNameAdminEditEmployees"
             android:ems="10"
             android:hint="@string/firstNameAdminEditEmployees"
@@ -41,19 +41,30 @@
             android:id="@+id/lastNameAdminAddEmployees"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
             android:autofillHints="@string/lastNameAdminEditEmployees"
             android:ems="10"
             android:hint="@string/lastNameAdminEditEmployees"
             android:inputType="textPersonName" />
 
         <EditText
+            android:id="@+id/birthdayAdminAddEmployees"
+            android:layout_width="match_parent"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:autofillHints="@string/birthdayAdminAddEmployees"
+            android:hint="@string/birthdayAdminAddEmployees"
+            android:inputType="date" />
+
+        <EditText
             android:id="@+id/emailAdminAddEmployeeEditText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
             android:autofillHints="@string/emailAdminEditEmployees"
             android:ems="10"
             android:hint="@string/emailAdminEditEmployees"
@@ -63,15 +74,72 @@
             android:id="@+id/phoneAdminAddEmployeeEditText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="8dp"
             android:autofillHints="@string/phoneAdminEditEmployees"
             android:ems="10"
             android:hint="@string/phoneAdminEditEmployees"
             android:inputType="phone" />
 
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/radioTextAdminAddEmployee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioTextAdminAddEmployee" />
+
+                <RadioButton
+                    android:id="@+id/radioMaleBtnAdminAddEmployee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioMaleBtnAdminAddEmployee" />
+
+                <RadioButton
+                    android:id="@+id/radioFemaleBtnAdminAddEmployee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioFemaleBtnAdminAddEmployee" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/selectJid"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selectJid" />
+
+                <Spinner
+                    android:id="@+id/spinnerJid"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/button"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="16dp"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:text="@string/addAdminEditEmployeeButton"

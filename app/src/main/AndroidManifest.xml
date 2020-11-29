@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager">
-        <activity android:name=".AdminEditEmployeesActivity"></activity>
+        <activity android:name=".AdminSheduleSaves"></activity>
+        <activity android:name=".AdminSheduleEdit" />
+        <activity android:name=".AdminSheduleShow" />
+        <activity android:name=".AdminEditEmployeesActivity" />
         <activity android:name=".AdminShowEmployeesActivity" />
         <activity android:name=".UserProfileSettings" />
         <activity android:name=".AdminWelcomeActivity" />
