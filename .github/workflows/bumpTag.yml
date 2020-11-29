@@ -27,5 +27,5 @@ jobs:
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_LITTLE_SECRET }}
         REPO_OWNER: Basilis-Kalogiroy
