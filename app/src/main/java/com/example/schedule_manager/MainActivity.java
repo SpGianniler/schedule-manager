@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.io.IOException;
-
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity {
@@ -26,6 +26,9 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DataBaseAccess dba = DataBaseAccess.getInstance(this);
+    //    Schedule.onCreate(dba);
 
         userLoginButton = (Button) findViewById(R.id.userButton);
         userLoginButton.setOnClickListener(v -> openActivityULA());

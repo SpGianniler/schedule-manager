@@ -8,6 +8,7 @@ import android.provider.ContactsContract;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class DataBaseAccess {
@@ -72,7 +73,7 @@ public class DataBaseAccess {
         return buffer.toString();
     }
 
-    public List<Ergazomenoi> getEveryone(){//ToDo: Na allaksei gia na pairnei dedomena apo tous swstous pinakes
+    public List<Ergazomenoi> getEveryone(){
         openDB();
         c = db.rawQuery("SELECT distinct EMPLOYEES.eid, first_name, last_name, type, work_hours, EMPLOYEES.is_admin, JOBS.name FROM EMPLOYEES,JOBS , CONTRACTS , CREDENTIALS WHERE CONTRACTS.eid = EMPLOYEES.eid AND EMPLOYEES.eid = CONTRACTS.eid AND EMPLOYEES.jid = JOBS.jid", null);
         List<Ergazomenoi> returnList = new ArrayList<>();
@@ -93,6 +94,7 @@ public class DataBaseAccess {
     }
 
     public List<Credentials> getCredentials(){
+        openDB();
         c = db.rawQuery("SELECT * FROM CREDENTIALS", null);
         List<Credentials> returnList = new ArrayList<>();
         while(c.moveToNext()){
@@ -105,6 +107,38 @@ public class DataBaseAccess {
             returnList.add(cred);
 
         }
+        closeDB();
         return returnList;
+    }
+
+    public List<Vardies> getVardies(){
+        openDB();
+        c = db.rawQuery("Select SHIFTS.sid, name, employees_needed from  SHIFTS, JOBS, SHIFTS_JOBS where SHIFTS.sid = SHIFTS_JOBS.sid and JOBS.jid=SHIFTS_JOBS.jid", null);
+        List<Vardies> returnList = new ArrayList<>();
+        while(c.moveToNext()){
+            String vardiat = c.getString(0);
+            String eidikotita = c.getString(1);
+            int employeesNo = c.getInt(2);
+
+            Vardies vardia = new Vardies(vardiat, eidikotita, employeesNo);
+            returnList.add(vardia);
+
+        }
+        closeDB();
+        return returnList;
+    }
+    public HashMap<String, String> getShifts(){
+        openDB();
+        c = db.rawQuery("Select * from  SHIFTS", null);
+        HashMap<String, String> shiftMap = new HashMap<>();
+        while(c.moveToNext()){
+            String sid = c.getString(0);
+            String onoma = c.getString(1);
+
+            shiftMap.put(sid,onoma);
+        }
+        closeDB();
+        return shiftMap;
+
     }
 }
