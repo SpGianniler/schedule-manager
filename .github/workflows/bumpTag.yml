@@ -29,3 +29,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.MY_LITTLE_SECRET }}
         REPO_OWNER: SpGianniler
+        PRERELEASE_SUFFIX: FALSE
