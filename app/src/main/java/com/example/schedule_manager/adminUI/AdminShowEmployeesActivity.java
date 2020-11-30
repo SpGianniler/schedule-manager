@@ -1,11 +1,14 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.schedule_manager.DataBaseAccess;
+import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.R;
 
 import java.util.ArrayList;
 import java.util.List;

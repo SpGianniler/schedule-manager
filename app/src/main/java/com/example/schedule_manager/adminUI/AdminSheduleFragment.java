@@ -1,19 +1,16 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.FrameLayout;
 
-import java.util.Calendar;
+import com.example.schedule_manager.R;
 
 
 public class AdminSheduleFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.userUI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+
+import com.example.schedule_manager.R;
 
 public class UserHomeFragment extends Fragment {
 

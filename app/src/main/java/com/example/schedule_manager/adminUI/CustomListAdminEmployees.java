@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 public class CustomListAdminEmployees {
 

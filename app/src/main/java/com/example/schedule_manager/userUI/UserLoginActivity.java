@@ -1,16 +1,18 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.userUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.sql.DatabaseMetaData;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.schedule_manager.BaseActivity;
+import com.example.schedule_manager.Credentials;
+import com.example.schedule_manager.MainActivity;
+import com.example.schedule_manager.R;
+import com.example.schedule_manager.adminUI.AdminLoginActivity;
+
 
 public class UserLoginActivity extends BaseActivity {
     private Button userLoginButton;
@@ -34,7 +36,7 @@ public class UserLoginActivity extends BaseActivity {
                 String passwordtext = password.getText().toString();
                 boolean result;
 
-                result = Credentials.isValid(usernametext,passwordtext,false,MainActivity.getCredentialsArrayList());
+                result = Credentials.isValid(usernametext,passwordtext,false, MainActivity.getCredentialsArrayList());
 
                 if(result){
                     int eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);

@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import android.os.Bundle;
 
@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import java.sql.Array;
-import java.util.ArrayList;
+import com.example.schedule_manager.R;
 
 public class AdminRemoveEmployeeFragment extends Fragment {
 

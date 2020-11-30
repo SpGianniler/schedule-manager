@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,12 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.CalendarView;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import java.util.Date;
+import com.example.schedule_manager.R;
 
 public class AdminSheduleShow extends AppCompatActivity {
 

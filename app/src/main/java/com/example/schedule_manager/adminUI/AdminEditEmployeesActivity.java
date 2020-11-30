@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.schedule_manager.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminEditEmployeesActivity extends AppCompatActivity {

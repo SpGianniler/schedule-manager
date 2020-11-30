@@ -1,8 +1,10 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.userUI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.schedule_manager.R;
 
 public class UserProfileSettings extends AppCompatActivity {
 
