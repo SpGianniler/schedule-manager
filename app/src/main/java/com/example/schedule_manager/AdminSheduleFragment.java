@@ -27,7 +27,6 @@ public class AdminSheduleFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.admin_shedule_fragment, container, false);
 
-
         showAdminShedule = (Button) view.findViewById(R.id.adminShowSheduleBtn);
         editAdminShedule = (Button) view.findViewById(R.id.adminEditSheduleBtn);
         savesAdminShedule = (Button) view.findViewById(R.id.adminSavesSheduleBtn);
@@ -55,9 +54,6 @@ public class AdminSheduleFragment extends Fragment {
 
 
         return view;
-
-
-
     }
 
 

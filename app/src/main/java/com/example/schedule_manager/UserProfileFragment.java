@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment;
 public class UserProfileFragment extends Fragment {
 
     private ImageButton imagebtn;
+    private TextView username, specialty;
 
     @Nullable
     @Override
@@ -35,6 +37,10 @@ public class UserProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.user_profile_fragment, container, false);
 
         imagebtn = (ImageButton) view.findViewById(R.id.settingsBTN);
+        specialty= (TextView) view.findViewById(R.id.Specialty);
+        username = (TextView) view.findViewById(R.id.User_UserName);
+        specialty.append(" "+UserLoginActivity.getEidikotita());
+        username.setText(UserLoginActivity.getUsername());
 
         imagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +52,6 @@ public class UserProfileFragment extends Fragment {
         return view;
 
     }
-
 
     public void openActivitySettings(){
         Intent intent = new Intent((getActivity()), UserProfileSettings.class);

@@ -2,16 +2,21 @@ package com.example.schedule_manager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.sql.DatabaseMetaData;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserLoginActivity extends BaseActivity {
     private Button userLoginButton;
-    private int eid=0;
+    protected static String Username;
+    protected static String Eidikotita;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +33,13 @@ public class UserLoginActivity extends BaseActivity {
                 String usernametext = username.getText().toString();
                 String passwordtext = password.getText().toString();
                 boolean result;
-                DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
 
-                result = Credentials.isValid(usernametext,passwordtext,false,dataBaseAccess);
+                result = Credentials.isValid(usernametext,passwordtext,false,MainActivity.getCredentialsArrayList());
 
                 if(result){
-                    eid = searchByUserName(usernametext, dataBaseAccess);
+                    int eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);
+                    Username = AdminLoginActivity.searchByEid(eid, MainActivity.getErgazomenoiArrayList());
+                    Eidikotita = AdminLoginActivity.searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
                     openActivityUWS();
                 }
                 else
@@ -42,20 +48,12 @@ public class UserLoginActivity extends BaseActivity {
         });
     }
 
-    int searchByUserName(String username, DataBaseAccess dba){
-        int eID=0;
+    public static String getEidikotita() {
+        return Eidikotita;
+    }
 
-        dba.openDB();
-
-        List<Credentials> listOfCreds = dba.getCredentials();
-
-        for(Credentials cred : listOfCreds){
-            if(cred.getUsername().toString().equals(username)) {
-                eID = cred.getEid();
-                return eID;
-            }
-        }
-        return 0;
+    public static String getUsername() {
+        return Username;
     }
 
     public void openActivityUWS(){

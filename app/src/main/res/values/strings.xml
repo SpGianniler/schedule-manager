@@ -32,6 +32,8 @@
     <string name="textAdminEmployeesView">"Employees Options"</string>
     <string name="showAdminEmployeesButton">Show Employees List</string>
     <string name="editAdminEmployeesButton">Edit Employees</string>
+    <string name="adminProfileName">User Name</string>
+
 
     //user_profile_fragment.xml
     <string name="userProfileName">User Name</string>

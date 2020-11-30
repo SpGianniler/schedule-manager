@@ -7,11 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminLoginActivity extends BaseActivity {
     private Button adminLoginButton;
-    private int eid=0;
+    protected static String Username, Eidikotita;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +31,14 @@ public class AdminLoginActivity extends BaseActivity {
                 String usernametext = username.getText().toString();
                 String passwordtext = password.getText().toString();
                 boolean result;
-                DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
+                ArrayList<Credentials> listOfCreds = MainActivity.getCredentialsArrayList();
 
-                result = Credentials.isValid(usernametext,passwordtext,true,dataBaseAccess);
+                result = Credentials.isValid(usernametext,passwordtext,true, listOfCreds);
 
                 if(result) {
-                    eid = searchByUserName(usernametext, dataBaseAccess);
-                    //Toast.makeText(AdminLoginActivity.this,eid,Toast.LENGTH_SHORT).show();
+                    int eid = searchByUserName(usernametext, listOfCreds);
+                    Username = searchByEid(eid, MainActivity.getErgazomenoiArrayList());
+                    Eidikotita = searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
                     openActivityAWA();
                 }
                 else
@@ -44,12 +47,8 @@ public class AdminLoginActivity extends BaseActivity {
         });
     }
 
-    int searchByUserName(String username, DataBaseAccess dba){
+    static int searchByUserName(String username, ArrayList<Credentials> listOfCreds){
         int eID=0;
-
-        dba.openDB();
-
-        List<Credentials> listOfCreds = dba.getCredentials();
 
         for(Credentials cred : listOfCreds){
             if(cred.getUsername().toString().equals(username)) {
@@ -60,8 +59,36 @@ public class AdminLoginActivity extends BaseActivity {
         return 0;
     }
 
-    public int getEid() {
-        return eid;
+    static public String searchByEid(int eID, ArrayList<Ergazomenoi>arrayList){
+        String username = null;
+
+        List<Ergazomenoi> ergazomenoiList = arrayList;
+        for(Ergazomenoi erg : ergazomenoiList){
+            if(erg.getErg_id() == eID){
+                username = erg.getOnoma();
+            }
+        }
+        return username;
+    }
+    static public String searchEidikotita(int eID, ArrayList<Ergazomenoi> ergazomenois){
+
+        String eidikotita = null;
+
+        List<Ergazomenoi> ergazomenoiList = ergazomenois;
+        for(Ergazomenoi erg : ergazomenoiList){
+            if(erg.getErg_id() == eID){
+                eidikotita = erg.getEidikotita();
+            }
+        }
+        return eidikotita;
+    }
+
+    public static String getEidikotita() {
+        return Eidikotita;
+    }
+
+    public static String getUsername(){
+        return Username;
     }
 
     public void openActivityAWA(){
