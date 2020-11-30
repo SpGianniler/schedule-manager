@@ -33,14 +33,13 @@ public class UserLoginActivity extends BaseActivity {
                 String usernametext = username.getText().toString();
                 String passwordtext = password.getText().toString();
                 boolean result;
-                DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
 
-                result = Credentials.isValid(usernametext,passwordtext,false,dataBaseAccess);
+                result = Credentials.isValid(usernametext,passwordtext,false,MainActivity.getCredentialsArrayList());
 
                 if(result){
-                    int eid = searchByUserName(usernametext, dataBaseAccess);
-                    Username = searchByEid(eid, dataBaseAccess);
-                    Eidikotita = searchEidikotita(eid, dataBaseAccess);
+                    int eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);
+                    Username = AdminLoginActivity.searchByEid(eid, MainActivity.getErgazomenoiArrayList());
+                    Eidikotita = AdminLoginActivity.searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
                     openActivityUWS();
                 }
                 else
@@ -48,55 +47,13 @@ public class UserLoginActivity extends BaseActivity {
             }
         });
     }
-    public String searchByEid(int eID, DataBaseAccess dba){
-        String username = null;
-        dba.openDB();
-        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
-        for(Ergazomenoi erg : ergazomenoiList){
-            if(erg.getErg_id() == eID){
-                username = erg.getOnoma();
-            }
-        }
-        dba.closeDB();
-        return username;
-    }
-
-    public int searchByUserName(String username, DataBaseAccess dba){
-        int eID=0;
-
-        dba.openDB();
-
-        List<Credentials> listOfCreds = dba.getCredentials();
-
-        for(Credentials cred : listOfCreds){
-            if(cred.getUsername().toString().equals(username)) {
-                eID = cred.getEid();
-                return eID;
-            }
-        }
-        return 0;
-    }
-
-    public static String getUsername(){
-        return Username;
-    }
-
-    public static String searchEidikotita(int eID, DataBaseAccess dba){
-
-        String eidikotita = null;
-        dba.openDB();
-        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
-        for(Ergazomenoi erg : ergazomenoiList){
-            if(erg.getErg_id() == eID){
-                eidikotita = erg.getEidikotita();
-            }
-        }
-        dba.closeDB();
-        return eidikotita;
-    }
 
     public static String getEidikotita() {
         return Eidikotita;
+    }
+
+    public static String getUsername() {
+        return Username;
     }
 
     public void openActivityUWS(){
