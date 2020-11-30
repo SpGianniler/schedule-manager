@@ -63,7 +63,7 @@ public class Matrix {
     }
 
     public void addHours(String vardia){
-        if(vardia.equals("0")){
+        if(vardia.equals("6")){
             this.wres6 +=8;
         }
         else if(vardia.equals("1")){
@@ -86,7 +86,7 @@ public class Matrix {
 
 
     public int getHours(String vardia){
-        if(vardia.equals("0")){
+        if(vardia.equals("6")){
             return this.wres6;
         }
         else if(vardia.equals("1")){
