@@ -10,15 +10,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class AdminRemoveEmployeeFragment extends Fragment {
 
     Spinner eidSpinner;
     String[] examples = {
-            "Christos",
-            "Apostolhs",
-            "Spyros",
-            "Basilhs",
+            "1",
+            "2",
+            "3",
+            "4",
     };
+
     ArrayAdapter<String> adapterEid;
 
 

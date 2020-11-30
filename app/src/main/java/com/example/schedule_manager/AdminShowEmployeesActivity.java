@@ -16,19 +16,9 @@ public class AdminShowEmployeesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_show_employees_activity);
 
-
+        DataBaseAccess dba = DataBaseAccess.getInstance(getApplicationContext());
         ListView listView = findViewById(R.id.listView);
-        ArrayList<CustomListAdminEmployees> employeesList = new ArrayList<>();
-        employeesList.add(new CustomListAdminEmployees("1","Xrhstos","Terzenidhs","12/12/12","xrhstos@gmail.com","545454","Mhxanikos"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
-        employeesList.add(new CustomListAdminEmployees("2","Kwstas","Aughtidhs","14/12/1222","dsdsds@gmail.com","545454","Katharisths"));
+        ArrayList<Ergazomenoi> employeesList = (ArrayList<Ergazomenoi>) dba.getEveryone();
 
         AdminShowEmployeesListAdapter adapter = new AdminShowEmployeesListAdapter(this,0,employeesList);
         listView.setAdapter(adapter);
