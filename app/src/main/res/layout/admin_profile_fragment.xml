@@ -9,8 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="407dp"
-        android:layout_height="212dp"
-        android:layout_marginEnd="4dp"
+        android:layout_height="300dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +19,10 @@
         <ImageButton
             android:id="@+id/settingsBTN"
             android:layout_width="50dp"
-            android:contentDescription="@string/settingsImage"
             android:layout_height="50dp"
             android:layout_gravity="end"
             android:background="@color/ic_launcher_background"
+            android:contentDescription="@string/settingsImage"
             android:src="@drawable/ic_settings" />
 
         <ImageView
@@ -42,19 +41,16 @@
             android:text="@string/adminProfileName"
             android:textSize="30sp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ic_launcher_background"
+            android:gravity="center"
+            android:text="@string/infoProfile"
+            android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primaryColor"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="@string/infoProfile"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="350dp"
@@ -64,7 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
 
         <TextView

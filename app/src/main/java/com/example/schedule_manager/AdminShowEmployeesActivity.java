@@ -3,6 +3,7 @@ package com.example.schedule_manager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -28,8 +29,13 @@ public class AdminShowEmployeesActivity extends AppCompatActivity {
         }
         dataBaseAccess.closeDB();
 
-        listView = findViewById(R.id.listView);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, examples);
+        DataBaseAccess dba = DataBaseAccess.getInstance(getApplicationContext());
+        ListView listView = findViewById(R.id.listView);
+        ArrayList<Ergazomenoi> employeesList = (ArrayList<Ergazomenoi>) dba.getEveryone();
+
+        AdminShowEmployeesListAdapter adapter = new AdminShowEmployeesListAdapter(this,0,employeesList);
         listView.setAdapter(adapter);
+
     }
+
 }

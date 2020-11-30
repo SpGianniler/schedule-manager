@@ -110,7 +110,7 @@ public class DataBaseAccess {
         closeDB();
         return returnList;
     }
-
+  
     public List<Vardies> getVardies(){
         openDB();
         c = db.rawQuery("Select SHIFTS.sid, name, employees_needed from  SHIFTS, JOBS, SHIFTS_JOBS where SHIFTS.sid = SHIFTS_JOBS.sid and JOBS.jid=SHIFTS_JOBS.jid", null);

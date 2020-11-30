@@ -25,13 +25,15 @@ public class AdminWelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_welcome_activity);
 
-        adminMainFrame = (FrameLayout) findViewById(R.id.main_admin_frame);
+        adminMainFrame = (FrameLayout) findViewById(R.id.admin_frame);
         adminMainNav = (BottomNavigationView) findViewById(R.id.bottomAdminNavigationView);
 
         employeesFragment = new AdminEmployeesFragment();
         notificationsFragment = new AdminNotificationsFragment();
         sheduleFragment = new AdminSheduleFragment();
         adminProfileFragment = new AdminProfileFragment();
+
+        setFragment(sheduleFragment);
 
 
         adminMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -63,7 +65,7 @@ public class AdminWelcomeActivity extends BaseActivity {
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_admin_frame, fragment);
+        fragmentTransaction.replace(R.id.admin_frame, fragment);
         fragmentTransaction.commit();
     }
 

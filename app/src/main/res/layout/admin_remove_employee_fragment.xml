@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    tools:context=".AdminRemoveEmployeeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/adminRemoveEmployeeFragmentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/adminRemoveEmployeeFragmentText"
+                android:textSize="35sp" />
+
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/removeAdminEmployeeTextId" />
+            <Spinner
+                android:id="@+id/spinnerEid"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                />
+
+            <EditText
+                android:id="@+id/firstNameAdminEditEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="@string/firstNameRemoveAdminEditEmployees"
+                android:ems="10"
+                android:hint="@string/firstNameAdminEditEmployees"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/lastNameAdminAddEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="@string/lastNameRemoveAdminEditEmployees"
+                android:ems="10"
+                android:hint="@string/lastNameAdminEditEmployees"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:text="@string/removeAdminEditEmployeeButton"
+                android:textAllCaps="false" />
+
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

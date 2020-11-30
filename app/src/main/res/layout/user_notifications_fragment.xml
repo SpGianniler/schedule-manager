@@ -9,7 +9,7 @@
         android:id="@+id/notificationsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="notifications"
+        android:text="notifications TODO"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

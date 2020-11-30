@@ -1,19 +1,20 @@
 <resources>
     <string name="app_name">schedule-manager</string>
 
+    //activity_main.xml
     <string name="UserButton">User</string>
     <string name="AdminButton">Admin</string>
     <string name="mainLoginTextView">Login as:</string>
 
+    //admin_login_activity.xml
     <string name="adminLoginButton">Sign in</string>
     <string name="textLogAdmin">Login</string>
     <string name="editTextEmailAdmin">Email</string>
     <string name="editTextPassAdmin">Password</string>
-
     <string name="userLoginButton">Sign in</string>
 
 
-    //activity_user_welcome
+    //user_welcome_activity.xml
     <string name="textLogUser">Login</string>
     <string name="miHome">Home</string>
     <string name="miNotifications">Notifications</string>
@@ -21,18 +22,20 @@
     <string name="editTextEmailUser">Email</string>
     <string name="editTextPassUser">Password</string>
 
-    //activity_admin_welcome
+    //admin_welcome_activity.xml
     <string name="miAdminShedule">Shedule</string>
     <string name="miAdminEmployees">Employees</string>
     <string name="miAdminNotifications">Notifications</string>
     <string name="miAdminProfile">Profile</string>
 
-    //admin_profile_fragment
+    //admin_employees_fragment.xml
     <string name="textAdminEmployeesView">"Employees Options"</string>
     <string name="showAdminEmployeesButton">Show Employees List</string>
+    <string name="editAdminEmployeesButton">Edit Employees</string>
     <string name="adminProfileName">User Name</string>
 
-    //user_profile_fragment
+
+    //user_profile_fragment.xml
     <string name="userProfileName">User Name</string>
     <string name="infoProfile">Info</string>
     <string name="emailProfile">E-mail:</string>
@@ -59,6 +62,54 @@
     <string name="AddEmployeeButton">Add</string>
     <string name="scheduleCreateButton">Create</string>
     <string name="scheduleDetailsButton">Details</string>
+
+    //employees_edit_bottom_menu.xml
+    <string name="adminAddEmployee">Add Employee</string>
+    <string name="adminDeleteEmployee">Remove Employee</string>
+    <string name="adminEditInfoEmployee">Edit Employees Info</string>
+
+    //admin_add_employee_fragment.xml
+    <string name="adminAddEmployeeFragmentText">Enter the details of the new employee.</string>
+    <string name="firstNameAdminEditEmployees">First name</string>
+    <string name="lastNameAdminEditEmployees">Last name</string>
+    <string name="birthdayAdminAddEmployees">Birth date</string>
+    <string name="emailAdminEditEmployees">E-mail</string>
+    <string name="phoneAdminEditEmployees">Phone number</string>
+    <string name="addAdminEditEmployeeButton">Add Employee</string>
+    <string name="radioMaleBtnAdminAddEmployee">Male</string>
+    <string name="radioFemaleBtnAdminAddEmployee">Female</string>
+    <string name="radioTextAdminAddEmployee">Choose sex:</string>
+    <string name="selectJid">Select Job Id</string>
+
+    //admin_remove_employee_fragment.xml
+    <string name="adminRemoveEmployeeFragmentText">Details for remove employee.</string>
+    <string name="firstNameRemoveAdminEditEmployees">First name</string>
+    <string name="lastNameRemoveAdminEditEmployees">Last name</string>
+    <string name="removeAdminEditEmployeeButton">Remove Employee</string>
+    <string name="removeAdminEmployeeTextId">Select employee id</string>
+
+    //admin_show_employees_activity.xml
+    <string name="adminShowEmployeesText">List Employees</string>
+
+    //admin_shedule_fragment.xml
+    <string name="adminShowSheduleButton">Show Shedule</string>
+    <string name="adminEditSheduleButton">Edit Shedule</string>
+    <string name="adminSavesSheduleButton">Saves</string>
+
+    //admin_shedule_show_activity.xml
+    <string name="adminSheduleShowText">Pick a date.</string>
+
+
+    //custom_list_admin_employees.xml
+    <string name="customText0">ID: </string>
+    <string name="customText1">First Name: </string>
+    <string name="customText2">Last Name: </string>
+    <string name="customText3">Birthday: </string>
+    <string name="customText4">Email: </string>
+    <string name="customText5">Phone: </string>
+    <string name="customText6">Job: </string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

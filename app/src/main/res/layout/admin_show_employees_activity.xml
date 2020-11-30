@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".AdminShowEmployeesActivity">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="@string/adminShowEmployeesText" />
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
