@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.userUI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.schedule_manager.R;
+import com.example.schedule_manager.userUI.UserHomeFragment;
+import com.example.schedule_manager.userUI.UserNotificationsFragment;
+import com.example.schedule_manager.userUI.UserProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class UserWelcomeActivity extends AppCompatActivity {

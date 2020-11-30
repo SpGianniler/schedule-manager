@@ -1,15 +1,14 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
+import com.example.schedule_manager.R;
 
 
 public class AdminEditInfoEmployeeFragment extends Fragment {

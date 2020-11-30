@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.schedule_manager.BaseActivity;
+import com.example.schedule_manager.Credentials;
+import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.MainActivity;
+import com.example.schedule_manager.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +53,7 @@ public class AdminLoginActivity extends BaseActivity {
         });
     }
 
-    static int searchByUserName(String username, ArrayList<Credentials> listOfCreds){
+    public  static int searchByUserName(String username, ArrayList<Credentials> listOfCreds){
         int eID=0;
 
         for(Credentials cred : listOfCreds){

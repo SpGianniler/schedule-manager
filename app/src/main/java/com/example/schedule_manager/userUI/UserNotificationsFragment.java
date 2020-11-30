@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.userUI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.schedule_manager.R;
 
 public class UserNotificationsFragment extends Fragment {
 

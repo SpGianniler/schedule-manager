@@ -1,19 +1,18 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.userUI;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.schedule_manager.R;
 
 public class UserProfileFragment extends Fragment {
 
@@ -39,7 +38,7 @@ public class UserProfileFragment extends Fragment {
         imagebtn = (ImageButton) view.findViewById(R.id.settingsBTN);
         specialty= (TextView) view.findViewById(R.id.Specialty);
         username = (TextView) view.findViewById(R.id.User_UserName);
-        specialty.append(" "+UserLoginActivity.getEidikotita());
+        specialty.append(" "+ UserLoginActivity.getEidikotita());
         username.setText(UserLoginActivity.getUsername());
 
         imagebtn.setOnClickListener(new View.OnClickListener() {

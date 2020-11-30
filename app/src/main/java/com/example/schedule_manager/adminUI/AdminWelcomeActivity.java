@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.schedule_manager.BaseActivity;
+import com.example.schedule_manager.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminWelcomeActivity extends BaseActivity {

@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager">
-        <activity android:name=".AdminSheduleSaves"></activity>
-        <activity android:name=".AdminSheduleEdit" />
-        <activity android:name=".AdminSheduleShow" />
-        <activity android:name=".AdminEditEmployeesActivity" />
-        <activity android:name=".AdminShowEmployeesActivity" />
-        <activity android:name=".UserProfileSettings" />
-        <activity android:name=".AdminWelcomeActivity" />
-        <activity android:name=".AdminLoginActivity" />
-        <activity android:name=".UserWelcomeActivity" />
+        <activity android:name=".adminUI.AdminSheduleSaves"></activity>
+        <activity android:name=".adminUI.AdminSheduleEdit" />
+        <activity android:name=".adminUI.AdminSheduleShow" />
+        <activity android:name=".adminUI.AdminEditEmployeesActivity" />
+        <activity android:name=".adminUI.AdminShowEmployeesActivity" />
+        <activity android:name=".userUI.UserProfileSettings" />
+        <activity android:name=".adminUI.AdminWelcomeActivity" />
+        <activity android:name=".adminUI.AdminLoginActivity" />
+        <activity android:name=".userUI.UserWelcomeActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".UserLoginActivity" />
+        <activity android:name=".userUI.UserLoginActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
