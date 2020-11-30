@@ -12,12 +12,12 @@ public class Schedule {
     String eidikothta;
 
 
-    static public ArrayList<Schedule> onCreate(DataBaseAccess dataBaseAccess){
+    static public ArrayList<Schedule> onCreate(){
 
-        List<Ergazomenoi> ergazomenoiList = dataBaseAccess.getEveryone();
-        HashMap<String, String> shiftsMap= dataBaseAccess.getShifts();
-        List<Vardies> vardiesList = dataBaseAccess.getVardies();
-    //    vardiesList.add(new Vardies("4","grammateia",1));
+        List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
+        HashMap<String, String> shiftsMap= MainActivity.getShiftsMap();
+        List<Vardies> vardiesList = MainActivity.getVardiesList();
+        //vardiesList.add(new Vardies("4","grammateia",1));
         Matrix matrix[] = new Matrix[ergazomenoiList.size()];
         int i =0;
 

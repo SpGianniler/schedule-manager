@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminLoginActivity extends BaseActivity {
@@ -30,14 +31,14 @@ public class AdminLoginActivity extends BaseActivity {
                 String usernametext = username.getText().toString();
                 String passwordtext = password.getText().toString();
                 boolean result;
-                DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
+                ArrayList<Credentials> listOfCreds = MainActivity.getCredentialsArrayList();
 
-                result = Credentials.isValid(usernametext,passwordtext,true,dataBaseAccess);
+                result = Credentials.isValid(usernametext,passwordtext,true, listOfCreds);
 
                 if(result) {
-                    int eid = searchByUserName(usernametext, dataBaseAccess);
-                    Username = searchByEid(eid, dataBaseAccess);
-                    Eidikotita = searchEidikotita(eid, dataBaseAccess);
+                    int eid = searchByUserName(usernametext, listOfCreds);
+                    Username = searchByEid(eid, MainActivity.getErgazomenoiArrayList());
+                    Eidikotita = searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
                     openActivityAWA();
                 }
                 else
@@ -46,12 +47,8 @@ public class AdminLoginActivity extends BaseActivity {
         });
     }
 
-    int searchByUserName(String username, DataBaseAccess dba){
+    static int searchByUserName(String username, ArrayList<Credentials> listOfCreds){
         int eID=0;
-
-        dba.openDB();
-
-        List<Credentials> listOfCreds = dba.getCredentials();
 
         for(Credentials cred : listOfCreds){
             if(cred.getUsername().toString().equals(username)) {
@@ -62,29 +59,27 @@ public class AdminLoginActivity extends BaseActivity {
         return 0;
     }
 
-    public String searchByEid(int eID, DataBaseAccess dba){
+    static public String searchByEid(int eID, ArrayList<Ergazomenoi>arrayList){
         String username = null;
-        dba.openDB();
-        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
+
+        List<Ergazomenoi> ergazomenoiList = arrayList;
         for(Ergazomenoi erg : ergazomenoiList){
             if(erg.getErg_id() == eID){
                 username = erg.getOnoma();
             }
         }
-        dba.closeDB();
         return username;
     }
-    public static String searchEidikotita(int eID, DataBaseAccess dba){
+    static public String searchEidikotita(int eID, ArrayList<Ergazomenoi> ergazomenois){
 
         String eidikotita = null;
-        dba.openDB();
-        List<Ergazomenoi> ergazomenoiList = dba.getEveryone();
+
+        List<Ergazomenoi> ergazomenoiList = ergazomenois;
         for(Ergazomenoi erg : ergazomenoiList){
             if(erg.getErg_id() == eID){
                 eidikotita = erg.getEidikotita();
             }
         }
-        dba.closeDB();
         return eidikotita;
     }
 
