@@ -72,7 +72,7 @@ public class DataBaseAccess {
     }
 
     public List<Ergazomenoi> getEveryone(){//ToDo: Na allaksei gia na pairnei dedomena apo tous swstous pinakes
-        c = db.rawQuery("SELECT EMPLOYEES.eid, first_name, last_name, type, work_hours, EMPLOYEES.is_admin, JOBS.name FROM EMPLOYEES,JOBS , CONTRACTS , CREDENTIALS WHERE CONTRACTS.eid = EMPLOYEES.eid AND EMPLOYEES.eid = CONTRACTS.eid AND EMPLOYEES.jid = JOBS.jid", null);
+        c = db.rawQuery("SELECT distinct EMPLOYEES.eid, first_name, last_name, type, work_hours, EMPLOYEES.is_admin, JOBS.name FROM EMPLOYEES,JOBS , CONTRACTS , CREDENTIALS WHERE CONTRACTS.eid = EMPLOYEES.eid AND EMPLOYEES.eid = CONTRACTS.eid AND EMPLOYEES.jid = JOBS.jid", null);
         List<Ergazomenoi> returnList = new ArrayList<>();
         while(c.moveToNext()){
             int eid = c.getInt(0);
@@ -104,7 +104,4 @@ public class DataBaseAccess {
         }
         return returnList;
     }
-    /*public searchByEid(int givenEid){
-        //Todo: vres ergazomenoi me ayto to id
-    }*/
 }

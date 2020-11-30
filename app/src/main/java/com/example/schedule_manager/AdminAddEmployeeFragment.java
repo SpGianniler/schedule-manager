@@ -18,10 +18,10 @@ public class AdminAddEmployeeFragment extends Fragment {
 
     Spinner jidSpinner;
     String[] examples = {
-        "Christos",
-                "Apostolhs",
-                "Spyros",
-                "Basilhs",
+        "Mhxanikos",
+                "Epivlepon",
+                "Grammateia",
+                "grmParagwgis",
     };
     ArrayAdapter<String> adapterJid;
 

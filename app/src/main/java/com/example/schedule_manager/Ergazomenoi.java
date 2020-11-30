@@ -28,6 +28,8 @@ public class Ergazomenoi {
     public String getEidikotita() {
         return eidikotita;
     }
+    public String  getMail(){return "E-mail";}
+    public String getPhone(){return "69898789878";}
     public int getEvWres() {
         return evWres;
     }

@@ -12,9 +12,9 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class AdminShowEmployeesListAdapter extends ArrayAdapter<CustomListAdminEmployees> {
+public class AdminShowEmployeesListAdapter extends ArrayAdapter<Ergazomenoi> {
 
-    public AdminShowEmployeesListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<CustomListAdminEmployees> customListAdminEmployeesArraylist) {
+    public AdminShowEmployeesListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Ergazomenoi> customListAdminEmployeesArraylist) {
         super(context, resource, customListAdminEmployeesArraylist);
     }
 
@@ -28,29 +28,29 @@ public class AdminShowEmployeesListAdapter extends ArrayAdapter<CustomListAdminE
 
         }
 
-        CustomListAdminEmployees currentItem = getItem(position);
+        Ergazomenoi currentItem = getItem(position);
 
 
         TextView id = listItemView.findViewById(R.id.idEmployee);
-        id.setText(currentItem.getId());
+        id.setText(Integer.toString(currentItem.getErg_id()));
 
         TextView firstname = listItemView.findViewById(R.id.firstNameEmployee);
-        firstname.setText(currentItem.getFirstName());
+        firstname.setText(currentItem.getOnoma());
 
         TextView lastname = listItemView.findViewById(R.id.lastNameEmployee);
-        lastname.setText(currentItem.getLastName());
+        lastname.setText(currentItem.getEpitheto());
 
         TextView birthday = listItemView.findViewById(R.id.birthEmployee);
-        birthday.setText(currentItem.getBirthD());
+        birthday.setText(Integer.toString(currentItem.getEvWres()));
 
         TextView email = listItemView.findViewById(R.id.emailEmployee);
-        email.setText(currentItem.geteMail());
+        email.setText(currentItem.getMail());
 
         TextView phone = listItemView.findViewById(R.id.phoneEmployee);
         phone.setText(currentItem.getPhone());
 
         TextView job = listItemView.findViewById(R.id.jobEmployee);
-        job.setText(currentItem.getJob());
+        job.setText(currentItem.getEidikotita());
 
         return listItemView;
     }
