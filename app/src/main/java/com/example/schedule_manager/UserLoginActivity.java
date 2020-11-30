@@ -33,7 +33,6 @@ public class UserLoginActivity extends BaseActivity {
                 String usernametext = username.getText().toString();
                 String passwordtext = password.getText().toString();
                 boolean result;
-                DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
 
                 result = Credentials.isValid(usernametext,passwordtext,false,MainActivity.getCredentialsArrayList());
 
