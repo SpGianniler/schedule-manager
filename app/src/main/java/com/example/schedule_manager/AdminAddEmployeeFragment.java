@@ -37,6 +37,8 @@ public class AdminAddEmployeeFragment extends Fragment {
         return view;
     }
 
+
+
     private void jidPopulateSpinner() {
         adapterJid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples);
         adapterJid.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
