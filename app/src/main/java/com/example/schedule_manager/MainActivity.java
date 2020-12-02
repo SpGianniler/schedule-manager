@@ -2,8 +2,14 @@ package com.example.schedule_manager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.schedule_manager.adminUI.AdminLoginActivity;
 import com.example.schedule_manager.userUI.UserLoginActivity;
 
@@ -19,6 +25,7 @@ public class MainActivity extends BaseActivity {
     public static ArrayList<Credentials> credentialsList;
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
+    public static String URL = "http://192.168.56.1:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,57 @@ public class MainActivity extends BaseActivity {
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
         //Schedule.onCreate();
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest objectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                (URL+"/jobs/job/1"),
+                null,
+                response -> {
+                    Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
+                    Log.e("Rest Response GET", response.toString());
+                },
+                error -> Log.e("Rest Response GET",error.toString())
+        );
+        requestQueue.add(objectRequest);
+
+
+        //        catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        JsonObjectRequest objectRequest1 = new JsonObjectRequest(
+//                Request.Method.POST,
+//                (URL+"/job/add"),
+//                ergJson,
+//                response -> {
+//                    Toast.makeText(getApplicationContext(),ergJson.toString(),Toast.LENGTH_SHORT).show();
+//                    Log.e("Rest Response PUT", response.toString());
+//                },
+//                error -> Log.e("Rest Response PUT",error.toString())
+//        );
+//        requestQueue.add(objectRequest1);
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+//                Request.Method.GET,
+//                url,
+//                null,
+//                response -> {
+//                    try {
+//                        JSONArray jsonArray = response.getJSONArray("data");
+//                        for(int i = 0; i < jsonArray.length(); i++){
+//                           JSONObject jsonObject = jsonArray.getJSONObject(i);
+//                           String email = jsonObject.getString("email");
+//
+//                            jsonResponses.add(email);
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                },
+//                Throwable::printStackTrace
+//        );
+//        requestQueue.add(jsonObjectRequest);
 
         userLoginButton = (Button) findViewById(R.id.userButton);
         userLoginButton.setOnClickListener(v -> openActivityULA());
