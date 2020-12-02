@@ -64,24 +64,45 @@ public class Matrix {
 
     public void addHours(String vardia){
         if(vardia.equals("6")){
-            this.wres6 +=8;
+            if(this.ergazomenos.contract.equals("full"))
+                this.wres6 +=8;
+            else
+                this.wres6+=4;
         }
         else if(vardia.equals("1")){
-            this.wres1 +=8;
+            if(this.ergazomenos.contract.equals("full"))
+                this.wres1 +=8;
+            else
+                this.wres1+=4;
         }
         else if(vardia.equals("2")){
-            this.wres2 +=8;
+            if(this.ergazomenos.contract.equals("full"))
+                this.wres2 +=8;
+            else
+                this.wres2+=4;
         }
         else if(vardia.equals("3")){
-            this.wres3 +=8;
+            if(this.ergazomenos.contract.equals("full"))
+                this.wres3 +=8;
+            else
+                this.wres3+=4;
         }
         else if(vardia.equals("4")){
-            this.wres4 +=8;
+            if(this.ergazomenos.contract.equals("full"))
+                this.wres4+=8;
+            else
+                this.wres4+=4;
         }
         else if(vardia.equals("5")){
-            this.wres5 +=8;
+            if(this.ergazomenos.contract.equals("full"))
+                this.wres5 +=8;
+            else
+                this.wres5+=4;
         }
-        this.totalHours+=8;
+        if(this.ergazomenos.contract.equals("full"))
+            this.totalHours+=8;
+        else
+            this.totalHours+=4;
     }
 
 
@@ -127,5 +148,12 @@ public class Matrix {
             }
             return false;
         }
+    }
+
+    public void remHours() {
+        if(this.ergazomenos.contract.equals("full"))
+            this.ergazomenos.evWres -=8;
+        else
+            this.ergazomenos.evWres-=4;
     }
 }

@@ -13,16 +13,12 @@ import android.widget.Spinner;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AdminAddEmployeeFragment extends Fragment {
 
     Spinner jidSpinner;
-    String[] examples = {
-        "Mhxanikos",
-                "Epivlepon",
-                "Grammateia",
-                "grmParagwgis",
-    };
     ArrayAdapter<String> adapterJid;
 
 
@@ -40,7 +36,18 @@ public class AdminAddEmployeeFragment extends Fragment {
 
 
     private void jidPopulateSpinner() {
-        adapterJid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples);
+        int i =0 ;
+        ArrayList<Vardies> vardies = (ArrayList<Vardies>) MainActivity.getVardiesList();
+        HashSet<String> vardiesSet = new HashSet<>();
+        for(Vardies vrd: vardies){
+            vardiesSet.add(vrd.getEidikotita());
+        }
+        String[] examples2 = new String[vardiesSet.size()];
+        for(String eidik : vardiesSet){
+            examples2[i] = eidik;
+            i++;
+        }
+        adapterJid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples2);
         adapterJid.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jidSpinner.setAdapter(adapterJid);
     }

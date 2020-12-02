@@ -48,6 +48,7 @@ public class Schedule {
                         if (hasLeastHours(matrix, min, on_vardias)) {
                             scd.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
                             matrix.addHours(on_vardias);
+                            matrix.remHours();
                             matrix.addSeqDays();
                             min = matrix.getHours(on_vardias);
                             ar_erg--;
@@ -65,6 +66,7 @@ public class Schedule {
                         Matrix matrix = pickRand(matrix_arr);
                         scd.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
                         matrix.addHours(on_vardias);
+                        matrix.remHours();
                         matrix.addSeqDays();
                         min = matrix.getHours(on_vardias);
                         ar_erg--;
