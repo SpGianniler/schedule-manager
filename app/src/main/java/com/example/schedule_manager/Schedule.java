@@ -30,6 +30,7 @@
             createSchedule(matrix, vardiesList, shiftsMap);
             createSchedule(matrix, vardiesList, shiftsMap);
             createSchedule(matrix, vardiesList, shiftsMap);
+            createSchedule(matrix, vardiesList, shiftsMap);
             return sched;
 
         }
