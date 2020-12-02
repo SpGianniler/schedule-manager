@@ -45,15 +45,15 @@ public class AdminRemoveEmployeeFragment extends Fragment {
 
 
     private void eidPopulateSpinner() {
-        int i =0 ;
-        ArrayList<Ergazomenoi> ergazomenoiArrayList = MainActivity.getErgazomenoiArrayList();
-        String[] examples2 = new String[ergazomenoiArrayList.size()];
-        for(Ergazomenoi erg: ergazomenoiArrayList){
-            examples2[i] = erg.getErg_id()+" "+erg.getOnoma()+" "+erg.getEpitheto();
-            i++;
-        }
+            int i =0 ;
+            ArrayList<Ergazomenoi> ergazomenoiArrayList = MainActivity.getErgazomenoiArrayList();
+            String[] examples2 = new String[ergazomenoiArrayList.size()];
+            for(Ergazomenoi erg: ergazomenoiArrayList){
+                examples2[i] = erg.getErg_id()+" "+erg.getOnoma()+" "+erg.getEpitheto();
+                i++;
+            }
 
-        adapterEid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples2);
+            adapterEid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples2);
         adapterEid.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         eidSpinner.setAdapter(adapterEid);
     }
