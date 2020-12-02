@@ -1,4 +1,4 @@
-package com.example.schedule_manager;
+package com.example.schedule_manager.adminUI;
 
 import android.os.Bundle;
 
@@ -17,24 +17,21 @@ import java.lang.ref.Reference;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import com.example.schedule_manager.R;
 
 public class AdminRemoveEmployeeFragment extends Fragment {
 
     Spinner eidSpinner;
-
     ArrayAdapter<String> adapterEid;
     EditText name,surname;
-
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.admin_remove_employee_fragment, container, false);
-        name = (EditText) view.findViewById(R.id.firstNameAdminEditEmployees);
-        surname = (EditText) view.findViewById(R.id.lastNameAdminAddEmployees);
 
         eidSpinner = (Spinner) view.findViewById(R.id.spinnerEid);
         eidPopulateSpinner();
