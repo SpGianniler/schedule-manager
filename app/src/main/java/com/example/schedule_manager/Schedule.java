@@ -160,8 +160,8 @@ public class Schedule {
     public static Matrix pickRand(Matrix[] matrix){
         Random rand = new Random();
         int pos = rand.nextInt(matrix.length);
-        Matrix mtr = matrix[pos];
-        return mtr;
+        return  matrix[pos];
+
     }
 
 }
