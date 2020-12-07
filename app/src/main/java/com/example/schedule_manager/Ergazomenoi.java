@@ -19,6 +19,15 @@ public class Ergazomenoi {
         this.is_admin = is_admin;
     }
 
+    public Ergazomenoi(String onoma, String epitheto, String eidikotita, int whours, String contract, boolean is_admin) {
+        this.onoma = onoma;
+        this.epitheto = epitheto;
+        this.eidikotita = eidikotita;
+        this.evWres = whours;
+        this.contract = contract;
+        this.is_admin = is_admin;
+    }
+
     public String getOnoma() {
         return onoma;
     }

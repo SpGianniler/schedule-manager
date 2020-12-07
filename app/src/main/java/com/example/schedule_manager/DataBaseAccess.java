@@ -87,7 +87,6 @@ public class DataBaseAccess {
             String jid = c.getString(6);
             Ergazomenoi erg = new Ergazomenoi(eid, onoma, epitheto, jid,evWres,type, is_admin);
             returnList.add(erg);
-
         }
         closeDB();
         return returnList;
