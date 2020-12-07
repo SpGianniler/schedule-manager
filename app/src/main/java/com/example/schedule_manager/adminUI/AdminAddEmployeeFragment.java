@@ -18,7 +18,9 @@ import java.util.HashSet;
 import java.util.Set;
 import android.widget.Spinner;
 
+import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
+import com.example.schedule_manager.Vardies;
 
 public class AdminAddEmployeeFragment extends Fragment {
 

@@ -73,13 +73,13 @@ public class Matrix {
                 if(this.ergazomenos.contract.equals("full"))
                     this.wres1 +=8;
                 else
-                    this.wres1+=4;
+                   this.wres1+=4;
             }
             else if(vardia.equals("2")){
                 if(this.ergazomenos.contract.equals("full"))
                     this.wres2 +=8;
                 else
-                    this.wres2+=4;
+                   this.wres2+=4;
             }
             else if(vardia.equals("3")){
                 if(this.ergazomenos.contract.equals("full"))
@@ -142,7 +142,7 @@ public class Matrix {
             return true;
         }
         else {
-            if(this.seqDays == 5){
+            if(this.seqDays == 7){
                 this.picked = true;
                 this.seqDays = 0;
             }

@@ -20,6 +20,8 @@ import java.util.HashSet;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 
 public class AdminRemoveEmployeeFragment extends Fragment {
