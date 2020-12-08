@@ -116,6 +116,8 @@
     <string name="generate_shedule">Generate Shedule</string>
     <string name="show_shedule">Show Shedule</string>
 
+    //admin_shedule_edit_activity
+    <string name="edit_shedule_text">Change shedule options.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
