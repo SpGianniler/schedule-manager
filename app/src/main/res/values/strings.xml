@@ -109,6 +109,13 @@
     <string name="customText5">Phone: </string>
     <string name="customText6">Job: </string>
 
+    //admin_shedule_activity
+    <string name="pick_range_button">Pick Date Range</string>
+    <string name="first_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="generate_shedule">Generate Shedule</string>
+    <string name="show_shedule">Show Shedule</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
