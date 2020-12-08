@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
         this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
-        //Schedule.onCreate();
+        Schedule.onCreate();
 
         userLoginButton = (Button) findViewById(R.id.userButton);
         userLoginButton.setOnClickListener(v -> openActivityULA());
