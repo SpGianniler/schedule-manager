@@ -55,17 +55,17 @@ public class AdminSheduleFragment extends Fragment {
 
 
     public void openShowAdminSheduleActivity(){
-        Intent intent = new Intent((getActivity()), AdminSheduleShow.class);
+        Intent intent = new Intent((getActivity()), SheduleAct.class);
         startActivity(intent);
     }
 
     public void openEditAdminSheduleActivity(){
-        Intent intent = new Intent((getActivity()), AdminSheduleShow.class);
+        Intent intent = new Intent((getActivity()), AdminSheduleEdit.class);
         startActivity(intent);
     }
 
     public void openSavesAdminSheduleActivity(){
-        Intent intent = new Intent((getActivity()), AdminSheduleShow.class);
+        Intent intent = new Intent((getActivity()), AdminSheduleSaves.class);
         startActivity(intent);
     }
 
