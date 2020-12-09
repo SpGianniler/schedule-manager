@@ -9,11 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.schedule_manager.R;
+import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import org.w3c.dom.Text;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,6 +28,7 @@ public class SheduleAct extends AppCompatActivity {
     private TextView firstDate;
     private TextView secondDate;
     private Button sheduleGenerateBtn;
+    private TextView programmaText;
 
     protected String firDate;
     protected String secDate;
@@ -37,6 +42,7 @@ public class SheduleAct extends AppCompatActivity {
         sheduleGenerateBtn = (Button) findViewById(R.id.generate_btn);
         firstDate = (TextView) findViewById(R.id.firstDate);
         secondDate = (TextView) findViewById(R.id.secondDate);
+        programmaText = (TextView) findViewById(R.id.textView10);
 
         //MaterialDatePicker
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
@@ -80,7 +86,12 @@ public class SheduleAct extends AppCompatActivity {
         sheduleGenerateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //KWDIKAS GIA THN EMFANISH TOU SHEDULE
+                programmaText.setText("");
+                ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate());
+                for(int i=0; i < programma.size(); i++) {
+                    programmaText.append(firDate + " ");
+                    programmaText.append(programma.get(i).getVardia() + " "+ programma.get(i).getOnoma() + " "+programma.get(i).getEpitheto() + " "+programma.get(i).getEidikothta() +"\n");
+                }
             }
         });
 

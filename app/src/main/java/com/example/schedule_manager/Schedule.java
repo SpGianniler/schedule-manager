@@ -16,7 +16,7 @@
         String eidikothta;
 
         static ArrayList<Schedule> sched = new ArrayList<>();
-        static public ArrayList<Schedule> onCreate() {
+        static public ArrayList<Schedule> onCreate(int diarkeia) {
 
             List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
             HashMap<String, String> shiftsMap = MainActivity.getShiftsMap();
@@ -28,17 +28,16 @@
                 matrix[i] = new Matrix(erg);
                 i++;
             }
-            for(int meres =0; meres <30; meres++) {
+            for(int meres =0; meres <diarkeia; meres++) {
                 createSchedule(matrix, vardiesList, shiftsMap);
             }
-            for(int j=0; j < sched.size(); j++){
+            /*for(int j=0; j < sched.size(); j++){
                 if(j%18 == 0) {
                     Log.wtf("tag", "New Day");
                 }
                 String pro = sched.get(j).vardia + " "+ sched.get(j).onoma + " "+sched.get(j).epitheto + " "+sched.get(j).eidikothta +"\n";
                 Log.wtf("tag",""+pro);
-               // Log.d("tag",pro);
-            }
+            }*/
             return sched;
         }
 
