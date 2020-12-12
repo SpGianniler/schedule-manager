@@ -50,41 +50,30 @@
 
                 clearPicked(matrix_arr);
                 for (Vardies vardia : vardies) {
-                    List<Matrix> ergazomenoiIdiasWras = new ArrayList<>();
                     HashMap<Matrix,Integer> ergazomenoiIdiasWras2 = new HashMap<>();
                     on_vardias = vardia.getOnoma();
                     on_eidik = vardia.getEidikotita();
                     ar_erg = vardia.getEmploeesNo();
+                    min = minHoursOnVard(matrix_arr, on_vardias);
                         for (Matrix matrix : matrix_arr) {
                             found = false;
-                            if (matrix.getErgazomenos().getEidikotita().equals(on_eidik) && ar_erg > 0 && !matrix.isPicked() && matrix.checkSeqDays() && matrix.getTotalHours() >= 0) {
+                            if (matrix.getErgazomenos().getEidikotita().equals(on_eidik) && ar_erg > 0 && !matrix.isPicked() && matrix.checkSeqDays(matrix) && matrix.getTotalHours() >= 0) {
                                 if (hasLeastHours(matrix, min, on_vardias)) {
                                     sched.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
                                     matrix.addHours(on_vardias);
                                     min = matrix.getHours(on_vardias);
                                     matrix.remHours();
-                                    //matrix.addSeqDays();
+                                    //matrix.seqDays++;
                                     min = matrix.getHours(on_vardias);
                                     ar_erg--;
                                     matrix.pick();
                                     found = true;
                                 } else if (hasEqualsHours(matrix, min, on_vardias)) {
-                                    ergazomenoiIdiasWras.add(matrix);
                                     ergazomenoiIdiasWras2.put(matrix, matrix.getTotalHours());
                                 }
                             }
                         }
                         if (!found || ergazomenoiIdiasWras2.size() > ar_erg) {
-                            /*while (ar_erg != 0) {
-                                Matrix matrix = pickRand(matrix_arr);
-                                sched.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
-                                matrix.addHours(on_vardias);
-                                matrix.remHours();
-                                matrix.addSeqDays();
-                                min = matrix.getHours(on_vardias);
-                                ar_erg--;
-                                matrix.pick();
-                                ergazomenoiIdiasWras.remove(matrix);*/
                             if(ergazomenoiIdiasWras2.size() < ar_erg){
                                 Matrix[] matrixArrayList = new Matrix[100];
                                 int i =0;
@@ -109,18 +98,26 @@
                                     matrix.addHours(on_vardias);
                                     min = matrix.getHours(on_vardias);
                                     matrix.remHours();
-                                   // matrix.addSeqDays();
+                                    //matrix.seqDays++;
                                     ar_erg--;
                                     matrix.pick();
                                     ergazomenoiIdiasWras2.remove(matrix.getErgazomenos());
                                  }
                         }
-                                //}
-                           // }
-                       // }
                     }
 
             return sched;
+        }
+
+        private static int minHoursOnVard(Matrix[] matrix, String on_vard) {
+            int hours=1000;
+            for(Matrix mtr : matrix){
+                if(mtr.getHours(on_vard) < hours && mtr.getErgazomenos().getEidikotita().equals(on_vard)){
+                    hours = mtr.getHours(on_vard);
+                }
+            }
+            return hours;
+
         }
 
         public Schedule(String vardia, String onoma, String epitheto, String eidikothta) {
@@ -256,5 +253,3 @@
             return eidikothta;
         }
     }
-
-    //ToDo: Na vrw pws tha ksexwrizw tis diaforetikes meres gia na ginetai to clearPicked
