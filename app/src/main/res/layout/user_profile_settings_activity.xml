@@ -6,4 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".userUI.UserProfileSettings">
 
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/UserSettingsUsernameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_Username_text" />
+
+            <EditText
+                android:id="@+id/UserSettingsUsernameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/User_settings_Username_Edit_text"
+                android:ems="10"
+                android:hint="@string/User_settings_Username_Edit_text"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/UserSettingsFirstnameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_Firstname_text" />
+
+            <EditText
+                android:id="@+id/UserSettingsFirstNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/User_settings_FirstName_Edit_text"
+                android:ems="10"
+                android:hint="@string/User_settings_FirstName_Edit_text"
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/UserSettingsLastnameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_Lastname_text" />
+
+            <EditText
+                android:id="@+id/UserSettingsLastNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/User_settings_LastName_Edit_text"
+                android:ems="10"
+                android:hint="@string/User_settings_LastName_Edit_text"
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/UserSettingsPasswordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_Password_text" />
+
+            <EditText
+                android:id="@+id/UserSettingsPasswordEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/User_settings_Password_Edit_text"
+                android:ems="10"
+                android:hint="@string/User_settings_Password_Edit_text"
+                android:inputType="textPassword" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/UserSettingsDOBText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_Dob_text" />
+
+            <TextView
+                android:id="@+id/UserSettingsChosenDOBText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_chosen_Dob_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/UserSettingsChooseDoBButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/User_settings_Choose_Date_Button" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/UserSettingsSaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/User_settings_Save_Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

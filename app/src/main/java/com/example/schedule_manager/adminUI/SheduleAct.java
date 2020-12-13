@@ -35,7 +35,7 @@ public class SheduleAct extends AppCompatActivity {
 
         pickButton = (Button) findViewById(R.id.pick_range_btn);
         sheduleGenerateBtn = (Button) findViewById(R.id.generate_btn);
-        firstDate = (TextView) findViewById(R.id.firstDate);
+        firstDate = (TextView) findViewById(R.id.UserSettingsDOBText);
         secondDate = (TextView) findViewById(R.id.secondDate);
 
         //MaterialDatePicker
