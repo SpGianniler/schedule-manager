@@ -17,10 +17,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/adminShowSheduleBtn"
+            android:id="@+id/adminGenerateSheduleButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/adminShowSheduleButton" />
+            android:text="@string/adminGenerateSheduleButton" />
 
         <Button
             android:id="@+id/adminEditSheduleBtn"
@@ -33,5 +33,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/adminSavesSheduleButton" />
+
+        <Button
+            android:id="@+id/adminShowSheduleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/adminShowSheduleButton" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

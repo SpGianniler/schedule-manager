@@ -92,9 +92,10 @@
     <string name="adminShowEmployeesText">List Employees</string>
 
     //admin_shedule_fragment.xml
-    <string name="adminShowSheduleButton">Show Shedule</string>
+    <string name="adminGenerateSheduleButton">Generate Shedule</string>
     <string name="adminEditSheduleButton">Edit Shedule</string>
     <string name="adminSavesSheduleButton">Saves</string>
+    <string name="adminShowSheduleButton">Show Shedule</string>
 
     //admin_shedule_show_activity.xml
     <string name="adminSheduleShowText">Pick a date.</string>
@@ -118,6 +119,10 @@
 
     //admin_shedule_edit_activity
     <string name="edit_shedule_text">Change shedule options.</string>
+
+    //admin_shedule_show_table_activity
+    <string name="pick_saved_shedule">Pick Saved Shedule</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
