@@ -9,8 +9,8 @@ public class Matrix {
     private int wres4;
     private int wres5;
     private int totalHours;
-    private boolean picked;
-    private int seqDays;
+    protected boolean picked;
+    protected int seqDays;
 
     public Matrix(Ergazomenoi ergazomenos) {
         this.ergazomenos = ergazomenos;
@@ -134,20 +134,22 @@ public class Matrix {
     public int getSeqDays() {
         return seqDays;
     }
-    public void addSeqDays(){
-        this.seqDays++;
+    public void addSeqDays(Matrix matrix){
+        matrix.seqDays++;
     }
-    public boolean checkSeqDays(){
-        if(this.seqDays < 5){
-            return true;
+    public boolean checkSeqDays(Matrix matrix){
+        boolean returned = false;
+        if(matrix.seqDays < 3){
+            returned = true;
         }
         else {
-            if(this.seqDays == 7){
-                this.picked = true;
-                this.seqDays = 0;
+            if(matrix.seqDays == 3){
+                matrix.picked = true;
+                matrix.seqDays = 0;
+                returned = false;
             }
-            return false;
         }
+        return returned;
     }
 
         public void remHours() {

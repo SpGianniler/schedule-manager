@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class SheduleAct extends AppCompatActivity {
         firstDate = (TextView) findViewById(R.id.firstDate);
         secondDate = (TextView) findViewById(R.id.secondDate);
         programmaText = (TextView) findViewById(R.id.textView10);
+        programmaText.setMovementMethod(new ScrollingMovementMethod());
 
         //MaterialDatePicker
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
@@ -72,8 +74,8 @@ public class SheduleAct extends AppCompatActivity {
                // SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 //              Display it by setText
-                firstDate.setText("Start Date : "+ simpleFormat.format(startDate));
-                secondDate.setText("End Date:"+ simpleFormat.format(endDate) );
+                firstDate.setText("Start Date: "+ simpleFormat.format(startDate));
+                secondDate.setText("End Date: "+ simpleFormat.format(endDate) );
 
                 String fd = simpleFormat.format(startDate);
                 String sd = simpleFormat.format(endDate);
@@ -89,6 +91,17 @@ public class SheduleAct extends AppCompatActivity {
                 programmaText.setText("");
                 ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate());
                 for(int i=0; i < programma.size(); i++) {
+                    if(i % 18 == 0 && i != 0){
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Calendar c = Calendar.getInstance();
+                        try {
+                            c.setTime(sdf.parse(firDate));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        c.add(Calendar.DATE, 1);  // number of days to add
+                        firDate = sdf.format(c.getTime());
+                    }
                     programmaText.append(firDate + " ");
                     programmaText.append(programma.get(i).getVardia() + " "+ programma.get(i).getOnoma() + " "+programma.get(i).getEpitheto() + " "+programma.get(i).getEidikothta() +"\n");
                 }
