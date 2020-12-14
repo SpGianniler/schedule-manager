@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.schedule_manager">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager"
         android:usesCleartextTraffic="true">
-        <activity android:name=".adminUI.SheduleAct"></activity>
+        <service
+            android:name=".Messages"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".adminUI.SheduleAct" />
         <activity android:name=".adminUI.AdminSheduleSaves" />
         <activity android:name=".adminUI.AdminSheduleEdit" />
         <activity android:name=".adminUI.AdminSheduleShow" />
@@ -32,6 +38,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+
+        <!--<service
+            android:name=".Messages">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>-->
     </application>
 
 </manifest>

@@ -2,10 +2,18 @@ package com.example.schedule_manager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
 
 import com.example.schedule_manager.adminUI.AdminLoginActivity;
 import com.example.schedule_manager.userUI.UserLoginActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,6 +39,21 @@ public class MainActivity extends BaseActivity {
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
         //Schedule.onCreate();
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+
+                        if(task.isSuccessful()){
+                            String token=task.getResult().getToken();
+                            Log.d("TAG", "Token: "+token);
+                        }else{
+                            Log.d("TAG", "Token generation failed");
+                        }
+
+                    }
+                });
+        FirebaseMessaging.getInstance().subscribeToTopic("Programma");
 
         userLoginButton = (Button) findViewById(R.id.userButton);
         userLoginButton.setOnClickListener(v -> openActivityULA());
