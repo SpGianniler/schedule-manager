@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager"
         android:usesCleartextTraffic="true">
-        <activity android:name=".adminUI.SheduleAct"></activity>
+        <activity android:name=".adminUI.AdminProfileSettings"></activity>
+        <activity android:name=".adminUI.SheduleAct" />
         <activity android:name=".adminUI.AdminSheduleSaves" />
         <activity android:name=".adminUI.AdminSheduleEdit" />
         <activity android:name=".adminUI.AdminSheduleShow" />
