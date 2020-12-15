@@ -119,6 +119,33 @@
     //admin_shedule_edit_activity
     <string name="edit_shedule_text">Change shedule options.</string>
 
+    //User_profile_settings_activity
+    <string name="User_settings_Username_text">Username</string>
+    <string name="User_settings_Password_text">Password</string>
+    <string name="User_settings_Firstname_text">First name</string>
+    <string name="User_settings_Lastname_text">Last name</string>
+    <string name="User_settings_Dob_text">Date of Birth</string>
+    <string name="User_settings_chosen_Dob_text">Date of Birth</string>
+    <string name="User_settings_Username_Edit_text">Username</string>
+    <string name="User_settings_FirstName_Edit_text">First Name</string>
+    <string name="User_settings_LastName_Edit_text">Last Name</string>
+    <string name="User_settings_Password_Edit_text">Password</string>
+    <string name="User_settings_Save_Button">Save</string>
+    <string name="User_settings_Choose_Date_Button">Choose date</string>
+
+    //Admin_profile_settings_activity
+    <string name="Admin_settings_Username_text">Username</string>
+    <string name="Admin_settings_Password_text">Password</string>
+    <string name="Admin_settings_Firstname_text">First name</string>
+    <string name="Admin_settings_Lastname_text">Last name</string>
+    <string name="Admin_settings_Dob_text">Date of Birth</string>
+    <string name="Admin_settings_chosen_Dob_text">Date of Birth</string>
+    <string name="Admin_settings_Username_Edit_text">Username</string>
+    <string name="Admin_settings_FirstName_Edit_text">First Name</string>
+    <string name="Admin_settings_LastName_Edit_text">Last Name</string>
+    <string name="Admin_settings_Password_Edit_text">Password</string>
+    <string name="Admin_settings_Save_Button">Save</string>
+    <string name="Admin_settings_Choose_Date_Button">Choose date</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

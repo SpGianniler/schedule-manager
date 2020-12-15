@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userUI.UserProfileSettings">
+    tools:context=".adminUI.AdminProfileSettings">
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -24,18 +24,18 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/UserSettingsUsernameText"
+                android:id="@+id/AdminSettingsUsernameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_Username_text" />
+                android:text="@string/Admin_settings_Username_text" />
 
             <EditText
-                android:id="@+id/UserSettingsUsernameEditText"
+                android:id="@+id/AdminSettingsUsernameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/User_settings_Username_Edit_text"
+                android:autofillHints="@string/Admin_settings_Username_Edit_text"
                 android:ems="10"
-                android:hint="@string/User_settings_Username_Edit_text"
+                android:hint="@string/Admin_settings_Username_Edit_text"
                 android:inputType="text" />
 
         </TableRow>
@@ -45,18 +45,18 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/UserSettingsFirstnameText"
+                android:id="@+id/AdminSettingsFirstnameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_Firstname_text" />
+                android:text="@string/Admin_settings_Firstname_text" />
 
             <EditText
-                android:id="@+id/UserSettingsFirstNameEditText"
+                android:id="@+id/AdminSettingsFirstNameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/User_settings_FirstName_Edit_text"
+                android:autofillHints="@string/Admin_settings_FirstName_Edit_text"
                 android:ems="10"
-                android:hint="@string/User_settings_FirstName_Edit_text"
+                android:hint="@string/Admin_settings_FirstName_Edit_text"
                 android:inputType="text" />
         </TableRow>
 
@@ -65,18 +65,18 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/UserSettingsLastnameText"
+                android:id="@+id/AdminSettingsLastnameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_Lastname_text" />
+                android:text="@string/Admin_settings_Lastname_text" />
 
             <EditText
-                android:id="@+id/UserSettingsLastNameEditText"
+                android:id="@+id/AdminSettingsLastNameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/User_settings_LastName_Edit_text"
+                android:autofillHints="@string/Admin_settings_LastName_Edit_text"
                 android:ems="10"
-                android:hint="@string/User_settings_LastName_Edit_text"
+                android:hint="@string/Admin_settings_LastName_Edit_text"
                 android:inputType="text" />
         </TableRow>
 
@@ -85,18 +85,18 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/UserSettingsPasswordText"
+                android:id="@+id/AdminSettingsPasswordText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_Password_text" />
+                android:text="@string/Admin_settings_Password_text" />
 
             <EditText
-                android:id="@+id/UserSettingsPasswordEditText"
+                android:id="@+id/AdminSettingsPasswordEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/User_settings_Password_Edit_text"
+                android:autofillHints="@string/Admin_settings_Password_Edit_text"
                 android:ems="10"
-                android:hint="@string/User_settings_Password_Edit_text"
+                android:hint="@string/Admin_settings_Password_Edit_text"
                 android:inputType="textPassword" />
 
         </TableRow>
@@ -106,16 +106,16 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/UserSettingsDOBText"
+                android:id="@+id/AdminSettingsDOBText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_Dob_text" />
+                android:text="@string/Admin_settings_Dob_text" />
 
             <TextView
-                android:id="@+id/UserSettingsChosenDOBText"
+                android:id="@+id/AdminSettingsChosenDOBText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_chosen_Dob_text" />
+                android:text="@string/Admin_settings_chosen_Dob_text" />
         </TableRow>
 
         <TableRow
@@ -123,19 +123,19 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/UserSettingsChooseDoBButton"
+                android:id="@+id/AdminSettingsChooseDoBButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_settings_Choose_Date_Button" />
+                android:text="@string/Admin_settings_Choose_Date_Button" />
         </TableRow>
     </TableLayout>
 
     <Button
-        android:id="@+id/UserSettingsSaveButton"
+        android:id="@+id/AdminSettingsSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:text="@string/User_settings_Save_Button"
+        android:text="@string/Admin_settings_Save_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

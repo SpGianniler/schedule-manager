@@ -22,7 +22,7 @@
             android:text="@string/pick_range_button" />
 
         <TextView
-            android:id="@+id/firstDate"
+            android:id="@+id/UserSettingsDOBText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/first_date" />

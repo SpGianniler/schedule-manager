@@ -13,11 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager"
         android:usesCleartextTraffic="true">
+
         <service
             android:name=".Messages"
             android:enabled="true"
             android:exported="true"></service>
 
+        <activity android:name=".adminUI.AdminProfileSettings"></activity>
         <activity android:name=".adminUI.SheduleAct" />
         <activity android:name=".adminUI.AdminSheduleSaves" />
         <activity android:name=".adminUI.AdminSheduleEdit" />
