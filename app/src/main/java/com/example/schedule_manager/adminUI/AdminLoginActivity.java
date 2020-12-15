@@ -47,8 +47,9 @@ public class AdminLoginActivity extends BaseActivity {
                     Eidikotita = searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
                     openActivityAWA();
                 }
-                else
-                    Toast.makeText(AdminLoginActivity.this,"Try Again",Toast.LENGTH_SHORT).show();
+                else {
+                    Toast.makeText(AdminLoginActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

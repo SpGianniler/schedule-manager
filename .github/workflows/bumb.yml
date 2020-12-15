@@ -22,3 +22,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.MY_LITTLE_SECRET }}
         WITH_V: true
         RELEASE_BRANCHES: .*
+        DEFAULT_BUMP: patch 
