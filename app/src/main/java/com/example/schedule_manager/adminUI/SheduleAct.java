@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.schedule_manager.Notifications;
+//import com.example.schedule_manager.Notifications;
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
