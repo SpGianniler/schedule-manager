@@ -8,7 +8,9 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+//import com.example.schedule_manager.Notifications;
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -85,13 +87,12 @@ public class SheduleAct extends AppCompatActivity {
 
         });
 
-        sheduleGenerateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                programmaText.setText("");
-                ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate());
-                for(int i=0; i < programma.size(); i++) {
-                    if(i % 18 == 0 && i != 0){
+        sheduleGenerateBtn.setOnClickListener(v -> {
+            programmaText.setText("");
+            ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate());
+            if(programma!=null){
+                for (int i = 0; i < programma.size(); i++) {
+                    if (i % 18 == 0 && i != 0) {
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                         Calendar c = Calendar.getInstance();
                         try {
@@ -103,8 +104,12 @@ public class SheduleAct extends AppCompatActivity {
                         firDate = sdf.format(c.getTime());
                     }
                     programmaText.append(firDate + " ");
-                    programmaText.append(programma.get(i).getVardia() + " "+ programma.get(i).getOnoma() + " "+programma.get(i).getEpitheto() + " "+programma.get(i).getEidikothta() +"\n");
+                    programmaText.append(programma.get(i).getVardia() + " " + programma.get(i).getOnoma() + " " + programma.get(i).getEpitheto() + " " + programma.get(i).getEidikothta() + "\n");
                 }
+                //Notifications not = new Notifications();
+            }
+            else{
+                Toast.makeText(this, "Pick Date",Toast.LENGTH_SHORT).show();
             }
         });
 
