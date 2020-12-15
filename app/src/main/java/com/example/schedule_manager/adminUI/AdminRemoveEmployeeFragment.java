@@ -7,24 +7,28 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.lang.ref.Reference;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.HashSet;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 
 public class AdminRemoveEmployeeFragment extends Fragment {
 
     Spinner eidSpinner;
-    String[] examples = {
-            "1",
-            "2",
-            "3",
-            "4",
-    };
-
     ArrayAdapter<String> adapterEid;
-
-
+    EditText name,surname;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,11 +44,16 @@ public class AdminRemoveEmployeeFragment extends Fragment {
 
 
     private void eidPopulateSpinner() {
-        adapterEid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples);
+        int i =0 ;
+        ArrayList<Ergazomenoi> ergazomenoiArrayList = MainActivity.getErgazomenoiArrayList();
+        String[] examples2 = new String[ergazomenoiArrayList.size()];
+        for(Ergazomenoi erg: ergazomenoiArrayList){
+             examples2[i] = erg.getErg_id()+" "+erg.getOnoma()+" "+erg.getEpitheto();
+             i++;
+        }
+
+        adapterEid = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,examples2);
         adapterEid.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         eidSpinner.setAdapter(adapterEid);
     }
-
-
-
 }

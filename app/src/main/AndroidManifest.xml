@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.schedule_manager">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Schedulemanager">
-        <activity android:name=".adminUI.AdminSheduleSaves"></activity>
+        android:theme="@style/Theme.Schedulemanager"
+        android:usesCleartextTraffic="true">
+
+        <service
+            android:name=".Messages"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".adminUI.AdminProfileSettings"></activity>
+        <activity android:name=".adminUI.SheduleAct" />
+        <activity android:name=".adminUI.AdminSheduleSaves" />
         <activity android:name=".adminUI.AdminSheduleEdit" />
         <activity android:name=".adminUI.AdminSheduleShow" />
         <activity android:name=".adminUI.AdminEditEmployeesActivity" />
@@ -30,6 +40,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+
+        <!--<service
+            android:name=".Messages">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>-->
     </application>
 
 </manifest>

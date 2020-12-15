@@ -20,10 +20,10 @@
         <ImageButton
             android:id="@+id/settingsBTN"
             android:layout_width="50dp"
-            android:contentDescription="@string/settingsImage"
             android:layout_height="50dp"
             android:layout_gravity="end"
             android:background="@color/ic_launcher_background"
+            android:contentDescription="@string/settingsImage"
             android:src="@drawable/ic_settings" />
 
         <ImageView

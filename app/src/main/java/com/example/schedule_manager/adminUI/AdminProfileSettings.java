@@ -1,4 +1,4 @@
-package com.example.schedule_manager.userUI;
+package com.example.schedule_manager.adminUI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,17 +20,17 @@ import java.util.Date;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public class UserProfileSettings extends AppCompatActivity {
+public class AdminProfileSettings extends AppCompatActivity {
 
     private Button pickButton;
     private TextView dobText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_profile_settings_activity);
+        setContentView(R.layout.activity_admin_profile_settings);
 
-        pickButton = findViewById(R.id.UserSettingsChooseDoBButton);
-        dobText=findViewById(R.id.UserSettingsChosenDOBText);
+        pickButton = findViewById(R.id.AdminSettingsChooseDoBButton);
+        dobText=findViewById(R.id.AdminSettingsChosenDOBText);
         MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("Select date");
         MaterialDatePicker materialDatePicker = builder.build();
