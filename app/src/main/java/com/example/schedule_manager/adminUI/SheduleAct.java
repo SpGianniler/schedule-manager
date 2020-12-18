@@ -24,6 +24,7 @@ public class SheduleAct extends AppCompatActivity {
     private TextView firstDate;
     private TextView secondDate;
     private Button sheduleGenerateBtn;
+    Date first,second;
 
     protected String firDate;
     protected String secDate;
@@ -73,6 +74,9 @@ public class SheduleAct extends AppCompatActivity {
                 String sd = simpleFormat.format(endDate);
                 setFirDate(fd);
                 setSecDate(sd);
+                setFirst(startDate);
+                setSecond(endDate);
+                rangeDateString();
             }
 
         });
@@ -86,6 +90,25 @@ public class SheduleAct extends AppCompatActivity {
 
     }
 
+    public void setFirst(Date first) {
+        this.first = first;
+    }
+
+    public void setSecond(Date second) {
+        this.second = second;
+    }
+
+    public Button getPickButton() {
+        return pickButton;
+    }
+
+    public Date getFirst() {
+        return first;
+    }
+
+    public Date getSecond() {
+        return second;
+    }
 
     public void setFirDate(String firDate) {
         this.firDate = firDate;
@@ -103,6 +126,15 @@ public class SheduleAct extends AppCompatActivity {
         return secDate;
     }
 
+    //String For Spinner in AdminSheduleShowTable
+    public String rangeDateString(){
+        String range;
+        range = "Start:"+getFirDate()+"End:"+getSecDate();
+        System.out.println(range);
+        return range;
+    }
+
+    //Date Range Integer
     public int getRangeDate(){
         SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date dateOne = null;
