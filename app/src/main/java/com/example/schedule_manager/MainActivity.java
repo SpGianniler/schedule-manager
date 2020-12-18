@@ -27,6 +27,8 @@ public class MainActivity extends BaseActivity {
     public static ArrayList<Credentials> credentialsList;
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
+    public static String URL = "http://192.168.56.1:8080";
+    final ErgazomenoiParseService ergazomenoiParseService = new ErgazomenoiParseService(MainActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,45 @@ public class MainActivity extends BaseActivity {
         this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
-        //Schedule.onCreate();
+
+        ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
+            @Override
+            public void onError(String message) {
+                Log.e("Callback Tag","Error");
+            }
+
+            @Override
+            public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
+                ergazomenoiArrayList = ergArrayList;
+                Log.wtf("Stop",ergazomenoiArrayList.get(1).toString());
+                ergazomenoiParseService.addErgContractData(new ErgazomenoiParseService.ErgazomenoiResponse() {
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Callback Tag","Error");
+                    }
+
+                    @Override
+                    public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
+                        ergazomenoiArrayList = ergArrayList;
+                        Log.wtf("Stop",ergazomenoiArrayList.get(1).toString());
+                    }
+                }, ergazomenoiArrayList);
+
+                ergazomenoiParseService.addErgCredData(new ErgazomenoiParseService.ErgazomenoiResponse() {
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Callback Tag","Error");
+                    }
+
+                    @Override
+                    public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
+                        ergazomenoiArrayList = ergArrayList;
+                        Log.wtf("Stop",ergazomenoiArrayList.get(1).toString());
+                    }
+                }, ergazomenoiArrayList);
+            }
+        });
+
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override

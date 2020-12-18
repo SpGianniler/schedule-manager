@@ -19,6 +19,16 @@ public class Ergazomenoi {
         this.is_admin = is_admin;
     }
 
+    public Ergazomenoi() {
+    }
+
+    public Ergazomenoi(int erg_id, String onoma, String epitheto, String eidikotita) {
+        this.onoma = onoma;
+        this.epitheto = epitheto;
+        this.eidikotita = eidikotita;
+        this.erg_id = erg_id;
+    }
+
     public String getOnoma() {
         return onoma;
     }
