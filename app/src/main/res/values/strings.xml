@@ -76,9 +76,9 @@
     <string name="emailAdminEditEmployees">E-mail</string>
     <string name="phoneAdminEditEmployees">Phone number</string>
     <string name="addAdminEditEmployeeButton">Add Employee</string>
-    <string name="radioMaleBtnAdminAddEmployee">Male</string>
-    <string name="radioFemaleBtnAdminAddEmployee">Female</string>
-    <string name="radioTextAdminAddEmployee">Choose sex:</string>
+    <string name="radioMaleBtnAdminAddEmployee">Admin</string>
+    <string name="radioFemaleBtnAdminAddEmployee">User</string>
+    <string name="radioTextAdminAddEmployee">Choose Role:</string>
     <string name="selectJid">Select Job Id</string>
 
     //admin_remove_employee_fragment.xml

@@ -5,11 +5,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import java.text.DateFormatSymbols;
@@ -22,9 +26,16 @@ import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.Vardies;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class AdminAddEmployeeFragment extends Fragment {
 
     Spinner jidSpinner;
+    RadioButton is_admin, is_user;
+    EditText name,surname,dateOfBirth;
+    JSONObject json = new JSONObject();
+    Button addButton;
 
     ArrayAdapter<String> adapterJid;
 
@@ -35,12 +46,41 @@ public class AdminAddEmployeeFragment extends Fragment {
         View view = inflater.inflate(R.layout.admin_add_employee_fragment, container, false);
 
         jidSpinner = (Spinner) view.findViewById(R.id.spinnerJid);
+        name = (EditText) view.findViewById(R.id.firstNameAdminEditEmployees);
+        surname = (EditText) view.findViewById(R.id.lastNameAdminAddEmployees);
+        dateOfBirth = (EditText) view.findViewById(R.id.birthdayAdminAddEmployees);
+        is_admin = (RadioButton) view.findViewById(R.id.radioMaleBtnAdminAddEmployee);
+        is_user =  (RadioButton) view.findViewById(R.id.radioFemaleBtnAdminAddEmployee);
+        addButton = (Button) view.findViewById(R.id.button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                try {
+                    json.put("first_name", name.getText());
+                    json.put("last_name", surname.getText());
+                    json.put("BirthDate", dateOfBirth.getText());
+                    if(is_admin.isChecked()) {
+                        json.put("is_admin",1);
+                    }
+                    else{
+                        json.put("is_admin",0);
+                    }
+                    String eidik = jidSpinner.getSelectedItem().toString();
+                    json.put("eidikotita",eidik);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            Log.wtf("ADD",json.toString());
+            }
+        });
         jidPopulateSpinner();
 
         return view;
     }
 
-
+    public JSONObject getJson() {
+        return json;
+    }
 
     private void jidPopulateSpinner() {
 
