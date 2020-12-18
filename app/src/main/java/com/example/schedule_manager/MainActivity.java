@@ -27,8 +27,14 @@ public class MainActivity extends BaseActivity {
     public static ArrayList<Credentials> credentialsList;
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
+    public static  HashMap<Integer, String> eidikotitesList;
+
     public static String URL = "http://192.168.56.1:8080";
     final ErgazomenoiParseService ergazomenoiParseService = new ErgazomenoiParseService(MainActivity.this);
+
+    public static HashMap<Integer, String> getEidikotitesList() {
+        return eidikotitesList;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,7 @@ public class MainActivity extends BaseActivity {
         this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
-
+        this.eidikotitesList = dba.getEidikotites();
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
             public void onError(String message) {

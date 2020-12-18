@@ -65,8 +65,14 @@ public class AdminAddEmployeeFragment extends Fragment {
                     else{
                         json.put("is_admin",0);
                     }
-                    String eidik = jidSpinner.getSelectedItem().toString();
-                    json.put("eidikotita",eidik);
+                    int eidikotita = 0;
+                    String eidik = (jidSpinner.getSelectedItem().toString());
+                    for(int eidikotites : MainActivity.getEidikotitesList().keySet()){
+                        if(MainActivity.getEidikotitesList().get(eidikotites).equals(eidik)){
+                            eidikotita = eidikotites;
+                        }
+                    }
+                    json.put("eidikotita",eidikotita);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

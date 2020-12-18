@@ -3,7 +3,6 @@ package com.example.schedule_manager;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -140,5 +139,18 @@ public class DataBaseAccess {
         closeDB();
         return shiftMap;
 
+    }
+    public HashMap<Integer, String> getEidikotites(){
+        openDB();
+        c = db.rawQuery("Select * from  JOBS", null);
+        HashMap<Integer, String> shiftMap = new HashMap<>();
+        while(c.moveToNext()){
+            int jid = c.getInt(0);
+            String onoma = c.getString(1);
+
+            shiftMap.put(jid,onoma);
+        }
+        closeDB();
+        return shiftMap;
     }
 }
