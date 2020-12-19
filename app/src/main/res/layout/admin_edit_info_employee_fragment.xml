@@ -1,18 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminUI.AdminEditInfoEmployeeFragment">
-
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    tools:context=".adminUI.AdminRemoveEmployeeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/listEditView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/adminEditEmployeeFragmentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text"
+                android:textSize="35sp" />
+
+
+            <TextView
+                android:id="@+id/adminEditEmployeeFragmentTextSpinner"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/adminEditEmployeeFragmentText" />
+            <Spinner
+                android:id="@+id/spinnerEditId"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                />
+
+            <EditText
+                android:id="@+id/nameEditEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:hint="@string/nameEditEmployees"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/lastnameEditEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:hint="@string/lastnameEditEmployees"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/birthEditEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:hint="@string/birthEditEmployees"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/emailEditEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:hint="@string/emailEditEmployees"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/phoneEditEmployees"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:hint="@string/phoneEditEmployees"
+                android:inputType="textPersonName" />
+
+
+
+            <Button
+                android:id="@+id/editbtn"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:text="@string/editbtn"
+                android:textAllCaps="false" />
+
+
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

@@ -123,6 +123,16 @@
     //admin_shedule_show_table_activity
     <string name="pick_saved_shedule">Pick Saved Shedule</string>
 
+    //admin_edit_info_employee_fragment
+    <string name="text">Edit Employees Info</string>
+    <string name="adminEditEmployeeFragmentText">Select id: </string>
+    <string name="nameEditEmployees">First Name</string>
+    <string name="lastnameEditEmployees">Last Name</string>
+    <string name="birthEditEmployees">Birthday</string>
+    <string name="emailEditEmployees">E-mail</string>
+    <string name="phoneEditEmployees">Phone</string>
+    <string name="editbtn">Update Info</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
