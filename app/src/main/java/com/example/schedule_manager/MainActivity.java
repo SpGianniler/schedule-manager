@@ -36,17 +36,20 @@ public class MainActivity extends BaseActivity {
         return eidikotitesList;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         DataBaseAccess dba = DataBaseAccess.getInstance(this);
+
         this.ergazomenoiArrayList = (ArrayList<Ergazomenoi>) dba.getEveryone();
         this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
         this.eidikotitesList = dba.getEidikotites();
+        Schedule.checkErg();
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
             public void onError(String message) {

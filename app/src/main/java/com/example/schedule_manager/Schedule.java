@@ -237,6 +237,24 @@
             return returnedMatrix;
         }
 
+        public static boolean checkErg(){
+            ArrayList<Vardies> ArAtomonSeVardies = (ArrayList<Vardies>) MainActivity.getVardiesList();
+            int empNo,empNoNeeded;
+            for(Vardies vrd : ArAtomonSeVardies) {
+                empNo =0;
+                empNoNeeded = vrd.getEmploeesNo();
+                for (Ergazomenoi erg :MainActivity.getErgazomenoiArrayList()) {
+                    if (vrd.getEidikotita().equals(erg.eidikotita)){
+                        empNo++;
+                    }
+                }
+                if(empNo < empNoNeeded){
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public String getVardia() {
             return vardia;
         }

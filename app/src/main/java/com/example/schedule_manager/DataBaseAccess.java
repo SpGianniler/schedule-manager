@@ -1,8 +1,10 @@
 package com.example.schedule_manager;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -152,5 +154,26 @@ public class DataBaseAccess {
         }
         closeDB();
         return shiftMap;
+    }
+    public void insertProgram(String Date, String vardia, int eid){
+        openDB();
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DataBaseOpenHelper.Date, Date);
+        contentValue.put(DataBaseOpenHelper.Vardia, vardia);
+        contentValue.put(DataBaseOpenHelper.eid, eid);
+        db.insert(DataBaseOpenHelper.TABLE_NAME, null, contentValue);
+        closeDB();
+    }
+    public void getDBSchedule(){
+        openDB();
+        c = db.rawQuery("Select * from  Schedule", null);
+        while(c.moveToNext()){
+            String Date = c.getString(0);
+            String vardia = c.getString(1);
+            int eid = c.getInt(2);
+
+            Log.d("prog",Date+" "+vardia+" "+eid);
+        }
+        closeDB();
     }
 }
