@@ -25,7 +25,7 @@ public class AdminEditEmployeesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_edit_employees_activity);
 
-        editAdminFrame = (FrameLayout) findViewById(R.id.edit_admin_frame);
+        editAdminFrame = (FrameLayout) findViewById(R.id.admin_employees_frame);
         editAdminNav = (BottomNavigationView) findViewById(R.id.bottomEditAdminNavigationView);
 
         addEmployeeFragment = new AdminAddEmployeeFragment();
@@ -61,7 +61,7 @@ public class AdminEditEmployeesActivity extends AppCompatActivity {
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.edit_admin_frame, fragment);
+        fragmentTransaction.replace(R.id.admin_employees_frame, fragment);
         fragmentTransaction.commit();
     }
 
