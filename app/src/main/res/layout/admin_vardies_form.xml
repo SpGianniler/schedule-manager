@@ -72,7 +72,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/checkMhxanikos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -88,7 +88,7 @@
                 android:text="@string/arithmos_txt" />
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/editTextMhxanikos"
                 android:layout_width="50sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -104,7 +104,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/checkGrammateia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -120,7 +120,7 @@
                 android:text="@string/arithmos_txt" />
 
             <EditText
-                android:id="@+id/editTextNumber2"
+                android:id="@+id/editTextGrammateia"
                 android:layout_width="50sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -136,7 +136,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox7"
+                android:id="@+id/checkGrmParagwgis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -152,7 +152,7 @@
                 android:text="@string/arithmos_txt" />
 
             <EditText
-                android:id="@+id/editTextNumber3"
+                android:id="@+id/editTextGrmParagwgis"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="1dp"
                 android:layout_width="50sp"
@@ -168,7 +168,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox6"
+                android:id="@+id/checkKatharisths"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -184,7 +184,7 @@
                 android:text="@string/arithmos_txt"/>
 
             <EditText
-                android:id="@+id/editTextNumber4"
+                android:id="@+id/editTextKatharisths"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="1dp"
                 android:layout_width="50sp"
@@ -200,7 +200,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox8"
+                android:id="@+id/checkEpivlepon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -216,7 +216,7 @@
                 android:text="@string/arithmos_txt" />
 
             <EditText
-                android:id="@+id/editTextNumber5"
+                android:id="@+id/editTextEpivlepon"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="1dp"
                 android:layout_width="50sp"
