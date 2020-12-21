@@ -110,8 +110,9 @@ public class SheduleAct extends AppCompatActivity {
                             c.add(Calendar.DATE, 1);  // number of days to add
                             firDate = sdf.format(c.getTime());
                         }
-                        programmaText.append(firDate + " ");
-                        programmaText.append(programma.get(i).getVardia() + " " + programma.get(i).getOnoma() + " " + programma.get(i).getEpitheto() + " " + programma.get(i).getEidikothta() + "\n");
+                       // programmaText.append(firDate + " ");
+                        programma.get(i).setDate(firDate);
+                        programmaText.append(programma.get(i).getDate()+" "+programma.get(i).getVardia() + " " + programma.get(i).getOnoma() + " " + programma.get(i).getEpitheto() + " " + programma.get(i).getEidikothta() + "\n");
                         int eid = 0;
                         for (Ergazomenoi erg : MainActivity.getErgazomenoiArrayList()) {
                             if (erg.getEpitheto().equals(programma.get(i).getEpitheto()) && erg.getOnoma().equals(programma.get(i).getOnoma())) {

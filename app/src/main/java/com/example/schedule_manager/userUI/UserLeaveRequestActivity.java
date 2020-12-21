@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.schedule_manager.DataBaseAccess;
 import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 
@@ -30,20 +31,25 @@ public class UserLeaveRequestActivity extends AppCompatActivity {
         ETdate = (EditText) findViewById(R.id.UserLeaveDateET);
         ETduration = (EditText) findViewById(R.id.UserLeaveDurationET);
         ETreason = (EditText) findViewById(R.id.UserLeaveReasonET);
+        DataBaseAccess dba = DataBaseAccess.getInstance(this);
         request_leave = (Button) findViewById(R.id.user_request_leave_button);
         request_leave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                String hmer = ETdate.getText().toString();
+                int diar = Integer.valueOf(ETduration.getText().toString());
+                String logos = ETreason.getText().toString();
+                int eid = UserLoginActivity.getEid();
 
-                JSONObject json = null;
+                dba.insertAdeia(hmer,diar,logos,eid);
+               /* JSONObject json = null;
                 try {
-                    json.put("Date", date.getText());
-                    json.put("Duration", duration.getText());
-                    json.put("Reason", reason.getText());
+                    json.put("Date", ETdate.getText().toString());
+                    json.put("Duration", ETduration.getText().toString());
+                    json.put("Reason", ETreason.getText().toString());
                    // json.put("eid",geteid)
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
-                Log.wtf("ADD",json.toString());
+                }*/
             }
         });
     }

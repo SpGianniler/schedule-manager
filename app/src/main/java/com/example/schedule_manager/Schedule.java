@@ -10,6 +10,7 @@
     import java.util.Random;
 
     public class Schedule {
+        String date;
         String vardia;
         String onoma;
         String epitheto;
@@ -120,7 +121,8 @@
 
         }
 
-        public Schedule(String vardia, String onoma, String epitheto, String eidikothta) {
+        public Schedule(String Date, String vardia, String onoma, String epitheto, String eidikothta) {
+            this.date = Date;
             this.vardia = vardia;
             this.onoma = onoma;
             this.epitheto = epitheto;
@@ -255,6 +257,13 @@
             return true;
         }
 
+        public Schedule(String vardia, String onoma, String epitheto, String eidikothta) {
+            this.vardia = vardia;
+            this.onoma = onoma;
+            this.epitheto = epitheto;
+            this.eidikothta = eidikothta;
+        }
+
         public String getVardia() {
             return vardia;
         }
@@ -270,4 +279,13 @@
         public String getEidikothta() {
             return eidikothta;
         }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
     }
