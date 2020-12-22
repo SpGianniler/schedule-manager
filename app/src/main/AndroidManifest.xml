@@ -20,6 +20,8 @@
             android:exported="true"></service>
 
         <activity android:name=".adminUI.AdminProfileSettings"></activity>
+        <activity android:name=".userUI.UserSeeSqheduleActivity"></activity>
+        <activity android:name=".userUI.UserLeaveRequestActivity"></activity>
         <activity android:name=".adminUI.SheduleAct" />
         <activity android:name=".adminUI.AdminSheduleSaves" />
         <activity android:name=".adminUI.AdminSheduleEdit" />

@@ -25,6 +25,7 @@ public class MainActivity extends BaseActivity {
     private Button adminLoginButton;
     public static ArrayList<Ergazomenoi> ergazomenoiArrayList;
     public static ArrayList<Credentials> credentialsList;
+    public static ArrayList<Adeies> AdeiesList;
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
     public static  HashMap<Integer, String> eidikotitesList;
@@ -36,17 +37,25 @@ public class MainActivity extends BaseActivity {
         return eidikotitesList;
     }
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         DataBaseAccess dba = DataBaseAccess.getInstance(this);
+
+
+
         this.ergazomenoiArrayList = (ArrayList<Ergazomenoi>) dba.getEveryone();
         this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
         this.eidikotitesList = dba.getEidikotites();
+        this.AdeiesList = dba.getAdeies();
+
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
             public void onError(String message) {
@@ -134,6 +143,10 @@ public class MainActivity extends BaseActivity {
 
     public static List<Vardies> getVardiesList() {
         return vardiesList;
+    }
+
+    public static ArrayList<Adeies> getAdeiesList() {
+        return AdeiesList;
     }
 }
 

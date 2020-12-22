@@ -18,6 +18,7 @@ public class UserLoginActivity extends BaseActivity {
     private Button userLoginButton;
     protected static String Username;
     protected static String Eidikotita;
+    protected static int eid=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class UserLoginActivity extends BaseActivity {
                 result = Credentials.isValid(usernametext,passwordtext,false, MainActivity.getCredentialsArrayList());
 
                 if(result){
-                    int eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);
+                    eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);
                     Username = AdminLoginActivity.searchByEid(eid, MainActivity.getErgazomenoiArrayList());
                     Eidikotita = AdminLoginActivity.searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
                     openActivityUWS();
@@ -58,6 +59,8 @@ public class UserLoginActivity extends BaseActivity {
     public static String getUsername() {
         return Username;
     }
+
+    public static int getEid(){return eid;}
 
     public void openActivityUWS(){
         Intent intent = new Intent(this, UserWelcomeActivity.class);
