@@ -146,6 +146,21 @@
     <string name="Admin_settings_Password_Edit_text">Password</string>
     <string name="Admin_settings_Save_Button">Save</string>
     <string name="Admin_settings_Choose_Date_Button">Choose date</string>
+
+
+    //user_request_leave_activity
+    <string name="UserLeaveDate">Date:</string>
+    <string name="UserLeaveDateET">Date</string>
+    <string name="UserLeaveDuration">Duration:</string>
+    <string name="UserLeaveDurationET">Duration</string>
+    <string name="UserLeaveReason">Reason:</string>
+    <string name="UserLeaveReasonET">Reason</string>
+    <string name="RequestBtn">Request</string>
+
+
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
