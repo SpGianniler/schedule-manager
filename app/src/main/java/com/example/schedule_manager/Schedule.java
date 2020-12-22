@@ -16,12 +16,17 @@
         String eidikothta;
 
         static ArrayList<Schedule> sched = new ArrayList<>();
+        static ArrayList<Ergazomenoi> ergazomenoiList;
+        static HashMap<String, String> shiftsMap;
+        static List<Vardies> vardiesList;
+        static Matrix matrix[];
+
         static public ArrayList<Schedule> onCreate(int diarkeia) {
 
-            List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
-            HashMap<String, String> shiftsMap = MainActivity.getShiftsMap();
-            List<Vardies> vardiesList = MainActivity.getVardiesList();
-            Matrix matrix[] = new Matrix[ergazomenoiList.size()];
+            ergazomenoiList = MainActivity.getErgazomenoiArrayList();
+            shiftsMap = MainActivity.getShiftsMap();
+            vardiesList = MainActivity.getVardiesList();
+            matrix = new Matrix[ergazomenoiList.size()];
             int i = 0;
 
             for (Ergazomenoi erg : ergazomenoiList) {
@@ -252,4 +257,20 @@
         public String getEidikothta() {
             return eidikothta;
         }
+        public static List<Vardies> getVardiesList() {
+            return vardiesList;
+        }
+        public static ArrayList<Ergazomenoi> getErgazomenoiList() {
+            return ergazomenoiList;
+        }
+
+        public static HashMap<String, String> getShiftsMap() {
+            return shiftsMap;
+        }
+
+        public static Matrix[] getMatrix() {
+            return matrix;
+        }
+
+
     }

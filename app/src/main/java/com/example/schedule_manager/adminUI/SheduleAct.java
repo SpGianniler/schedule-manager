@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.example.schedule_manager.Notifications;
+import com.example.schedule_manager.Export;
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -18,6 +19,7 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +34,10 @@ public class SheduleAct extends AppCompatActivity {
     private TextView secondDate;
     private Button sheduleGenerateBtn;
     private TextView programmaText;
+    private  ArrayList<Schedule> programma;
 
+
+    private Button testRemove;
     protected String firDate;
     protected String secDate;
 
@@ -47,7 +52,7 @@ public class SheduleAct extends AppCompatActivity {
         secondDate = (TextView) findViewById(R.id.secondDate);
         programmaText = (TextView) findViewById(R.id.textView10);
         programmaText.setMovementMethod(new ScrollingMovementMethod());
-
+        testRemove =(Button) findViewById(R.id.testRomove);
         //MaterialDatePicker
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
         builder.setTitleText("Select date range");
@@ -89,7 +94,7 @@ public class SheduleAct extends AppCompatActivity {
 
         sheduleGenerateBtn.setOnClickListener(v -> {
             programmaText.setText("");
-            ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate());
+            programma = Schedule.onCreate(getRangeDate());
             if(programma!=null){
                 for (int i = 0; i < programma.size(); i++) {
                     if (i % 18 == 0 && i != 0) {
@@ -112,8 +117,20 @@ public class SheduleAct extends AppCompatActivity {
                 Toast.makeText(this, "Pick Date",Toast.LENGTH_SHORT).show();
             }
         });
+        //remove this
+        testRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Export.ExportWhole(programma.get(0).getErgazomenoiList(), programma.get(0).getMatrix(), programma.get(0).getShiftsMap(), programma, firDate, 18);
+                }catch (IOException e){
+
+                }
+            }
+        });
 
     }
+
 
 
     public void setFirDate(String firDate) {
