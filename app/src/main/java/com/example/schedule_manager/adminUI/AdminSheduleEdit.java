@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -187,7 +188,9 @@ public class AdminSheduleEdit extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this, "Συμπλήρωσε Όλα Τα Πεδία!", Toast.LENGTH_SHORT).show();
         }
 
-        System.out.println(vardies);
+        for( Vardies vrd : vardies) {
+           Log.wtf("Vardies",vrd.getEidikotita()+" "+vrd.getOnoma()+" "+vrd.getEmploeesNo());
+        }
         System.out.println("SAKTA");
 
     }
