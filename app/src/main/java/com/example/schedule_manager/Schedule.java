@@ -4,7 +4,10 @@
 
     import java.io.FileWriter;
     import java.io.IOException;
+    import java.text.ParseException;
+    import java.text.SimpleDateFormat;
     import java.util.ArrayList;
+    import java.util.Calendar;
     import java.util.HashMap;
     import java.util.List;
     import java.util.Random;
@@ -17,7 +20,7 @@
         String eidikothta;
 
         static ArrayList<Schedule> sched = new ArrayList<>();
-        static public ArrayList<Schedule> onCreate(int diarkeia) {
+        static public ArrayList<Schedule> onCreate(int diarkeia, String firDate) {
 
             List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
             HashMap<String, String> shiftsMap = MainActivity.getShiftsMap();
@@ -30,7 +33,31 @@
                 i++;
             }
             for(int meres =0; meres <diarkeia; meres++) {
+                ArrayList<String> arg = (ArrayList<String>) MainActivity.getArgeiesList();
+                for(String argia : arg){
+                    if(argia.equals(firDate)){
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Calendar c = Calendar.getInstance();
+                        try {
+                            c.setTime(sdf.parse(firDate));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        c.add(Calendar.DATE, 1);  // number of days to add
+                        firDate = sdf.format(c.getTime());
+                    }
+                }
+                //if(firDate.equals())
                 createSchedule(matrix, vardiesList, shiftsMap);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar c = Calendar.getInstance();
+                try {
+                    c.setTime(sdf.parse(firDate));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                c.add(Calendar.DATE, 1);  // number of days to add
+                firDate = sdf.format(c.getTime());
             }
             /*for(int j=0; j < sched.size(); j++){
                 if(j%18 == 0) {

@@ -127,6 +127,20 @@ public class DataBaseAccess {
         closeDB();
         return returnList;
     }
+
+    public List<String> getArgeies(){
+        openDB();
+        c = db.rawQuery("Select * from Argies", null);
+        List<String> returnList = new ArrayList<>();
+        while(c.moveToNext()){
+            String argeia = c.getString(0);
+            returnList.add(argeia);
+
+        }
+        closeDB();
+        return returnList;
+    }
+
     public HashMap<String, String> getShifts(){
         openDB();
         c = db.rawQuery("Select * from  SHIFTS", null);
