@@ -4,16 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 
 import android.os.Bundle;
+import android.renderscript.Sampler;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+//import com.example.schedule_manager.Notifications;
+import com.example.schedule_manager.DataBaseAccess;
+import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
+import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import org.w3c.dom.Text;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,7 +36,8 @@ public class SheduleAct extends AppCompatActivity {
     private TextView firstDate;
     private TextView secondDate;
     private Button sheduleGenerateBtn;
-    Date first,second;
+    protected Date first,second;
+    private TextView programmaText;
 
     protected String firDate;
     protected String secDate;
@@ -36,8 +49,10 @@ public class SheduleAct extends AppCompatActivity {
 
         pickButton = (Button) findViewById(R.id.pick_range_btn);
         sheduleGenerateBtn = (Button) findViewById(R.id.generate_btn);
-        firstDate = (TextView) findViewById(R.id.firstDate);
+        firstDate = (TextView) findViewById(R.id.UserSettingsDOBText);
         secondDate = (TextView) findViewById(R.id.secondDate);
+        programmaText = (TextView) findViewById(R.id.textView10);
+        programmaText.setMovementMethod(new ScrollingMovementMethod());
 
         //MaterialDatePicker
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
@@ -67,8 +82,8 @@ public class SheduleAct extends AppCompatActivity {
                // SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 //              Display it by setText
-                firstDate.setText("Start Date : "+ simpleFormat.format(startDate));
-                secondDate.setText("End Date:"+ simpleFormat.format(endDate) );
+                firstDate.setText("Start Date: "+ simpleFormat.format(startDate));
+                secondDate.setText("End Date: "+ simpleFormat.format(endDate) );
 
                 String fd = simpleFormat.format(startDate);
                 String sd = simpleFormat.format(endDate);
@@ -81,10 +96,42 @@ public class SheduleAct extends AppCompatActivity {
 
         });
 
-        sheduleGenerateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               //KWDIKAS GIA THN EMFANISH TOU SHEDULE
+        sheduleGenerateBtn.setOnClickListener(v -> {
+            programmaText.setText("");
+            if(Schedule.checkErg()) {
+                ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate());
+                if (programma != null) {
+                    DataBaseAccess dba = DataBaseAccess.getInstance(this);
+                    for (int i = 0; i < programma.size(); i++) {
+                        if (i % 18 == 0 && i != 0) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                            Calendar c = Calendar.getInstance();
+                            try {
+                                c.setTime(sdf.parse(firDate));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            c.add(Calendar.DATE, 1);  // number of days to add
+                            firDate = sdf.format(c.getTime());
+                        }
+                       // programmaText.append(firDate + " ");
+                        programma.get(i).setDate(firDate);
+                        programmaText.append(programma.get(i).getDate()+" "+programma.get(i).getVardia() + " " + programma.get(i).getOnoma() + " " + programma.get(i).getEpitheto() + " " + programma.get(i).getEidikothta() + "\n");
+                        int eid = 0;
+                        for (Ergazomenoi erg : MainActivity.getErgazomenoiArrayList()) {
+                            if (erg.getEpitheto().equals(programma.get(i).getEpitheto()) && erg.getOnoma().equals(programma.get(i).getOnoma())) {
+                                eid = erg.getErg_id();
+                            }
+                        }
+                        dba.insertProgram(firDate, programma.get(i).getVardia(), eid);
+                    }
+                    //Notifications not = new Notifications();
+                } else {
+                    Toast.makeText(this, "Pick Date", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                Toast.makeText(this,"Not Enough Employees",Toast.LENGTH_SHORT).show();
             }
         });
 

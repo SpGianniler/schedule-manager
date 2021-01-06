@@ -1,9 +1,9 @@
 package com.example.schedule_manager;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -141,4 +141,79 @@ public class DataBaseAccess {
         return shiftMap;
 
     }
+    public HashMap<Integer, String> getEidikotites(){
+        openDB();
+        c = db.rawQuery("Select * from  JOBS", null);
+        HashMap<Integer, String> shiftMap = new HashMap<>();
+        while(c.moveToNext()){
+            int jid = c.getInt(0);
+            String onoma = c.getString(1);
+
+            shiftMap.put(jid,onoma);
+        }
+        closeDB();
+        return shiftMap;
+    }
+    public void insertProgram(String Date, String vardia, int eid){
+        openDB();
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DataBaseOpenHelper.Date, Date);
+        contentValue.put(DataBaseOpenHelper.Vardia, vardia);
+        contentValue.put(DataBaseOpenHelper.eid, eid);
+        db.insert(DataBaseOpenHelper.TABLE_NAME, null, contentValue);
+        closeDB();
+    }
+    public ArrayList<Schedule> getDBSchedule(){
+        openDB();
+        ArrayList <Schedule> programma = new ArrayList<>();
+        c = db.rawQuery("Select * from  Schedule", null);
+        while(c.moveToNext()){
+            String Date = c.getString(0);
+            String vardia = c.getString(1);
+            int eid = c.getInt(2);
+
+            for(Ergazomenoi erg : MainActivity.getErgazomenoiArrayList()){
+                if(erg.getErg_id() == eid){
+                    Schedule sch = new Schedule(Date,vardia , erg.getOnoma(), erg.getEpitheto(), erg.eidikotita);
+                    programma.add(sch);
+                }
+            }
+        }
+        closeDB();
+        return programma;
+    }
+    public void insertAdeia(String Date, int Duration, String Reason, int eid){
+        openDB();
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DataBaseOpenHelper.LeaveDate, Date);
+        contentValue.put(DataBaseOpenHelper.LeaveDuration, Duration);
+        contentValue.put(DataBaseOpenHelper.eid, eid);
+        contentValue.put(DataBaseOpenHelper.LeaveReason, Reason);
+        db.insert(DataBaseOpenHelper.LEAVE_TABLE, null, contentValue);
+        closeDB();
+    }
+
+    public ArrayList<Adeies> getAdeies(){
+        openDB();
+        ArrayList<Adeies> adeies= new ArrayList<>();
+        c = db.rawQuery("Select * from  Leaves", null);
+        while(c.moveToNext()){
+            String Date = c.getString(0);
+            int eid = c.getInt(1);
+            int Duration = c.getInt(2);
+            String Reason = c.getString(3);
+            adeies.add(new Adeies(Date, eid, Duration, Reason));
+        }
+        closeDB();
+        return adeies;
+    }
+
+    /*public void updateErg(String onoma, String epitheto, int eid){
+        openDB();
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DataBaseOpenHelper.EmployeeFirstName, onoma);
+        contentValue.put(DataBaseOpenHelper.EmployeeLastName, epitheto);
+        db.update(DataBaseOpenHelper.EMPLOYEES_TABLE, contentValue, "eid = ?", new String[]{onoma});
+        closeDB();
+    }*/
 }

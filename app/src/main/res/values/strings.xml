@@ -76,9 +76,9 @@
     <string name="emailAdminEditEmployees">E-mail</string>
     <string name="phoneAdminEditEmployees">Phone number</string>
     <string name="addAdminEditEmployeeButton">Add Employee</string>
-    <string name="radioMaleBtnAdminAddEmployee">Male</string>
-    <string name="radioFemaleBtnAdminAddEmployee">Female</string>
-    <string name="radioTextAdminAddEmployee">Choose sex:</string>
+    <string name="radioMaleBtnAdminAddEmployee">Admin</string>
+    <string name="radioFemaleBtnAdminAddEmployee">User</string>
+    <string name="radioTextAdminAddEmployee">Choose Role:</string>
     <string name="selectJid">Select Job Id</string>
 
     //admin_remove_employee_fragment.xml
@@ -150,6 +150,48 @@
     <string name="arithmos_txt">Αριθμός Εργαζόμενων:</string>
     <string name="eidikothtes">Ειδικότητες Βάρδιας:</string>
     <string name="onoma_vardias">Όνομα Βάρδιας</string>
+
+
+
+
+    //User_profile_settings_activity
+    <string name="User_settings_Username_text">Username</string>
+    <string name="User_settings_Password_text">Password</string>
+    <string name="User_settings_Firstname_text">First name</string>
+    <string name="User_settings_Lastname_text">Last name</string>
+    <string name="User_settings_Dob_text">Date of Birth</string>
+    <string name="User_settings_chosen_Dob_text">Date of Birth</string>
+    <string name="User_settings_Username_Edit_text">Username</string>
+    <string name="User_settings_FirstName_Edit_text">First Name</string>
+    <string name="User_settings_LastName_Edit_text">Last Name</string>
+    <string name="User_settings_Password_Edit_text">Password</string>
+    <string name="User_settings_Save_Button">Save</string>
+    <string name="User_settings_Choose_Date_Button">Choose date</string>
+
+    //Admin_profile_settings_activity
+    <string name="Admin_settings_Username_text">Username</string>
+    <string name="Admin_settings_Password_text">Password</string>
+    <string name="Admin_settings_Firstname_text">First name</string>
+    <string name="Admin_settings_Lastname_text">Last name</string>
+    <string name="Admin_settings_Dob_text">Date of Birth</string>
+    <string name="Admin_settings_chosen_Dob_text">Date of Birth</string>
+    <string name="Admin_settings_Username_Edit_text">Username</string>
+    <string name="Admin_settings_FirstName_Edit_text">First Name</string>
+    <string name="Admin_settings_LastName_Edit_text">Last Name</string>
+    <string name="Admin_settings_Password_Edit_text">Password</string>
+    <string name="Admin_settings_Save_Button">Save</string>
+    <string name="Admin_settings_Choose_Date_Button">Choose date</string>
+
+
+    //user_request_leave_activity
+    <string name="UserLeaveDate">Date:</string>
+    <string name="UserLeaveDateET">Date</string>
+    <string name="UserLeaveDuration">Duration:</string>
+    <string name="UserLeaveDurationET">Duration</string>
+    <string name="UserLeaveReason">Reason:</string>
+    <string name="UserLeaveReasonET">Reason</string>
+    <string name="RequestBtn">Request</string>
+
 
 
 
