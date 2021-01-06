@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".adminUI.HorizontalCalendarAdmin"></activity>
+        <activity android:name=".adminUI.AdminSheduleShowTable" />
         <service
             android:name=".Messages"
             android:enabled="true"

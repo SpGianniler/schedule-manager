@@ -92,9 +92,10 @@
     <string name="adminShowEmployeesText">List Employees</string>
 
     //admin_shedule_fragment.xml
-    <string name="adminShowSheduleButton">Show Shedule</string>
+    <string name="adminGenerateSheduleButton">Generate Shedule</string>
     <string name="adminEditSheduleButton">Edit Shedule</string>
     <string name="adminSavesSheduleButton">Saves</string>
+    <string name="adminShowSheduleButton">Show Shedule</string>
 
     //admin_shedule_show_activity.xml
     <string name="adminSheduleShowText">Pick a date.</string>
@@ -116,8 +117,42 @@
     <string name="generate_shedule">Generate Shedule</string>
     <string name="show_shedule">Show Shedule</string>
 
+    //admin_shedule_show_table_activity
+    <string name="pick_saved_shedule">Pick Saved Shedule</string>
+
+    //admin_edit_info_employee_fragment
+    <string name="text">Edit Employees Info</string>
+    <string name="adminEditEmployeeFragmentText">Select id: </string>
+    <string name="nameEditEmployees">First Name</string>
+    <string name="lastnameEditEmployees">Last Name</string>
+    <string name="birthEditEmployees">Birthday</string>
+    <string name="emailEditEmployees">E-mail</string>
+    <string name="phoneEditEmployees">Phone</string>
+    <string name="editbtn">Update Info</string>
+
+    //vardies_menu
+    <string name="mAdminVardiesAdd">Add Vardia</string>
+    <string name="mAdminVardiesRemove">Remove Vardia</string>
+    <string name="mAdminVardiesEdit">Edit Vardies</string>
+
+    //admin_vardia_add_fragment
+    <string name="admin_add_vardia">Προσθήκη Βάρδιας</string>
+    <string name="new_vardia">Νέα Βάρδια</string>
+    <string name="now_vardies">Καταχωρημένες Βάρδιες:  </string>
+    <string name="textvardies"></string>
+
     //admin_shedule_edit_activity
-    <string name="edit_shedule_text">Change shedule options.</string>
+    <string name="vardies_txt">Διαχείρηση Βαρδιών</string>
+    <string name="new_vardia_btn">Προσθήκη Βάρδιας</string>
+    <string name="ypovolh_vardia_btn">Υποβολή</string>
+
+    //admin_vardies_form
+    <string name="arithmos_txt">Αριθμός Εργαζόμενων:</string>
+    <string name="eidikothtes">Ειδικότητες Βάρδιας:</string>
+    <string name="onoma_vardias">Όνομα Βάρδιας</string>
+
+
+
 
     //User_profile_settings_activity
     <string name="User_settings_Username_text">Username</string>

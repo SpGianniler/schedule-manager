@@ -23,6 +23,7 @@ public class AdminShowEmployeesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_show_employees_activity);
+
         DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance(getApplicationContext());
         dataBaseAccess.openDB();
         List<Ergazomenoi> ergazomenoiList = dataBaseAccess.getEveryone();
