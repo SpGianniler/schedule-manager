@@ -28,6 +28,7 @@ public class MainActivity extends BaseActivity {
     public static ArrayList<Adeies> AdeiesList;
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
+    public static List<String> ArgeiesList;
     public static  HashMap<Integer, String> eidikotitesList;
 
     public static String URL = "http://192.168.56.1:8080";
@@ -55,6 +56,7 @@ public class MainActivity extends BaseActivity {
         this.vardiesList = dba.getVardies();
         this.eidikotitesList = dba.getEidikotites();
         this.AdeiesList = dba.getAdeies();
+        this.ArgeiesList = dba.getArgeies();
 
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
@@ -139,6 +141,10 @@ public class MainActivity extends BaseActivity {
 
     public static HashMap<String, String> getShiftsMap() {
         return shiftsMap;
+    }
+
+    public static List<String> getArgeiesList() {
+        return ArgeiesList;
     }
 
     public static List<Vardies> getVardiesList() {
