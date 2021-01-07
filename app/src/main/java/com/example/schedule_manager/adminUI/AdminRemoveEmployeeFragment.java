@@ -80,6 +80,9 @@ public class AdminRemoveEmployeeFragment extends Fragment {
         return json;
     }
 
+    /**
+     * Gemizei to spiner me tous kataxvrhmenous ergazomenous
+     */
     private void eidPopulateSpinner() {
         int i =0 ;
         ArrayList<Ergazomenoi> ergazomenoiArrayList = MainActivity.getErgazomenoiArrayList();
