@@ -43,11 +43,11 @@ public class ErgazomenoiParseService {
                             JSONObject jsonObject = response.getJSONObject(i);
 
                             int eid = jsonObject.getInt("eid");
-                            String first_name = jsonObject.getString("first_name");
-                            String last_name = jsonObject.getString("last_name");
-                            String job_name = Integer.toString(jsonObject.getInt("jid"));
+                            String firstName = jsonObject.getString("first_name");
+                            String lastName = jsonObject.getString("last_name");
+                            String jobName = Integer.toString(jsonObject.getInt("jid"));
 
-                            ergazomenoiArrayList.add(new Ergazomenoi(eid,first_name,last_name,job_name));
+                            ergazomenoiArrayList.add(new Ergazomenoi(eid,firstName,lastName,jobName));
 //                            Log.e("Array tag 1",ergazomenoiArrayList.get(i).onoma);
                         }
                         ergazomenoiResponse.onResponse(ergazomenoiArrayList);
@@ -123,5 +123,4 @@ public class ErgazomenoiParseService {
         );
         RequestSingleton.getInstance(context).addToRequestQueue(jsonErgCredRequest);
     }
-
 }

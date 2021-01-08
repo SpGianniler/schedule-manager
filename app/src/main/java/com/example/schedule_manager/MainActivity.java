@@ -24,12 +24,12 @@ public class MainActivity extends BaseActivity {
     private Button userLoginButton;
     private Button adminLoginButton;
     public static ArrayList<Ergazomenoi> ergazomenoiArrayList;
-    public static ArrayList<Credentials> credentialsList;// TODO: 08/01/2021 add service?
-    public static ArrayList<Adeies> AdeiesList;
-    public static HashMap<String, String> shiftsMap;// TODO: 08/01/2021 add service?
+    public static ArrayList<Credentials> credentialsList;
+    public static ArrayList<Adeies> adeiesList;
+    public static HashMap<String, String> shiftsMap;// TODO: 08/01/2021 change call
     public static List<Vardies> vardiesList;
-    public static List<String> ArgeiesList; // TODO: 08/01/2021 add service
-    public static  HashMap<Integer, String> eidikotitesList; // TODO: 08/01/2021 add service?
+    public static List<String> argeiesList;
+    public static  HashMap<Integer, String> eidikotitesList; // TODO: 08/01/2021 change call
 
     public static String URL = "http://192.168.56.1:8080";
     final ErgazomenoiParseService ergazomenoiParseService = new ErgazomenoiParseService(MainActivity.this);
@@ -37,8 +37,6 @@ public class MainActivity extends BaseActivity {
     public static HashMap<Integer, String> getEidikotitesList() {
         return eidikotitesList;
     }
-
-
 
 
     @Override
@@ -55,8 +53,8 @@ public class MainActivity extends BaseActivity {
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
         this.eidikotitesList = dba.getEidikotites();
-        this.AdeiesList = dba.getAdeies();
-        this.ArgeiesList = dba.getArgeies();
+        this.adeiesList = dba.getAdeies();
+        this.argeiesList = dba.getArgeies();
 
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
@@ -144,7 +142,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public static List<String> getArgeiesList() {
-        return ArgeiesList;
+        return argeiesList;
     }
 
     public static List<Vardies> getVardiesList() {
@@ -152,7 +150,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public static ArrayList<Adeies> getAdeiesList() {
-        return AdeiesList;
+        return adeiesList;
     }
 }
 

@@ -51,7 +51,6 @@ public class VardiesParseService {
                     } catch (JSONException e){
                         Log.e("getErgDataError","JSONException caught");
                     }
-
                 },
                 error -> {
                     Log.e("Array Response Error", error.toString());

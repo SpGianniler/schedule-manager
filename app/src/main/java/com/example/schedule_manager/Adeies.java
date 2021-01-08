@@ -1,24 +1,24 @@
 package com.example.schedule_manager;
 
 public class Adeies {
-    protected String Date;
+    protected String date;
     protected int eid ;
-    protected int Duration ;
-    protected String Reason;
+    protected int duration;
+    protected String reason;
 
     public Adeies(String date, int eid, int duration, String reason) {
-        Date = date;
+        this.date = date;
         this.eid = eid;
-        Duration = duration;
-        Reason = reason;
+        this.duration = duration;
+        this.reason = reason;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
     public int getEid() {
@@ -30,18 +30,18 @@ public class Adeies {
     }
 
     public int getDuration() {
-        return Duration;
+        return duration;
     }
 
     public void setDuration(int duration) {
-        Duration = duration;
+        this.duration = duration;
     }
 
     public String getReason() {
-        return Reason;
+        return reason;
     }
 
     public void setReason(String reason) {
-        Reason = reason;
+        this.reason = reason;
     }
 }
