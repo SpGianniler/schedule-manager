@@ -25,20 +25,24 @@ public class MainActivity extends BaseActivity {
     private Button adminLoginButton;
     public static ArrayList<Ergazomenoi> ergazomenoiArrayList;
     public static ArrayList<Credentials> credentialsList;
-    public static ArrayList<Adeies> AdeiesList;
+    public static ArrayList<Adeies> adeiesList;
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
-    public static List<String> ArgeiesList;
-    public static  HashMap<Integer, String> eidikotitesList;
+    public static List<String> argeiesList;
+    public static  HashMap<Integer, String> eidikotitesMap; // TODO: 08/01/2021 change call
 
-    public static String URL = "http://192.168.56.1:8080";
+    public static final String URL = "http://192.168.56.1:8080";
+    public final MainService mainService = new MainService();
+    final AdeiesParseService adeiesParseService = new AdeiesParseService(MainActivity.this);
+    final ArgiesParseService argiesParseService = new ArgiesParseService(MainActivity.this);
+    final CredentialsParseService credentialsParseService = new CredentialsParseService(MainActivity.this);
+    final VardiesParseService vardiesParseService = new VardiesParseService(MainActivity.this);
     final ErgazomenoiParseService ergazomenoiParseService = new ErgazomenoiParseService(MainActivity.this);
 
-    public static HashMap<Integer, String> getEidikotitesList() {
-        return eidikotitesList;
+
+    public static HashMap<Integer, String> getEidikotitesMap() {
+        return eidikotitesMap;
     }
-
-
 
 
     @Override
@@ -46,55 +50,15 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DataBaseAccess dba = DataBaseAccess.getInstance(this);
+//        DataBaseAccess dba = DataBaseAccess.getInstance(this);
+
+        callAdeiesService();
+        callArgiesService();
+        callCredService();
+        callErgService();
+        callVardService();
 
 
-
-        this.ergazomenoiArrayList = (ArrayList<Ergazomenoi>) dba.getEveryone();
-        this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
-        this.shiftsMap = dba.getShifts();
-        this.vardiesList = dba.getVardies();
-        this.eidikotitesList = dba.getEidikotites();
-        this.AdeiesList = dba.getAdeies();
-        this.ArgeiesList = dba.getArgeies();
-
-        ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
-            @Override
-            public void onError(String message) {
-                Log.e("Callback Tag","Error");
-            }
-
-            @Override
-            public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
-                ergazomenoiArrayList = ergArrayList;
-                Log.wtf("Stop",ergazomenoiArrayList.get(1).toString());
-                ergazomenoiParseService.addErgContractData(new ErgazomenoiParseService.ErgazomenoiResponse() {
-                    @Override
-                    public void onError(String message) {
-                        Log.e("Callback Tag","Error");
-                    }
-
-                    @Override
-                    public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
-                        ergazomenoiArrayList = ergArrayList;
-                        Log.wtf("Stop",ergazomenoiArrayList.get(1).toString());
-                    }
-                }, ergazomenoiArrayList);
-
-                ergazomenoiParseService.addErgCredData(new ErgazomenoiParseService.ErgazomenoiResponse() {
-                    @Override
-                    public void onError(String message) {
-                        Log.e("Callback Tag","Error");
-                    }
-
-                    @Override
-                    public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
-                        ergazomenoiArrayList = ergArrayList;
-                        Log.wtf("Stop",ergazomenoiArrayList.get(1).toString());
-                    }
-                }, ergazomenoiArrayList);
-            }
-        });
 
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -120,6 +84,124 @@ public class MainActivity extends BaseActivity {
         adminLoginButton.setOnClickListener(v -> openActivityALA());
     }
 
+
+
+    private void callAdeiesService() {
+        adeiesParseService.getLeavesData(new AdeiesParseService.AdeiesResponse() {
+            @Override
+            public void onError(String message) {
+                Log.e("Callback Tag","Error");
+            }
+
+            @Override
+            public void onResponse(ArrayList<Adeies> adArrayList) {
+                adeiesList = adArrayList;
+            }
+        });
+    }
+
+    private void callArgiesService() {
+        argiesParseService.getArgiesData(new ArgiesParseService.ArgiesResponse() {
+            @Override
+            public void onError(String message) {
+                Log.e("Callback Tag","Error");
+            }
+
+            @Override
+            public void onResponse(ArrayList<String> argList) {
+                argeiesList = argList;
+            }
+        });
+    }
+
+    private void callCredService() {
+        credentialsParseService.getCredData(new CredentialsParseService.CredentialsResponse() {
+            @Override
+            public void onError(String message) {
+                Log.e("Callback Tag","Error");
+            }
+
+            @Override
+            public void onResponse(ArrayList<Credentials> credArrayList) {
+                credentialsList = credArrayList;
+            }
+        });
+    }
+
+    private void callVardService() {
+        vardiesParseService.getVrdData(new VardiesParseService.VardiesResponse() {
+            @Override
+            public void onError(String message) {
+                Log.e("Callback Tag","Error");
+            }
+
+            @Override
+            public void onResponse(ArrayList<Vardies> vrdArrayList) {
+                vardiesList = vrdArrayList;
+                vardiesParseService.addShiftJobsData(new VardiesParseService.VardiesResponse() {
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Callback Tag","Error");
+                    }
+
+                    @Override
+                    public void onResponse(ArrayList<Vardies> vrdArrayList) {
+                        vardiesList = vrdArrayList;
+                    }
+                }, (ArrayList<Vardies>) vardiesList);
+
+                vardiesParseService.addJobsData(new VardiesParseService.VardiesResponse() {
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Callback Tag","Error");
+                    }
+
+                    @Override
+                    public void onResponse(ArrayList<Vardies> vrdArrayList) {
+                        vardiesList = vrdArrayList;
+                    }
+                }, (ArrayList<Vardies>) vardiesList);
+            }
+        });
+    }
+
+    private void callErgService(){
+        ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
+            @Override
+            public void onError(String message) {
+                Log.e("Callback Tag","Error");
+            }
+
+            @Override
+            public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
+                ergazomenoiArrayList = ergArrayList;
+                ergazomenoiParseService.addErgContractData(new ErgazomenoiParseService.ErgazomenoiResponse() {
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Callback Tag","Error");
+                    }
+
+                    @Override
+                    public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
+                        ergazomenoiArrayList = ergArrayList;
+                    }
+                }, ergazomenoiArrayList);
+
+                ergazomenoiParseService.addErgCredData(new ErgazomenoiParseService.ErgazomenoiResponse() {
+                    @Override
+                    public void onError(String message) {
+                        Log.e("Callback Tag","Error");
+                    }
+
+                    @Override
+                    public void onResponse(ArrayList<Ergazomenoi> ergArrayList) {
+                        ergazomenoiArrayList = ergArrayList;
+                    }
+                }, ergazomenoiArrayList);
+            }
+        });
+    }
+
     public void openActivityULA () {
         Intent intent = new Intent(this, UserLoginActivity.class);
         startActivity(intent);
@@ -131,11 +213,12 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    static public ArrayList<Ergazomenoi> getErgazomenoiArrayList() {
+
+    public static ArrayList<Ergazomenoi> getErgazomenoiArrayList() {
         return ergazomenoiArrayList;
     }
 
-    static public ArrayList<Credentials> getCredentialsArrayList() {
+    public static ArrayList<Credentials> getCredentialsArrayList() {
         return credentialsList;
     }
 
@@ -144,7 +227,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public static List<String> getArgeiesList() {
-        return ArgeiesList;
+        return argeiesList;
     }
 
     public static List<Vardies> getVardiesList() {
@@ -152,7 +235,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public static ArrayList<Adeies> getAdeiesList() {
-        return AdeiesList;
+        return adeiesList;
     }
 }
 

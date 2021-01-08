@@ -13,12 +13,16 @@ import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.adminUI.AdminLoginActivity;
 
+import static com.example.schedule_manager.MainActivity.vardiesList;
+
 
 public class UserLoginActivity extends BaseActivity {
     private Button userLoginButton;
     protected static String Username;
     protected static String Eidikotita;
     protected static int eid=0;
+
+    final MainActivity mainActivity = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,11 @@ public class UserLoginActivity extends BaseActivity {
         EditText username, password;
         username = (EditText) findViewById(R.id.editTextEmailUser);
         password = (EditText) findViewById(R.id.editTextPasswordUser);
+
+//        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
+//            mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
+//            mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
+//        }
 
         userLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

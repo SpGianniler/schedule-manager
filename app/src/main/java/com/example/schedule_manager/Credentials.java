@@ -4,13 +4,7 @@
  */
 package com.example.schedule_manager;
 
-import android.content.Context;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Credentials {
     private int eid;
@@ -29,7 +23,7 @@ public class Credentials {
         return eid;
     }
 
-    public boolean is_admin() {
+    public boolean getIsAdmin() {
         return admin;
     }
 
@@ -40,6 +34,7 @@ public class Credentials {
     public String getPassword() {
         return password;
     }
+
 
     /**
      * Η μέθοδος αυτή ελέγχει αν τα στοιχεία που πληκτρολόγησε ο χρήστης αντιστοιχούν σε Credentials
@@ -54,7 +49,7 @@ public class Credentials {
     static public boolean isValid(String username, String password, boolean is_Admin, ArrayList<Credentials> listOfCreds){
 
         for(Credentials cred : listOfCreds){
-            if(cred.getUsername().toString().equals(username.toString()) && cred.getPassword().toString().equals(password.toString()) && cred.is_admin() == is_Admin){
+            if(cred.getUsername().toString().equals(username.toString()) && cred.getPassword().toString().equals(password.toString()) && cred.getIsAdmin() == is_Admin){
 
                 return true;
             }

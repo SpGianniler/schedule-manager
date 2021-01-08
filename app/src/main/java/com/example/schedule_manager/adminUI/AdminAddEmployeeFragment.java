@@ -10,17 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
-import android.widget.Spinner;
 
 import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
@@ -67,8 +63,8 @@ public class AdminAddEmployeeFragment extends Fragment {
                     }
                     int eidikotita = 0;
                     String eidik = (jidSpinner.getSelectedItem().toString());
-                    for(int eidikotites : MainActivity.getEidikotitesList().keySet()){
-                        if(MainActivity.getEidikotitesList().get(eidikotites).equals(eidik)){
+                    for(int eidikotites : MainActivity.getEidikotitesMap().keySet()){
+                        if(MainActivity.getEidikotitesMap().get(eidikotites).equals(eidik)){
                             eidikotita = eidikotites;
                         }
                     }

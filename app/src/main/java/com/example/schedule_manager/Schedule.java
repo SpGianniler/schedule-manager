@@ -5,10 +5,6 @@
   */
 package com.example.schedule_manager;
 
-    import android.util.Log;
-
-    import java.io.FileWriter;
-    import java.io.IOException;
     import java.text.ParseException;
     import java.text.SimpleDateFormat;
     import java.util.ArrayList;
@@ -104,7 +100,7 @@ package com.example.schedule_manager;
                     HashMap<Matrix,Integer> ergazomenoiIdiasWras2 = new HashMap<>();
                     on_vardias = vardia.getOnoma();
                     on_eidik = vardia.getEidikotita();
-                    ar_erg = vardia.getEmploeesNo();
+                    ar_erg = vardia.getEmployeesNo();
                     min = minHoursOnVard(matrix_arr, on_vardias);
                         for (Matrix matrix : matrix_arr) {
                             found = false;
@@ -339,7 +335,7 @@ package com.example.schedule_manager;
             int empNo,empNoNeeded;
             for(Vardies vrd : ArAtomonSeVardies) {
                 empNo =0;
-                empNoNeeded = vrd.getEmploeesNo();
+                empNoNeeded = vrd.getEmployeesNo();
                 for (Ergazomenoi erg :MainActivity.getErgazomenoiArrayList()) {
                     if (vrd.getEidikotita().equals(erg.eidikotita)){
                         empNo++;

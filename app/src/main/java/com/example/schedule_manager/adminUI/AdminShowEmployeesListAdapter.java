@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 
 import java.util.ArrayList;
@@ -53,7 +54,8 @@ public class AdminShowEmployeesListAdapter extends ArrayAdapter<Ergazomenoi> {
         phone.setText(currentItem.getPhone());
 
         TextView job = listItemView.findViewById(R.id.jobEmployee);
-        job.setText(currentItem.getEidikotita());
+        String eidik = MainActivity.eidikotitesMap.get(Integer.parseInt(currentItem.getEidikotita()));
+        job.setText(eidik);
 
         return listItemView;
     }
