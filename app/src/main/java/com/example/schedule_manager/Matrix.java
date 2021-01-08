@@ -1,3 +1,8 @@
+/**
+ * Η κλάση αυτή περιγράφει για κάθε εργαζόμενο τις ώρες που έχει δουλέψει σε κάθε βάρδια και επίσης
+ * τις συνεχόμενες μερες τις οποίες εχει δουλέψει οπώς επίσης και τις προσωπικές πληροφορίες του
+ * καθενός
+ */
 package com.example.schedule_manager;
 
 public class Matrix {
@@ -62,6 +67,11 @@ public class Matrix {
         return totalHours;
     }
 
+    /**
+     * η μέθοδος αυτή προσθέτει τις απαραίτητες ώρες εργασίας στις συνολικςέ του κάθε υπαλλήλου
+     * ανάλογα τον τυπο του συμβολαίου του
+     * @param vardia
+     */
         public void addHours(String vardia){
             if(vardia.equals("6")){
                 if(this.ergazomenos.contract.equals("full"))
@@ -105,7 +115,12 @@ public class Matrix {
                 this.totalHours+=4;
         }
 
-
+    /**
+     * Η συνάρτηση αυτή επιστρέφει τις ώρες που δούλεψε ο εργαζόμενος σε συγκεκριμένη βάρδια την οποία παίρνει
+     * ως όρισμα
+     * @param vardia
+     * @return
+     */
     public int getHours(String vardia){
         if(vardia.equals("6")){
             return this.wres6;
@@ -127,16 +142,36 @@ public class Matrix {
         }
     }
 
+    /**
+     * η Μέθοδος αυτή θέτει όλους τους εργαζόμενους διαθέσιμους για προσθήκη στο πρόγραμμα
+     */
     public void clrPick(){
         this.picked = false;
     }
 
+    /**
+     * η συνάρτηση αυτή επιστρέφει τις συνεχόμενες μερες τις οποίες έχει εργαστεί ενας εργαζόμενος
+     * @return
+     */
     public int getSeqDays() {
         return seqDays;
     }
+
+    /**
+     * η μέθοδος αυτή προσθέτει μια μέρα στις συνεχόμενεςμέρες εργασίας του συγκεκριμένου υπαλληλου
+     * @param matrix
+     */
     public void addSeqDays(Matrix matrix){
         matrix.seqDays++;
     }
+
+    /**
+     * η μέθοδος αυτή ελεχει τις συνεχόμενες μέρες τις οποίες έχει δουλέψει ο εργαζόμενος
+     * αν οι συνεχόμενες μερες ειναι 3 τότε τον βάζει μη διαθέσιμο για τοποθέτηση στο πρόγραμμα
+     * και μηδενίζει τις συνεχόμενες μέρες.
+     * @param matrix
+     * @return
+     */
     public boolean checkSeqDays(Matrix matrix){
         boolean returned = false;
         if(matrix.seqDays < 3){
@@ -152,6 +187,10 @@ public class Matrix {
         return returned;
     }
 
+    /**
+     * η μέθοδος αυτή αφαιρεί από τις επιθυμητές εβδομαδιαίες ώρες εργασίας ενος συγκεκριμένουυ υπαλληλου
+     * ανάλογα τις ώρες που υποστηρίζει το συμβόλαιο του
+     */
         public void remHours() {
             if(this.ergazomenos.contract.equals("full"))
                 this.ergazomenos.evWres -=8;

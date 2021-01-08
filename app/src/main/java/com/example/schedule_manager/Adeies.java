@@ -1,3 +1,6 @@
+/**
+ * Αυτή η κλάση ειναι υπεθυνη για την διαχείριση των αιτησεων Αδειώναπό τους εργαζόμενους
+ */
 package com.example.schedule_manager;
 
 public class Adeies {

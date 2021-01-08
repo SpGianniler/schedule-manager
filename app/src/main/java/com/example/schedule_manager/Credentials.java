@@ -1,3 +1,7 @@
+/**
+ * Αυτή η κλάση περιγράφει ενα αντικείμενο Credentials με όλα τα χαρακτηριστικά που ειναιαπαραίτητα για τη
+ * συνδεση του Χρήστη η του διαχειριστή στην εφαρμογή
+ */
 package com.example.schedule_manager;
 
 import android.content.Context;
@@ -37,6 +41,16 @@ public class Credentials {
         return password;
     }
 
+    /**
+     * Η μέθοδος αυτή ελέγχει αν τα στοιχεία που πληκτρολόγησε ο χρήστης αντιστοιχούν σε Credentials
+     * που είναι αποθηκευμένα στη βάση
+     * Τα στοιχεία που πληκτρολογεί τα δέχεται η μέθοδος ως παράμετρους
+     * @param username
+     * @param password
+     * @param is_Admin
+     * @param listOfCreds
+     * @return
+     */
     static public boolean isValid(String username, String password, boolean is_Admin, ArrayList<Credentials> listOfCreds){
 
         for(Credentials cred : listOfCreds){

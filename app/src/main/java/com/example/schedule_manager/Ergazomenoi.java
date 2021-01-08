@@ -1,3 +1,6 @@
+/**
+ * η κλάση αυτή περιγράφει τα βασικά χαρακτηριστικά που αποτελούν έναν εργαζόμενο
+ */
 package com.example.schedule_manager;
 
 public class Ergazomenoi {
