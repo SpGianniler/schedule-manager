@@ -95,7 +95,10 @@ public class SheduleAct extends AppCompatActivity {
             }
 
         });
-
+/**
+ * Με το πάτηματου κουμπιού Generate Program δημιουργείται το πρόγραμμα και το αποθηκεύει στη βάση
+ * δεδομένων
+ */
         sheduleGenerateBtn.setOnClickListener(v -> {
             programmaText.setText("");
             if(Schedule.checkErg()) {

@@ -1,4 +1,9 @@
-    package com.example.schedule_manager;
+/**
+ * η κλάση αυτή είναι υπέυθυνη για τον υπολογισμό του προγράμματος και όλους τους απαραίτητους
+ * ελέγχους που πρέπει να  γίνουν για να έχουμε ενα σωστό αποτέλεσμα
+ *
+  */
+package com.example.schedule_manager;
 
     import java.text.ParseException;
     import java.text.SimpleDateFormat;
@@ -16,6 +21,14 @@
         String eidikothta;
 
         static ArrayList<Schedule> sched = new ArrayList<>();
+
+        /**
+         * η κλάση αυτή αρχικοποιεί τις απαραίτητες λίστες και παιρνει ως όρισμα την διάρκεια για
+         * την οποία θέλουμε να υπολογίσουμε το πρόγραμμα κάθως και την εναρκτήρια ημερομηνία
+         * @param diarkeia
+         * @param firDate
+         * @return
+         */
         static public ArrayList<Schedule> onCreate(int diarkeia, String firDate) {
 
             List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
@@ -65,6 +78,16 @@
             return sched;
         }
 
+        /**
+         * η συνάρτηση αυτή υπολογίζει το πογραμμα κάνει τους απαραίτητους ελέγχους
+         * και τα ορίσματα της είναι ένας πίνακας με τους εργαζόμενους (αντικείμενο Matrix),
+         * μία λίστα με τις βάρδιες (ArrayList<Vardies>)
+         * ενα HashMap με τις ειδικότητες HashMap<String, String>
+         * @param matrix_arr
+         * @param vardies
+         * @param shiftsMap
+         * @return
+         */
         static public List<Schedule> createSchedule(Matrix[] matrix_arr, List<Vardies> vardies, HashMap<String, String> shiftsMap) {
             String on_vardias;
             String on_eidik;
@@ -133,6 +156,13 @@
             return sched;
         }
 
+        /**
+         * η μέθοδος αυτή βρίσκει τον εργαζόμενο με τις λιγότερες ώρες σε συγκεκριμένη βάρδια
+         * μιας συγκεκριμενης ειδικοτητας
+         * @param matrix
+         * @param on_vard
+         * @return
+         */
         private static int minHoursOnVard(Matrix[] matrix, String on_vard) {
             int hours=1000;
             for(Matrix mtr : matrix){
@@ -151,6 +181,12 @@
             this.epitheto = epitheto;
             this.eidikothta = eidikothta;
         }
+
+        /**
+         * η συνάρτηση αυτή επιστρέφει τον εργαζόμενο με τις ελάχιστες ώρες εργασίας
+         * @param ergazomenoi
+         * @return
+         */
         public static Matrix getLeastTotal(HashMap<Matrix,Integer> ergazomenoi) {
             int elaxistes = 1000;
             for (int el : ergazomenoi.values()) {
@@ -167,12 +203,24 @@
             return matrix_to_return;
         }
 
+        /**
+         * Η μ'εθοδος αυτή θέτει όλους τους εργαζόμενους διαθέσιμους για επιλογή από την εφαρμογή
+         * για τοποθέτηση στο πρόγραμμα εργασίας
+         * @param matrix
+         */
         static public void clearPicked(Matrix[] matrix){
             for(Matrix mtr: matrix){
                 mtr.clrPick();
             }
         }
 
+        /**
+         * η μέθοδος αυτή βρίσκει τον εργαζόμενο με τις ελάχιστες ώρες σε μία συγκεκριμένη βαρδια
+         * @param matrix
+         * @param min
+         * @param vardia
+         * @return
+         */
         public static boolean hasLeastHours(Matrix matrix, int min, String vardia){
 
             if(vardia.equals("6")){
@@ -207,6 +255,15 @@
             }
                 return false;
         }
+
+        /**
+         * η μέθοδος αυτή ελέγχει αν ο εργαζόμενος εχει ώρες εργασίας ίσες με τις ελάχιστες στην συγκεκιμένη
+         * βάρδια στην συγκεκριμένη ειδικότητα
+         * @param matrix
+         * @param min
+         * @param vardia
+         * @return
+         */
         public static boolean hasEqualsHours(Matrix matrix, int min, String vardia){
             if(vardia.equals("6")){
                 if(matrix.getWres6()==min || matrix.getWres6()==min+4 ){
@@ -240,6 +297,13 @@
             }
             return false;
         }
+
+        /**
+         * η μέθοδος αυτή επιλέγει τυχαία εναν εργαζόμενο σε περίπτωση που περισσοτεροι από ενας εχουν
+         * ώρες εργασίας ίσες με τις ελάχιστες
+         * @param matrix
+         * @return
+         */
         public static Matrix pickRand(Matrix[] matrix){
             Random rand = new Random();
             int pos = rand.nextInt(matrix.length);
@@ -262,6 +326,10 @@
             return returnedMatrix;
         }
 
+        /**
+         * η μέθοδος αυτή ελέγχει αν ο αριθμός εργαζόμενων επαρκεί για τον υπολογισμό του προγράμματος
+         * @return
+         */
         public static boolean checkErg(){
             ArrayList<Vardies> ArAtomonSeVardies = (ArrayList<Vardies>) MainActivity.getVardiesList();
             int empNo,empNoNeeded;

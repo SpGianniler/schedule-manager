@@ -1,3 +1,6 @@
+/**
+ *Η κλάση αυη διαχειρίεται τις ειδόποιήσεις πού εμφανίζονται στο κινητό του χρήστη
+ */
 package com.example.schedule_manager;
 
 import android.app.Service;
@@ -14,6 +17,10 @@ public class Messages extends FirebaseMessagingService {
     public Messages() {
     }
 
+    /**
+     * η μέθοδος αυτή διαχειρίζεται το ληφθέν μήνυμα (ειδοποίηση)
+     * @param remoteMessage
+     */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // ...

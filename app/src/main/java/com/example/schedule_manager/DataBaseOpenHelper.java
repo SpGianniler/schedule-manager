@@ -20,7 +20,7 @@ public class DataBaseOpenHelper extends SQLiteAssetHelper {
     public static final String EmployeeFirstName= "first_name";
     public static final String EmployeeLastName = "last_name";
 
-    private static final String DB_NAME = "company.db";
+    private static final String DB_NAME = "company2.db";
     private static final int DB_VERSION = 1;
 
     //constructor

@@ -42,6 +42,10 @@ public class AdminLoginActivity extends BaseActivity {
 
         adminLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
+            /**
+             * με το πάτημα του κουμπιού loginγίνεται ο απαραίτητος ελεγχος από την κλάση Credentials
+             * για την επαληθευση των στοιχείων που πληκτρολογήθηκαν
+             */
             public void onClick(View v) {
                 String usernametext = username.getText().toString();
                 String passwordtext = password.getText().toString();
@@ -63,6 +67,12 @@ public class AdminLoginActivity extends BaseActivity {
         });
     }
 
+    /**
+     * αναζήτηση χρήστη βάση του Username του
+     * @param username
+     * @param listOfCreds
+     * @return
+     */
     public  static int searchByUserName(String username, ArrayList<Credentials> listOfCreds){
         int eID=0;
 
@@ -75,6 +85,12 @@ public class AdminLoginActivity extends BaseActivity {
         return 0;
     }
 
+    /**
+     * η μέθοδος αυτή κάνει αναζήτηση βάση του eid του χρήστη
+     * @param eID
+     * @param arrayList
+     * @return
+     */
     static public String searchByEid(int eID, ArrayList<Ergazomenoi>arrayList){
         String username = null;
 
@@ -86,6 +102,13 @@ public class AdminLoginActivity extends BaseActivity {
         }
         return username;
     }
+
+    /**
+     * η μέθοδος αυτή κάνει αναζήτηση της ειδικότητας ενός εργαζόμενου
+     * @param eID
+     * @param ergazomenois
+     * @return
+     */
     static public String searchEidikotita(int eID, ArrayList<Ergazomenoi> ergazomenois){
 
         String eidikotita = null;
