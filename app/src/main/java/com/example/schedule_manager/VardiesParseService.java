@@ -13,9 +13,9 @@ import java.util.ArrayList;
 
 public class VardiesParseService {
 
-    public static final String GET_ALL_SHIFTS = MainActivity.URL + "/shifts/all";
-    public static final String ADD_SHIFT_JOBS = MainActivity.URL + "/shifts-jobs/all";
-    public static final String ADD_JOBS_DETAILS = MainActivity.URL + "/jobs/all-jobs";
+    public static final String GET_SHIFT_JOBS = MainActivity.URL + "/shifts-jobs/all";
+    public static final String ADD_SHIFTS = MainActivity.URL + "/shifts/all";
+    public static final String ADD_JOBS_DETAILS = MainActivity.URL + "/jobs/all";
 
     Context context;
 
@@ -35,7 +35,7 @@ public class VardiesParseService {
 
         JsonArrayRequest jsonVardRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                GET_ALL_SHIFTS,
+                GET_SHIFT_JOBS,
                 null,
                 response -> {
                     try{
@@ -43,13 +43,14 @@ public class VardiesParseService {
                             JSONObject jsonObject = response.getJSONObject(i);
 
                             int sid = jsonObject.getInt("sid");
-                            String shift_name = jsonObject.getString("shift_name");
+                            int jid = jsonObject.getInt("jid");
+                            int employeesNo = jsonObject.getInt("employeesneed");
 
-                            vardiesArrayList.add(new Vardies(sid,shift_name));
+                            vardiesArrayList.add(new Vardies(sid,jid,employeesNo));
                         }
                         vardiesResponse.onResponse(vardiesArrayList);
                     } catch (JSONException e){
-                        Log.e("getErgDataError","JSONException caught");
+                        Log.e("getVrdDataError","JSONException caught");
                     }
                 },
                 error -> {
@@ -64,7 +65,7 @@ public class VardiesParseService {
 
         JsonArrayRequest jsonShiftJobsRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                ADD_SHIFT_JOBS,
+                ADD_SHIFTS,
                 null,
                 response -> {
                     try{
@@ -73,12 +74,11 @@ public class VardiesParseService {
 
                             for(Vardies v : arrayList){
                                 if(v.sid == jsonObject.getInt("sid")){
-                                    v.jid = jsonObject.getInt("jid");
-                                    v.emploeesNo = jsonObject.getInt("employees_needed");
+                                    v.onoma = jsonObject.getString("shift_name");
                                 }
                             }
-                            vardiesResponse.onResponse(arrayList);
                         }
+                        vardiesResponse.onResponse(arrayList);
                     } catch (JSONException e) {
                         Log.e("addVrdShiftJobError","JSONException caught");
                     }
@@ -107,8 +107,8 @@ public class VardiesParseService {
                                     v.eidikotita = jsonObject.getString("job_name");
                                 }
                             }
-                            vardiesResponse.onResponse(arrayList);
                         }
+                        vardiesResponse.onResponse(arrayList);
                     } catch (JSONException e) {
                         Log.e("addVrdShiftJobError","JSONException caught");
                     }

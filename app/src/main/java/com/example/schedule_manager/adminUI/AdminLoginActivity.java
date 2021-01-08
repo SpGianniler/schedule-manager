@@ -35,10 +35,10 @@ public class AdminLoginActivity extends BaseActivity {
         username = (EditText) findViewById(R.id.editTextEmailAdmin);
         password = (EditText) findViewById(R.id.editTextPasswordAdmin);
 
-        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
+//        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
             mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
             mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
-        }
+//        }
 
         adminLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

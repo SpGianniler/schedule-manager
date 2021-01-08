@@ -5,27 +5,28 @@ import java.io.Serializable;
 public class Vardies implements Serializable {
     protected String onoma;
     protected String eidikotita;
-    protected int emploeesNo;
+    protected int employeesNo;
     protected int sid; //new
     protected int jid; //new
 
-    public Vardies(String onoma, String eidikotita, int emploeesNo) {
+    public Vardies(String onoma, String eidikotita, int employeesNo) {
         this.onoma = onoma;
         this.eidikotita = eidikotita;
-        this.emploeesNo = emploeesNo;
+        this.employeesNo = employeesNo;
     }
 
-    public Vardies(String onoma, int emploeesNo, int sid,int jid) {
+    public Vardies(String onoma, int employeesNo, int sid, int jid) {
         this.onoma = onoma;
         //this.eidikotita = eidikotita;
-        this.emploeesNo = emploeesNo;
+        this.employeesNo = employeesNo;
         this.sid = sid;
         this.jid = jid;
     }
 
-    public Vardies(int sid, String onoma) {
-        this.onoma = onoma;
+    public Vardies(int sid, int jid,int employeesNo) {
+        this.employeesNo = employeesNo;
         this.sid = sid;
+        this.jid = jid;
     }
 
     public Vardies(){
@@ -52,8 +53,8 @@ public class Vardies implements Serializable {
         return eidikotita;
     }
 
-    public int getEmploeesNo() {
-        return emploeesNo;
+    public int getEmployeesNo() {
+        return employeesNo;
     }
 
     public void setOnoma(String onoma) {
@@ -64,7 +65,7 @@ public class Vardies implements Serializable {
         this.eidikotita = eidikotita;
     }
 
-    public void setEmploeesNo(int emploeesNo) {
-        this.emploeesNo = emploeesNo;
+    public void setEmployeesNo(int employeesNo) {
+        this.employeesNo = employeesNo;
     }
 }

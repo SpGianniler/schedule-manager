@@ -1,20 +1,15 @@
 package com.example.schedule_manager.adminUI;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,7 +17,6 @@ import android.widget.Toast;
 
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.Vardies;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,35 +135,35 @@ public class AdminSheduleEdit extends AppCompatActivity implements View.OnClickL
 
             if(mhxanikos.isChecked()){
                 EditText editTextMhxanikos = (EditText)newAdeiaView.findViewById(R.id.editTextMhxanikos);
-                vardia.setEmploeesNo(Integer.parseInt(editTextMhxanikos.getText().toString()));
+                vardia.setEmployeesNo(Integer.parseInt(editTextMhxanikos.getText().toString()));
                 vardia.setJid(1);
                 vardies.add(vardia);
             }
 
             if(grammateia.isChecked()){
                 EditText editTextGrammateia = (EditText)newAdeiaView.findViewById(R.id.editTextGrammateia);
-                vardia.setEmploeesNo(Integer.parseInt(editTextGrammateia.getText().toString()));
+                vardia.setEmployeesNo(Integer.parseInt(editTextGrammateia.getText().toString()));
                 vardia.setJid(2);
                 vardies.add(vardia);
             }
 
             if(grmParagwgis.isChecked()){
                 EditText editTextGrmParagwgis = (EditText)newAdeiaView.findViewById(R.id.editTextGrmParagwgis);
-                vardia.setEmploeesNo(Integer.parseInt(editTextGrmParagwgis.getText().toString()));
+                vardia.setEmployeesNo(Integer.parseInt(editTextGrmParagwgis.getText().toString()));
                 vardia.setJid(3);
                 vardies.add(vardia);
             }
 
             if(katharisths.isChecked()){
                 EditText editTextKatharisths = (EditText)newAdeiaView.findViewById(R.id.editTextKatharisths);
-                vardia.setEmploeesNo(Integer.parseInt(editTextKatharisths.getText().toString()));
+                vardia.setEmployeesNo(Integer.parseInt(editTextKatharisths.getText().toString()));
                 vardia.setJid(4);
                 vardies.add(vardia);
             }
 
             if(epivlepon.isChecked()){
                 EditText editTextEpivlepon = (EditText)newAdeiaView.findViewById(R.id.editTextEpivlepon);
-                vardia.setEmploeesNo(Integer.parseInt(editTextEpivlepon.getText().toString()));
+                vardia.setEmployeesNo(Integer.parseInt(editTextEpivlepon.getText().toString()));
                 vardia.setJid(5);
                 vardies.add(vardia);
             }
@@ -189,7 +183,7 @@ public class AdminSheduleEdit extends AppCompatActivity implements View.OnClickL
         }
 
         for( Vardies vrd : vardies) {
-           Log.wtf("Vardies",vrd.getEidikotita()+" "+vrd.getOnoma()+" "+vrd.getEmploeesNo());
+           Log.wtf("Vardies",vrd.getEidikotita()+" "+vrd.getOnoma()+" "+vrd.getEmployeesNo());
         }
         System.out.println("SAKTA");
 
