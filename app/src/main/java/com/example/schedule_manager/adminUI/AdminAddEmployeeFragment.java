@@ -88,6 +88,9 @@ public class AdminAddEmployeeFragment extends Fragment {
         return json;
     }
 
+    /**
+     * η μέθοδος αυτή γεμίζει το spinner με όλες τις διαφορετικές ειδικότητες
+     */
     private void jidPopulateSpinner() {
 
              int i =0 ;
