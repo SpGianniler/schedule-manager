@@ -37,7 +37,6 @@ public class AdminProfileFragment extends Fragment {
         });
         return view;
     }
-//TODO: na kanw kai stis upoloipess klaseis na epistrefei view kai oxi inflater.inflate(R....)
     public void openActivitySettings(){
         Intent intent = new Intent((getActivity()), AdminProfileSettings.class);
         startActivity(intent);
