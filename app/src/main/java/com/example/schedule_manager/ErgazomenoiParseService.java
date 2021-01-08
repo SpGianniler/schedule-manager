@@ -5,20 +5,17 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 public class ErgazomenoiParseService {
 
-    public static final String GET_ALL_EMPLOYEES = MainActivity.URL + "/employees/all-employees";
-    public static final String ADD_CONTRACT_DETAILS = MainActivity.URL + "/contracts/all-contracts";
-    public static final String ADD_CREDENTIAL_DETAILS = MainActivity.URL + "/credentials/all-credentials";
+    public static final String GET_ALL_EMPLOYEES = MainActivity.URL + "/employees/all";
+    public static final String ADD_CONTRACT_DETAILS = MainActivity.URL + "/contracts/all";
+    public static final String ADD_CREDENTIAL_DETAILS = MainActivity.URL + "/credentials/all";
 
     Context context;
 
@@ -77,11 +74,12 @@ public class ErgazomenoiParseService {
                         for(int i = 0; i < (response.length()); i++) {
                             JSONObject jsonObject = response.getJSONObject(i);
 
-                            int hours = jsonObject.getInt("hours");
-                            String type = jsonObject.getString("type");
-                            arrayList.get(i).contract = type;
-                            arrayList.get(i).evWres = hours;
-//                            Log.e("Array tag 1",ergazomenoiArrayList.get(i).onoma);
+                            for( Ergazomenoi x : arrayList){
+                                if(x.erg_id == jsonObject.getInt("eid")){
+                                    x.contract = jsonObject.getString("type");
+                                    x.evWres = jsonObject.getInt("hours");
+                                }
+                            }
                         }
                         ergazomenoiResponse.onResponse(arrayList);
                     } catch (JSONException e) {
@@ -112,12 +110,6 @@ public class ErgazomenoiParseService {
                                     x.is_admin = jsonObject.getInt(("is_admin") )==1;
                                 }
                             }
-
-//                            for(int x =0; x< (arrayList.size()); x++) {
-//                                if(arrayList.get(i).erg_id == jsonObject.getInt("eid")) {
-//                                    arrayList.get(i).is_admin = jsonObject.getInt("is_admin") == 1;
-//                                }
-//                            }
                         }
                         ergazomenoiResponse.onResponse(arrayList);
                     } catch (JSONException e) {

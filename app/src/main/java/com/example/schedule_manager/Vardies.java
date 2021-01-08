@@ -3,11 +3,11 @@ package com.example.schedule_manager;
 import java.io.Serializable;
 
 public class Vardies implements Serializable {
-    private String onoma;
-    private String eidikotita;
-    private int emploeesNo;
-    private int sid; //new
-    private int jid; //new
+    protected String onoma;
+    protected String eidikotita;
+    protected int emploeesNo;
+    protected int sid; //new
+    protected int jid; //new
 
     public Vardies(String onoma, String eidikotita, int emploeesNo) {
         this.onoma = onoma;
@@ -21,6 +21,11 @@ public class Vardies implements Serializable {
         this.emploeesNo = emploeesNo;
         this.sid = sid;
         this.jid = jid;
+    }
+
+    public Vardies(int sid, String onoma) {
+        this.onoma = onoma;
+        this.sid = sid;
     }
 
     public Vardies(){

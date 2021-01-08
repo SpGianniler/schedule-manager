@@ -24,12 +24,12 @@ public class MainActivity extends BaseActivity {
     private Button userLoginButton;
     private Button adminLoginButton;
     public static ArrayList<Ergazomenoi> ergazomenoiArrayList;
-    public static ArrayList<Credentials> credentialsList;
+    public static ArrayList<Credentials> credentialsList;// TODO: 08/01/2021 add service?
     public static ArrayList<Adeies> AdeiesList;
-    public static HashMap<String, String> shiftsMap;
+    public static HashMap<String, String> shiftsMap;// TODO: 08/01/2021 add service?
     public static List<Vardies> vardiesList;
-    public static List<String> ArgeiesList;
-    public static  HashMap<Integer, String> eidikotitesList;
+    public static List<String> ArgeiesList; // TODO: 08/01/2021 add service
+    public static  HashMap<Integer, String> eidikotitesList; // TODO: 08/01/2021 add service?
 
     public static String URL = "http://192.168.56.1:8080";
     final ErgazomenoiParseService ergazomenoiParseService = new ErgazomenoiParseService(MainActivity.this);
@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
 
 
 
-        this.ergazomenoiArrayList = (ArrayList<Ergazomenoi>) dba.getEveryone();
+//        this.ergazomenoiArrayList = (ArrayList<Ergazomenoi>) dba.getEveryone();
         this.credentialsList = (ArrayList<Credentials>) dba.getCredentials();
         this.shiftsMap = dba.getShifts();
         this.vardiesList = dba.getVardies();
