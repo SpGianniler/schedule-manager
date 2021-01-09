@@ -1,8 +1,12 @@
 package com.example.schedule_manager.adminUI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.util.Pair;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.text.method.ScrollingMovementMethod;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 //import com.example.schedule_manager.Notifications;
 import com.example.schedule_manager.DataBaseAccess;
 import com.example.schedule_manager.Ergazomenoi;
+import com.example.schedule_manager.Export2;
 import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
 import com.example.schedule_manager.Schedule;
@@ -23,6 +28,7 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -149,6 +155,19 @@ public class SheduleAct extends AppCompatActivity {
             }
             else{
                 Toast.makeText(this,"Not Enough Employees",Toast.LENGTH_SHORT).show();
+            }
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions((Activity) this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
+                return;
+            }
+            try {
+                Export2.ExportWhole(MainActivity.getErgazomenoiArrayList(),Schedule.getMatrix(),Schedule.getShiftsMap(),(ArrayList)Schedule.getVardiesList(),firDate,18);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 

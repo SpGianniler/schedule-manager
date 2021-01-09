@@ -25,6 +25,10 @@ package com.example.schedule_manager;
         String eidikothta;
 
         static ArrayList<Schedule> sched = new ArrayList<>();
+        static List<Ergazomenoi> ergazomenoiList ;
+        static HashMap<String, String> shiftsMap ;
+        static List<Vardies> vardiesList;
+        static Matrix matrix[];
 
         /**
          * η κλάση αυτή αρχικοποιεί τις απαραίτητες λίστες και παιρνει ως όρισμα την διάρκεια για
@@ -35,10 +39,10 @@ package com.example.schedule_manager;
          */
         static public ArrayList<Schedule> onCreate(int diarkeia, String firDate) {
 
-            List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
-            HashMap<String, String> shiftsMap = MainActivity.getShiftsMap();
-            List<Vardies> vardiesList = MainActivity.getVardiesList();
-            Matrix matrix[] = new Matrix[ergazomenoiList.size()];
+            ergazomenoiList = MainActivity.getErgazomenoiArrayList();
+            shiftsMap = MainActivity.getShiftsMap();
+            vardiesList = MainActivity.getVardiesList();
+            matrix = new Matrix[ergazomenoiList.size()];
             int i = 0;
 
             for (Ergazomenoi erg : ergazomenoiList) {
@@ -383,4 +387,23 @@ package com.example.schedule_manager;
             return date;
         }
 
+        public static ArrayList<Schedule> getSched() {
+            return sched;
+        }
+
+        public static List<Ergazomenoi> getErgazomenoiList() {
+            return ergazomenoiList;
+        }
+
+        public static HashMap<String, String> getShiftsMap() {
+            return shiftsMap;
+        }
+
+        public static List<Vardies> getVardiesList() {
+            return vardiesList;
+        }
+
+        public static Matrix[] getMatrix() {
+            return matrix;
+        }
     }

@@ -57,6 +57,8 @@ public class MainActivity extends BaseActivity {
         this.eidikotitesList = dba.getEidikotites();
         this.AdeiesList = dba.getAdeies();
         this.ArgeiesList = dba.getArgeies();
+        System.setProperty("org.apache.poi.javax.xml.stream.XMLOutputFactory", "com.fasterxml.aalto.stax.OutputFactoryImpl");
+        System.setProperty("org.apache.poi.javax.xml.stream.XMLEventFactory", "com.fasterxml.aalto.stax.EventFactoryImpl");
 
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
