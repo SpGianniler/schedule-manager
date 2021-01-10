@@ -33,11 +33,15 @@ public class UserLoginActivity extends BaseActivity {
         EditText username, password;
         username = (EditText) findViewById(R.id.editTextEmailUser);
         password = (EditText) findViewById(R.id.editTextPasswordUser);
+        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
+            mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
+            mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
+        }
 
-//        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
-//            mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
-//            mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
-//        }
+        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
+            mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
+            mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
+        }
 
         userLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

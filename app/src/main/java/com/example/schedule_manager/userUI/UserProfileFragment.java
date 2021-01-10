@@ -17,7 +17,7 @@ import com.example.schedule_manager.R;
 public class UserProfileFragment extends Fragment {
 
     private ImageButton imagebtn;
-    private TextView username, specialty;
+    private TextView username, specialty, email, phone;
 
     @Nullable
     @Override
@@ -38,8 +38,12 @@ public class UserProfileFragment extends Fragment {
         imagebtn = (ImageButton) view.findViewById(R.id.settingsBTN);
         specialty= (TextView) view.findViewById(R.id.Specialty);
         username = (TextView) view.findViewById(R.id.User_UserName);
+        email = (TextView) view.findViewById(R.id.User_Profile_Email);
+        phone = (TextView) view.findViewById(R.id.User_Profile_Phone);
         specialty.append(" "+ UserLoginActivity.getEidikotita());
         username.setText(UserLoginActivity.getUsername());
+        email.append(" testmail@dummy.com");
+        phone.append(" 6989897845");
 
         imagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
