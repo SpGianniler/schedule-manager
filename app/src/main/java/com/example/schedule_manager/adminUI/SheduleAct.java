@@ -118,17 +118,19 @@ public class SheduleAct extends AppCompatActivity {
                             firDate = sdf.format(c.getTime());
                         }
                         ArrayList<String> arg = (ArrayList<String>) MainActivity.getArgeiesList();
-                        for(String argia : arg){
-                            if(argia.equals(firDate)){
-                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                                Calendar c = Calendar.getInstance();
-                                try {
-                                    c.setTime(sdf.parse(firDate));
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
+                        if(arg!=null){
+                            for (String argia : arg) {
+                                if (argia.equals(firDate)) {
+                                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                    Calendar c = Calendar.getInstance();
+                                    try {
+                                        c.setTime(sdf.parse(firDate));
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
+                                    c.add(Calendar.DATE, 1);  // number of days to add
+                                    firDate = sdf.format(c.getTime());
                                 }
-                                c.add(Calendar.DATE, 1);  // number of days to add
-                                firDate = sdf.format(c.getTime());
                             }
                         }
                        // programmaText.append(firDate + " ");

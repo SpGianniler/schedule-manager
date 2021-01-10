@@ -108,7 +108,7 @@ package com.example.schedule_manager;
                             found = false;
                             if (matrix.getErgazomenos().getEidikotitaName().equals(on_eidik) && ar_erg > 0 && !matrix.isPicked() && matrix.checkSeqDays(matrix) && matrix.getTotalHours() >= 0) {//changed
                                 if (hasLeastHours(matrix, min, on_vardias)) {
-                                    sched.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
+                                    sched.add(new Schedule(on_vardias, matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));//changed vrd
                                     matrix.addHours(on_vardias);
                                     min = matrix.getHours(on_vardias);
                                     matrix.remHours();
@@ -143,7 +143,7 @@ package com.example.schedule_manager;
                             }
                                 while (ar_erg != 0) {
                                     Matrix matrix = getLeastTotal(ergazomenoiIdiasWras2);
-                                    sched.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
+                                    sched.add(new Schedule(on_vardias, matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));//change vrd
                                     matrix.addHours(on_vardias);
                                     min = matrix.getHours(on_vardias);
                                     matrix.remHours();
