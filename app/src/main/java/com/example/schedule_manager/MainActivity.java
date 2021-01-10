@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity {
     public static List<String> argeiesList;
     public static  HashMap<Integer, String> eidikotitesMap; // TODO: 08/01/2021 change call
 
-    public static final String URL = "http://192.168.56.1:8080";
+    public static final String URL = "https://db-access-api.herokuapp.com/";
     public final MainService mainService = new MainService();
     final AdeiesParseService adeiesParseService = new AdeiesParseService(MainActivity.this);
     final ArgiesParseService argiesParseService = new ArgiesParseService(MainActivity.this);
