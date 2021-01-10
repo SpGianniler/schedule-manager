@@ -43,17 +43,19 @@ package com.example.schedule_manager;
             }
             for(int meres =0; meres <diarkeia; meres++) {
                 ArrayList<String> arg = (ArrayList<String>) MainActivity.getArgeiesList();
-                for(String argia : arg){
-                    if(argia.equals(firDate)){
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                        Calendar c = Calendar.getInstance();
-                        try {
-                            c.setTime(sdf.parse(firDate));
-                        } catch (ParseException e) {
-                            e.printStackTrace();
+                if(arg!=null){
+                    for (String argia : arg) {
+                        if (argia.equals(firDate)) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                            Calendar c = Calendar.getInstance();
+                            try {
+                                c.setTime(sdf.parse(firDate));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            c.add(Calendar.DATE, 1);  // number of days to add
+                            firDate = sdf.format(c.getTime());
                         }
-                        c.add(Calendar.DATE, 1);  // number of days to add
-                        firDate = sdf.format(c.getTime());
                     }
                 }
                 //if(firDate.equals())
@@ -104,7 +106,7 @@ package com.example.schedule_manager;
                     min = minHoursOnVard(matrix_arr, on_vardias);
                         for (Matrix matrix : matrix_arr) {
                             found = false;
-                            if (matrix.getErgazomenos().getEidikotita().equals(on_eidik) && ar_erg > 0 && !matrix.isPicked() && matrix.checkSeqDays(matrix) && matrix.getTotalHours() >= 0) {
+                            if (matrix.getErgazomenos().getEidikotitaName().equals(on_eidik) && ar_erg > 0 && !matrix.isPicked() && matrix.checkSeqDays(matrix) && matrix.getTotalHours() >= 0) {//changed
                                 if (hasLeastHours(matrix, min, on_vardias)) {
                                     sched.add(new Schedule(shiftsMap.get(on_vardias), matrix.getErgazomenos().getOnoma(), matrix.getErgazomenos().getEpitheto(), on_eidik));
                                     matrix.addHours(on_vardias);
@@ -125,7 +127,7 @@ package com.example.schedule_manager;
                                 Matrix[] matrixArrayList = new Matrix[100];
                                 int i =0;
                                 for(Matrix mtr : matrix_arr){
-                                    if(mtr.getErgazomenos().getEidikotita().equals(on_eidik) && mtr.isPicked() == false){
+                                    if(mtr.getErgazomenos().getEidikotitaName().equals(on_eidik) && mtr.isPicked() == false){//changed
                                         matrixArrayList[i] = mtr;
                                         i++;
                                     }
@@ -166,7 +168,7 @@ package com.example.schedule_manager;
         private static int minHoursOnVard(Matrix[] matrix, String on_vard) {
             int hours=1000;
             for(Matrix mtr : matrix){
-                if(mtr.getHours(on_vard) < hours && mtr.getErgazomenos().getEidikotita().equals(on_vard)){
+                if(mtr.getHours(on_vard) < hours && mtr.getErgazomenos().getEidikotitaName().equals(on_vard)){//changed
                     hours = mtr.getHours(on_vard);
                 }
             }
@@ -337,7 +339,7 @@ package com.example.schedule_manager;
                 empNo =0;
                 empNoNeeded = vrd.getEmployeesNo();
                 for (Ergazomenoi erg :MainActivity.getErgazomenoiArrayList()) {
-                    if (vrd.getEidikotita().equals(erg.eidikotita)){
+                    if (vrd.getEidikotita().equals(erg.getEidikotitaName())){//changed
                         empNo++;
                     }
                 }

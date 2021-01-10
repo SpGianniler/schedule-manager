@@ -31,11 +31,7 @@ public class AdminShowEmployeesActivity extends AppCompatActivity {
         String[] examples = new String[ergazomenoiList.size()];
         String eidik=null;
         for(int i = 0; i < ergazomenoiList.size();i++ ){
-            for(int j =0; j<MainActivity.eidikotitesMap.size();j++){
-                eidik = (MainActivity.eidikotitesMap.get(Integer.parseInt(ergazomenoiList.get(i).getEidikotita())));
-
-            }
-            examples[i] =(ergazomenoiList.get(i).getOnoma()+" "+ergazomenoiList.get(i).getEpitheto()+" "+eidik+" "+ergazomenoiList.get(i).getEvWres()+" "+ergazomenoiList.get(i).getContract());
+            examples[i] =(ergazomenoiList.get(i).getOnoma()+" "+ergazomenoiList.get(i).getEpitheto()+" "+MainActivity.eidikotitesMap.get(Integer.parseInt(ergazomenoiList.get(i).getEidikotita()))+" "+ergazomenoiList.get(i).getEvWres()+" "+ergazomenoiList.get(i).getContract());
 //            examples[i] =(ergazomenoiList.get(i).getOnoma()+" "+ergazomenoiList.get(i).getEpitheto()+" "+ergazomenoiList.get(i).getEidikotita()+" "+ergazomenoiList.get(i).getEvWres()+" "+ergazomenoiList.get(i).getContract());
         }
 //        dataBaseAccess.closeDB();
