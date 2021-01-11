@@ -13,14 +13,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.example.schedule_manager.Notifications;
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.schedule_manager.DataBaseAccess;
 import com.example.schedule_manager.Ergazomenoi;
 import com.example.schedule_manager.MainActivity;
 import com.example.schedule_manager.R;
+import com.example.schedule_manager.RequestSingleton;
 import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.text.ParseException;
@@ -38,6 +43,7 @@ public class SheduleAct extends AppCompatActivity {
     private Button sheduleGenerateBtn;
     protected Date first,second;
     private TextView programmaText;
+    public static final String POST_SCHEDULE = MainActivity.URL+"/schedule/add";
 
     protected String firDate;
     protected String secDate;
@@ -66,34 +72,30 @@ public class SheduleAct extends AppCompatActivity {
             }
         });
 
-        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-            @Override
-            public void onPositiveButtonClick(Object selection) {
+        materialDatePicker.addOnPositiveButtonClickListener(selection -> {
 //                Get the selected DATE RANGE
-                Pair selectedDates = (Pair) materialDatePicker.getSelection();
+            Pair selectedDates = (Pair) materialDatePicker.getSelection();
 //              then obtain the startDate & endDate from the range
-                final Pair<Date, Date> rangeDate = new Pair<>(new Date((Long) selectedDates.first), new Date((Long) selectedDates.second));
+            final Pair<Date, Date> rangeDate = new Pair<>(new Date((Long) selectedDates.first), new Date((Long) selectedDates.second));
 //              assigned variables
-                Date startDate = rangeDate.first;
-                Date endDate = rangeDate.second;
+            Date startDate = rangeDate.first;
+            Date endDate = rangeDate.second;
 //              Format the dates in ur desired display mode
-                SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
-                SimpleDateFormat simpleDay = new SimpleDateFormat("dd");
-               // SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat simpleDay = new SimpleDateFormat("dd");
+           // SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 //              Display it by setText
-                firstDate.setText("Start Date: "+ simpleFormat.format(startDate));
-                secondDate.setText("End Date: "+ simpleFormat.format(endDate) );
+            firstDate.setText("Start Date: "+ simpleFormat.format(startDate));
+            secondDate.setText("End Date: "+ simpleFormat.format(endDate) );
 
-                String fd = simpleFormat.format(startDate);
-                String sd = simpleFormat.format(endDate);
-                setFirDate(fd);
-                setSecDate(sd);
-                setFirst(startDate);
-                setSecond(endDate);
-                rangeDateString();
-            }
-
+            String fd = simpleFormat.format(startDate);
+            String sd = simpleFormat.format(endDate);
+            setFirDate(fd);
+            setSecDate(sd);
+            setFirst(startDate);
+            setSecond(endDate);
+            rangeDateString();
         });
 /**
  * Με το πάτηματου κουμπιού Generate Program δημιουργείται το πρόγραμμα και το αποθηκεύει στη βάση
@@ -142,9 +144,25 @@ public class SheduleAct extends AppCompatActivity {
                                 eid = erg.getErg_id();
                             }
                         }
-                        dba.insertProgram(firDate, programma.get(i).getVardia(), eid);
+                        JSONObject jsonSchedule = new JSONObject();
+                        try{
+                            jsonSchedule.put("date",firDate);
+                            jsonSchedule.put("shift_name",programma.get(i).getVardia());
+                            jsonSchedule.put("eid",eid);
+                            jsonSchedule.put("schedule_name",firDate+"-"+secDate);
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        JsonObjectRequest jsonSchedulePost = new JsonObjectRequest(
+                                Request.Method.POST,
+                                POST_SCHEDULE,
+                                jsonSchedule,
+                                response -> Toast.makeText(this, jsonSchedule.toString(), Toast.LENGTH_SHORT).show(),
+                                error -> Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show()
+                        );
+                        RequestSingleton.getInstance(this).addToRequestQueue(jsonSchedulePost);
                     }
-                    //Notifications not = new Notifications();
                 } else {
                     Toast.makeText(this, "Pick Date", Toast.LENGTH_SHORT).show();
                 }

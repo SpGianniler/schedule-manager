@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity {
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
     public static List<String> argeiesList;
-    public static  HashMap<Integer, String> eidikotitesMap;
+    public static HashMap<Integer, String> eidikotitesMap;
 
     public static final String URL = "https://db-access-api.herokuapp.com";
     public final MainService mainService = new MainService();
@@ -165,7 +165,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void callErgService(){
+    public void callErgService(){
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
             public void onError(String message) {
