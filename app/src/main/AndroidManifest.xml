@@ -13,16 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schedulemanager"
         android:usesCleartextTraffic="true">
-        <activity android:name=".adminUI.HorizontalCalendarAdmin"></activity>
+        <activity android:name=".adminUI.HorizontalCalendarAdmin" />
         <activity android:name=".adminUI.AdminSheduleShowTable" />
+
         <service
             android:name=".Messages"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <activity android:name=".adminUI.AdminProfileSettings"></activity>
-        <activity android:name=".userUI.UserSeeSqheduleActivity"></activity>
-        <activity android:name=".userUI.UserLeaveRequestActivity"></activity>
+        <activity android:name=".adminUI.AdminProfileSettings" />
+        <activity android:name=".userUI.UserSeeSqheduleActivity" />
+        <activity android:name=".userUI.UserLeaveRequestActivity" />
         <activity android:name=".adminUI.SheduleAct" />
         <activity android:name=".adminUI.AdminSheduleSaves" />
         <activity android:name=".adminUI.AdminSheduleEdit" />
@@ -44,7 +45,18 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyFirebaseInstanceIDService">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.schedule_manager.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <service android:name=".MyFirebaseInstanceIDService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

@@ -21,6 +21,10 @@ package com.example.schedule_manager;
         String eidikothta;
 
         static ArrayList<Schedule> sched = new ArrayList<>();
+        static ArrayList<Ergazomenoi> ergazomenoiList;
+        static HashMap<String, String> shiftsMap;
+        static List<Vardies> vardiesList;
+        static Matrix[] matrix;
 
         /**
          * η κλάση αυτή αρχικοποιεί τις απαραίτητες λίστες και παιρνει ως όρισμα την διάρκεια για
@@ -29,12 +33,12 @@ package com.example.schedule_manager;
          * @param firDate
          * @return
          */
-        static public ArrayList<Schedule> onCreate(int diarkeia, String firDate) {
+        public static ArrayList<Schedule> onCreate(int diarkeia, String firDate) {
 
-            List<Ergazomenoi> ergazomenoiList = MainActivity.getErgazomenoiArrayList();
-            HashMap<String, String> shiftsMap = MainActivity.getShiftsMap();
-            List<Vardies> vardiesList = MainActivity.getVardiesList();
-            Matrix matrix[] = new Matrix[ergazomenoiList.size()];
+            ergazomenoiList = MainActivity.getErgazomenoiArrayList();
+            shiftsMap = MainActivity.getShiftsMap();
+            vardiesList = MainActivity.getVardiesList();
+            matrix = new Matrix[ergazomenoiList.size()];
             int i = 0;
 
             for (Ergazomenoi erg : ergazomenoiList) {
@@ -379,6 +383,62 @@ package com.example.schedule_manager;
 
         public String getDate() {
             return date;
+        }
+
+        public void setVardia(String vardia) {
+            this.vardia = vardia;
+        }
+
+        public void setOnoma(String onoma) {
+            this.onoma = onoma;
+        }
+
+        public void setEpitheto(String epitheto) {
+            this.epitheto = epitheto;
+        }
+
+        public void setEidikothta(String eidikothta) {
+            this.eidikothta = eidikothta;
+        }
+
+        public static ArrayList<Schedule> getSched() {
+            return sched;
+        }
+
+        public static void setSched(ArrayList<Schedule> sched) {
+            Schedule.sched = sched;
+        }
+
+        public static ArrayList<Ergazomenoi> getErgazomenoiList() {
+            return ergazomenoiList;
+        }
+
+        public static void setErgazomenoiList(ArrayList<Ergazomenoi> ergazomenoiList) {
+            Schedule.ergazomenoiList = ergazomenoiList;
+        }
+
+        public static HashMap<String, String> getShiftsMap() {
+            return shiftsMap;
+        }
+
+        public static void setShiftsMap(HashMap<String, String> shiftsMap) {
+            Schedule.shiftsMap = shiftsMap;
+        }
+
+        public static List<Vardies> getVardiesList() {
+            return vardiesList;
+        }
+
+        public static void setVardiesList(List<Vardies> vardiesList) {
+            Schedule.vardiesList = vardiesList;
+        }
+
+        public static Matrix[] getMatrix() {
+            return matrix;
+        }
+
+        public static void setMatrix(Matrix[] matrix) {
+            Schedule.matrix = matrix;
         }
 
     }

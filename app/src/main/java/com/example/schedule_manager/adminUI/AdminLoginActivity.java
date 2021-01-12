@@ -40,31 +40,27 @@ public class AdminLoginActivity extends BaseActivity {
             mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
 //        }
 
-        adminLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            /**
-             * με το πάτημα του κουμπιού loginγίνεται ο απαραίτητος ελεγχος από την κλάση Credentials
-             * για την επαληθευση των στοιχείων που πληκτρολογήθηκαν
-             */
-            public void onClick(View v) {
-                String usernametext = username.getText().toString();
-                String passwordtext = password.getText().toString();
-                boolean result;
-                ArrayList<Credentials> listOfCreds = MainActivity.getCredentialsArrayList();
+        /**
+         * με το πάτημα του κουμπιού login γίνεται ο απαραίτητος ελεγχος από την κλάση Credentials
+         * για την επαληθευση των στοιχείων που πληκτρολογήθηκαν
+         */adminLoginButton.setOnClickListener(v -> {
+             String usernametext = username.getText().toString();
+             String passwordtext = password.getText().toString();
+             boolean result;
+             ArrayList<Credentials> listOfCreds = MainActivity.getCredentialsArrayList();
 
-                result = Credentials.isValid(usernametext,passwordtext,true, listOfCreds);
+             result = Credentials.isValid(usernametext,passwordtext,true, listOfCreds);
 
-                if(result) {
-                    int eid = searchByUserName(usernametext, listOfCreds);
-                    Username = searchByEid(eid, MainActivity.getErgazomenoiArrayList());
-                    Eidikotita = searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
-                    openActivityAWA();
-                }
-                else {
-                    Toast.makeText(AdminLoginActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+             if(result) {
+                 int eid = searchByUserName(usernametext, listOfCreds);
+                 Username = searchByEid(eid, MainActivity.getErgazomenoiArrayList());
+                 Eidikotita = searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
+                 openActivityAWA();
+             }
+             else {
+                 Toast.makeText(AdminLoginActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
+             }
+         });
     }
 
     /**
