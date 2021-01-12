@@ -32,10 +32,6 @@ public class AdminSheduleShowTable extends AppCompatActivity {
     };
 
     Calendar c = Calendar.getInstance();
-
-
-
-
     ArrayAdapter<Date> adapterEid;
 
 
@@ -55,16 +51,6 @@ public class AdminSheduleShowTable extends AppCompatActivity {
         listView = findViewById(R.id.listshedule);
 
         MyAdapterShedule adapter = new MyAdapterShedule(this,vardies);
-        //listView.setAdapter(adapter);
-
-
-        /*horizontalCalendar.setRange(Calendar startDate, Calendar endDate);*/
-
-        //convert
-        /*Calendar calendar = Calendar.getInstance();
-        Date newDate = calendar.setTime(date);*/
-
-
 
         HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(this, R.id.calendarView)
                 .range(startDate, endDate)

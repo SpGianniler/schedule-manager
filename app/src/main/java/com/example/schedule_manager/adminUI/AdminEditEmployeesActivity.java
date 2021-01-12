@@ -62,10 +62,6 @@ public class AdminEditEmployeesActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-//    public Context getContext(){
-//        return context;
-//    }
-
 
 
 }

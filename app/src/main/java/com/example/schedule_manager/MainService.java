@@ -1,6 +1,5 @@
 package com.example.schedule_manager;
 
-
 import java.util.HashMap;
 import java.util.List;
 

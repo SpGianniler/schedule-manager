@@ -74,13 +74,6 @@ package com.example.schedule_manager;
                 c.add(Calendar.DATE, 1);  // number of days to add
                 firDate = sdf.format(c.getTime());
             }
-            /*for(int j=0; j < sched.size(); j++){
-                if(j%18 == 0) {
-                    Log.wtf("tag", "New Day");
-                }
-                String pro = sched.get(j).vardia + " "+ sched.get(j).onoma + " "+sched.get(j).epitheto + " "+sched.get(j).eidikothta +"\n";
-                Log.wtf("tag",""+pro);
-            }*/
             return sched;
         }
 

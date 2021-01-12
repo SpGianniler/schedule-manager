@@ -1,11 +1,9 @@
 package com.example.schedule_manager.adminUI;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.example.schedule_manager.BaseActivity;
@@ -38,27 +36,24 @@ public class AdminWelcomeActivity extends BaseActivity {
         setFragment(sheduleFragment);
 
 
-        adminMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+        adminMainNav.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
 
-                    case R.id.miAdminShedule :
-                        setFragment(sheduleFragment);
-                        return true;
-                    case R.id.miAdminEmployees :
-                        setFragment(employeesFragment);
-                        return true;
-                    case R.id.miAdminNotifications :
-                        setFragment(notificationsFragment);
-                        return true;
-                    case R.id.miAdminProfile :
-                        setFragment(adminProfileFragment);
-                        return true;
+                case R.id.miAdminShedule :
+                    setFragment(sheduleFragment);
+                    return true;
+                case R.id.miAdminEmployees :
+                    setFragment(employeesFragment);
+                    return true;
+                case R.id.miAdminNotifications :
+                    setFragment(notificationsFragment);
+                    return true;
+                case R.id.miAdminProfile :
+                    setFragment(adminProfileFragment);
+                    return true;
 
-                    default:
-                        return false;
-                }
+                default:
+                    return false;
             }
         });
 

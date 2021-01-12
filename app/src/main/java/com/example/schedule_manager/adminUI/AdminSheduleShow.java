@@ -1,6 +1,5 @@
 package com.example.schedule_manager.adminUI;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -30,12 +29,9 @@ public class AdminSheduleShow extends AppCompatActivity {
 
 
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(AdminSheduleShow.this,"You have Selected : " + dayOfMonth +" / " + (month+1) + " / " + year, Toast.LENGTH_LONG).show();
-                setFragment(showThisDaySheduleFragment);
-            }
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            Toast.makeText(AdminSheduleShow.this,"You have Selected : " + dayOfMonth +" / " + (month+1) + " / " + year, Toast.LENGTH_LONG).show();
+            setFragment(showThisDaySheduleFragment);
         });
 
 
