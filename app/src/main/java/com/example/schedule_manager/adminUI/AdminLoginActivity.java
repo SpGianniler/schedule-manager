@@ -116,7 +116,7 @@ public class AdminLoginActivity extends BaseActivity {
         List<Ergazomenoi> ergazomenoiList = ergazomenois;
         for(Ergazomenoi erg : ergazomenoiList){
             if(erg.getErg_id() == eID){
-                eidikotita = erg.getEidikotita();
+                return erg.getEidikotitaName();
             }
         }
         return eidikotita;

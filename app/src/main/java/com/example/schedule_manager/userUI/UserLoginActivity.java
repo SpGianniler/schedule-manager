@@ -2,7 +2,6 @@ package com.example.schedule_manager.userUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,33 +29,29 @@ public class UserLoginActivity extends BaseActivity {
         setContentView(R.layout.user_login_activity);
 
         userLoginButton = (Button) findViewById(R.id.userLoginButton);
-        EditText username, password;
-        username = (EditText) findViewById(R.id.editTextEmailUser);
-        password = (EditText) findViewById(R.id.editTextPasswordUser);
+        EditText username = (EditText) findViewById(R.id.editTextEmailUser);
+        EditText password = (EditText) findViewById(R.id.editTextPasswordUser);
 
-//        if(mainActivity.shiftsMap==null && mainActivity.eidikotitesMap ==null) {
-//            mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
-//            mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
-//        }
+        if(MainActivity.shiftsMap==null && MainActivity.eidikotitesMap ==null) {
+            mainActivity.shiftsMap = mainActivity.mainService.popShiftsMap(vardiesList);
+            mainActivity.eidikotitesMap = mainActivity.mainService.popEidList(vardiesList);
+        }
 
-        userLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String usernametext = username.getText().toString();
-                String passwordtext = password.getText().toString();
-                boolean result;
+        userLoginButton.setOnClickListener(v -> {
+            String usernametext = username.getText().toString();
+            String passwordtext = password.getText().toString();
+            boolean result;
 
-                result = Credentials.isValid(usernametext,passwordtext,false, MainActivity.getCredentialsArrayList());
+            result = Credentials.isValid(usernametext,passwordtext,false, MainActivity.getCredentialsArrayList());
 
-                if(result){
-                    eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);
-                    Username = AdminLoginActivity.searchByEid(eid, MainActivity.getErgazomenoiArrayList());
-                    Eidikotita = AdminLoginActivity.searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
-                    openActivityUWS();
-                }
-                else {
-                    Toast.makeText(UserLoginActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
-                }
+            if(result){
+                eid = AdminLoginActivity.searchByUserName(usernametext, MainActivity.credentialsList);
+                Username = AdminLoginActivity.searchByEid(eid, MainActivity.getErgazomenoiArrayList());
+                Eidikotita = AdminLoginActivity.searchEidikotita(eid, MainActivity.getErgazomenoiArrayList());
+                openActivityUWS();
+            }
+            else {
+                Toast.makeText(UserLoginActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
             }
         });
     }

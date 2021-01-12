@@ -29,9 +29,9 @@ public class MainActivity extends BaseActivity {
     public static HashMap<String, String> shiftsMap;
     public static List<Vardies> vardiesList;
     public static List<String> argeiesList;
-    public static  HashMap<Integer, String> eidikotitesMap; // TODO: 08/01/2021 change call
+    public static HashMap<Integer, String> eidikotitesMap;
 
-    public static final String URL = "https://db-access-api.herokuapp.com/";
+    public static final String URL = "https://db-access-api.herokuapp.com";
     public final MainService mainService = new MainService();
     final AdeiesParseService adeiesParseService = new AdeiesParseService(MainActivity.this);
     final ArgiesParseService argiesParseService = new ArgiesParseService(MainActivity.this);
@@ -165,7 +165,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void callErgService(){
+    public void callErgService(){
         ergazomenoiParseService.getErgData(new ErgazomenoiParseService.ErgazomenoiResponse() {
             @Override
             public void onError(String message) {
