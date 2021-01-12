@@ -3,9 +3,6 @@ package com.example.schedule_manager;
 import android.content.Context;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonArrayRequest;
 
@@ -13,10 +10,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 public class ArgiesParseService {
 

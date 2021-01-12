@@ -4,7 +4,6 @@
  */
 package com.example.schedule_manager;
 
-import android.content.Intent;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;

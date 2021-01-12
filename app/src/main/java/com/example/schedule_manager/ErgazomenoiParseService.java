@@ -48,7 +48,6 @@ public class ErgazomenoiParseService {
                             String jobName = Integer.toString(jsonObject.getInt("jid"));
 
                             ergazomenoiArrayList.add(new Ergazomenoi(eid,firstName,lastName,jobName));
-//                            Log.e("Array tag 1",ergazomenoiArrayList.get(i).onoma);
                         }
                         ergazomenoiResponse.onResponse(ergazomenoiArrayList);
                     } catch (JSONException e) {

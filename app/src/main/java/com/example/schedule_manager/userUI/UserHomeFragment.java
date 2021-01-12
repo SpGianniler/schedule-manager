@@ -22,21 +22,9 @@ public class UserHomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.user_home_fragment, container, false); //checkit
         adeia = (Button) view.findViewById(R.id.buttonRequestAdeiaUSer);
-        adeia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                openUserRequestLeaveActivity();
-            }
-        });
+        adeia.setOnClickListener(v -> openUserRequestLeaveActivity());
         programma = (Button) view.findViewById(R.id.buttonSeeScheduleUser);
-        programma.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                openUserSeeSqheduleActivity();
-            }
-        });
+        programma.setOnClickListener(v -> openUserSeeSqheduleActivity());
         return view;
     }
     public void openUserRequestLeaveActivity(){

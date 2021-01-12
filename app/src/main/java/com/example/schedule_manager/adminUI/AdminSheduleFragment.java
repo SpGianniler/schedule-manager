@@ -32,31 +32,13 @@ public class AdminSheduleFragment extends Fragment {
 
 
 
-        showAdminShedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openShowAdminSheduleActivity();
-            }
-        });
+        showAdminShedule.setOnClickListener(v -> openShowAdminSheduleActivity());
 
-        editAdminShedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openEditAdminSheduleActivity();
-            }
-        });
+        editAdminShedule.setOnClickListener(v -> openEditAdminSheduleActivity());
 
-        savesAdminShedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSavesAdminSheduleActivity();
-            }
-        });
+        savesAdminShedule.setOnClickListener(v -> openSavesAdminSheduleActivity());
 
-        generateAdminShedule.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {openGenerateAdminSheduleActivity();}
-        });
+        generateAdminShedule.setOnClickListener(v -> openGenerateAdminSheduleActivity());
         return view;
     }
 

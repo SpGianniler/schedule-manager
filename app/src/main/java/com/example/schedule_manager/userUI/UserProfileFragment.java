@@ -45,12 +45,7 @@ public class UserProfileFragment extends Fragment {
         email.append(" testmail@dummy.com");
         phone.append(" 6989897845");
 
-        imagebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivitySettings();
-            }
-        });
+        imagebtn.setOnClickListener(v -> openActivitySettings());
 
         return view;
 

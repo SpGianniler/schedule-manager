@@ -18,11 +18,6 @@ public class HorizontalCalendarAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horizontal_calendar);
 
-        /*SheduleAct start = null,end=null;
-
-        String one = start.getFirDate();
-        String two = end.getSecDate();*/
-
         /* starts before 1 month from now */
         Calendar startDate = Calendar.getInstance();
         startDate.add(Calendar.MONTH, -1);

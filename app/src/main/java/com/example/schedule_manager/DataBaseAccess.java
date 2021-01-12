@@ -225,13 +225,4 @@ public class DataBaseAccess {
         closeDB();
         return adeies;
     }
-
-    /*public void updateErg(String onoma, String epitheto, int eid){
-        openDB();
-        ContentValues contentValue = new ContentValues();
-        contentValue.put(DataBaseOpenHelper.EmployeeFirstName, onoma);
-        contentValue.put(DataBaseOpenHelper.EmployeeLastName, epitheto);
-        db.update(DataBaseOpenHelper.EMPLOYEES_TABLE, contentValue, "eid = ?", new String[]{onoma});
-        closeDB();
-    }*/
 }

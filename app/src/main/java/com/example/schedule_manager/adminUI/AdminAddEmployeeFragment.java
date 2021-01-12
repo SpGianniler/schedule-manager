@@ -106,29 +106,6 @@ public class AdminAddEmployeeFragment extends Fragment {
             }
 
             mainActivity.callErgService();
-//            if (mainActivity.ergazomenoiArrayList.size() != length){
-//                JsonObjectRequest jsonCredentialPost = new JsonObjectRequest(
-//                        Request.Method.POST,
-//                        POST_CREDENTIALS,
-//                        jsonCred,
-//                        response -> Toast.makeText(getContext(), jsonCred.toString(), Toast.LENGTH_SHORT).show(),
-//                        error -> Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show()
-//                );
-//                RequestSingleton.getInstance(getContext()).addToRequestQueue(jsonCredentialPost);
-//            }
-
-
-//            JsonObjectRequest jsonEmployeePost = new JsonObjectRequest(
-//                    Request.Method.POST,
-//                    POST_EMPLOYEE,
-//                    jsonEmployee,
-//                    response -> Toast.makeText(getContext(), jsonEmployee.toString(), Toast.LENGTH_SHORT).show(),
-//                    error -> Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show()
-//            );
-//            RequestSingleton.getInstance(getContext()).addToRequestQueue(jsonEmployeePost);
-
-
-
         });
         jidPopulateSpinner();
 

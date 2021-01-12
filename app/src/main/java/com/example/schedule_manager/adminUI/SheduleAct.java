@@ -67,12 +67,7 @@ public class SheduleAct extends AppCompatActivity {
         builder.setTitleText("Select date range");
         final MaterialDatePicker materialDatePicker = builder.build();
 
-        pickButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                materialDatePicker.show(getSupportFragmentManager(),"DATE_PICKER");
-            }
-        });
+        pickButton.setOnClickListener(v -> materialDatePicker.show(getSupportFragmentManager(),"DATE_PICKER"));
 
         materialDatePicker.addOnPositiveButtonClickListener(selection -> {
 //                Get the selected DATE RANGE
@@ -85,7 +80,6 @@ public class SheduleAct extends AppCompatActivity {
 //              Format the dates in ur desired display mode
             SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat simpleDay = new SimpleDateFormat("dd");
-           // SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 //              Display it by setText
             firstDate.setText("Start Date: "+ simpleFormat.format(startDate));
@@ -137,7 +131,6 @@ public class SheduleAct extends AppCompatActivity {
                                 }
                             }
                         }
-                       // programmaText.append(firDate + " ");
                         programma.get(i).setDate(firDate);
                         programmaText.append(programma.get(i).getDate()+" "+programma.get(i).getVardia() + " " + programma.get(i).getOnoma() + " " + programma.get(i).getEpitheto() + " " + programma.get(i).getEidikothta() + "\n");
                         int eid = 0;
