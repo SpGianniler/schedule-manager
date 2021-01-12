@@ -1,18 +1,19 @@
 package com.example.schedule_manager.adminUI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.core.util.Pair;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.example.schedule_manager.Notifications;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.schedule_manager.DataBaseAccess;
@@ -22,12 +23,12 @@ import com.example.schedule_manager.R;
 import com.example.schedule_manager.RequestSingleton;
 import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
-
+import com.opencsv.CSVWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class SheduleAct extends AppCompatActivity {
     protected Date first,second;
     private TextView programmaText;
     public static final String POST_SCHEDULE = MainActivity.URL+"/schedule/add";
+    private ArrayList<Schedule> programma;
 
     protected String firDate;
     protected String secDate;
@@ -59,6 +61,7 @@ public class SheduleAct extends AppCompatActivity {
         secondDate = (TextView) findViewById(R.id.secondDate);
         programmaText = (TextView) findViewById(R.id.textView10);
         programmaText.setMovementMethod(new ScrollingMovementMethod());
+
 
         //MaterialDatePicker
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
@@ -104,7 +107,7 @@ public class SheduleAct extends AppCompatActivity {
         sheduleGenerateBtn.setOnClickListener(v -> {
             programmaText.setText("");
             if(Schedule.checkErg()) {
-                ArrayList<Schedule> programma = Schedule.onCreate(getRangeDate(), firDate);
+                programma = Schedule.onCreate(getRangeDate(), firDate);
                 if (programma != null) {
                     DataBaseAccess dba = DataBaseAccess.getInstance(this);
                     for (int i = 0; i < programma.size(); i++) {
@@ -158,7 +161,9 @@ public class SheduleAct extends AppCompatActivity {
                                 Request.Method.POST,
                                 POST_SCHEDULE,
                                 jsonSchedule,
-                                response -> Toast.makeText(this, jsonSchedule.toString(), Toast.LENGTH_SHORT).show(),
+                                response -> {
+//                                    Toast.makeText(this, jsonSchedule.toString(), Toast.LENGTH_SHORT).show()
+                                },
                                 error -> Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show()
                         );
                         RequestSingleton.getInstance(this).addToRequestQueue(jsonSchedulePost);
@@ -170,8 +175,32 @@ public class SheduleAct extends AppCompatActivity {
             else{
                 Toast.makeText(this,"Not Enough Employees",Toast.LENGTH_SHORT).show();
             }
-        });
+            try {
 
+                StringBuilder data = new StringBuilder();
+                data.append("Ημέρα,Βάρδια,Όνομα,Επίθετο,Πόστο");
+                for(Schedule s : programma){
+                    data.append("\n").append(s.getDate()).append(",").append(s.getVardia()).append(",").append(s.getOnoma()).append(",").append(s.getEpitheto()).append(",").append(s.getEidikothta());
+                }
+
+                FileOutputStream outputStream = openFileOutput("Schedule.csv", Context.MODE_PRIVATE);
+                outputStream.write(data.toString().getBytes());
+                outputStream.close();
+
+                Context context = getApplicationContext();
+                File fileLocation = new File(getFilesDir(),"Schedule.csv");
+                Uri path = FileProvider.getUriForFile(context,"com.example.schedule_manager.fileprovider",fileLocation);
+                Intent fileIntent = new Intent(Intent.ACTION_SEND);
+                fileIntent.setType("text/csv");
+                fileIntent.putExtra(Intent.EXTRA_SUBJECT,"Schedule");
+                fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+                startActivity(Intent.createChooser(fileIntent,"Send mail"));
+
+            } catch (Exception e) {
+                System.out.println("exception :" + e.getMessage());
+            }
+        });
     }
 
     public void setFirst(Date first) {
