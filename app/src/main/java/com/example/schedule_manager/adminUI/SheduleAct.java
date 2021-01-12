@@ -23,7 +23,6 @@ import com.example.schedule_manager.R;
 import com.example.schedule_manager.RequestSingleton;
 import com.example.schedule_manager.Schedule;
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.opencsv.CSVWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -240,6 +239,12 @@ public class SheduleAct extends AppCompatActivity {
     }
 
     //String For Spinner in AdminSheduleShowTable
+
+    /**
+     * Η συγκεκριμένη συναρτηση μετατρέπει σε String και εμφανίζει τις ημερομηνίες που
+     * επιλέχθηκαν
+     * @return
+     */
     public String rangeDateString(){
         String range;
         range = "Start:"+getFirDate()+"End:"+getSecDate();
@@ -248,6 +253,10 @@ public class SheduleAct extends AppCompatActivity {
     }
 
     //Date Range Integer
+    /**
+     * H γκεκριμένη συνάρτηση μας υπολογίζει την αριθμητική διαφορά αναμεσα στις 2 ημερομηνίες που επιλέξαμε
+     * @return
+     */
     public int getRangeDate(){
         SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date dateOne = null;

@@ -22,8 +22,12 @@ public class DataBaseAccess {
      *
      * @param context used to get the context of the class it is called from eg:MainActivity.this
      */
-    private DataBaseAccess(Context context){
+    DataBaseAccess(Context context){
         this.openHelper = new DataBaseOpenHelper(context);
+    }
+
+    public DataBaseAccess() {
+        return;
     }
 
     /**

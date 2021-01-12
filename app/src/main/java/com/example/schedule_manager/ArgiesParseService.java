@@ -48,6 +48,7 @@ public class ArgiesParseService {
 
                             argiesList.add(jsonObject.getString("date"));
                         }
+                        argiesResponse.onResponse(argiesList);
                     }catch (JSONException e){
                         Log.e("addErgContractDataError","JSONException caught");
                     }
